@@ -102,7 +102,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(11,11,12,.72);backdrop-f
 .scr img{width:100%;height:100%;object-fit:cover}
 .p1{transform:translate(-118%,-47%) rotateY(18deg) rotateZ(-4deg) scale(.86);opacity:.9}
 .p3{transform:translate(18%,-53%) rotateY(-18deg) rotateZ(4deg) scale(.86);opacity:.9}
-.p2{transform:translate(-50%,-50%);z-index:3}
+.p2{transform:translate(-50%,-50%) rotate(-3deg);z-index:3}
 .bar{position:absolute;top:0;left:0;right:0;z-index:3;background:#fff;padding:44px 14px 10px;display:flex;align-items:center;gap:10px;color:#0b0b0c;font:600 14px Inter,sans-serif;border-bottom:1px solid #eee}
 .bar i{width:28px;height:28px;border-radius:50%;background:conic-gradient(#b8f5d0,#0b0b0c,#b8f5d0);flex:none}
 .feed{position:absolute;left:0;right:0;top:84px;display:grid;gap:3px;animation:feed 30s linear infinite}
@@ -111,10 +111,10 @@ header{position:sticky;top:0;z-index:50;background:rgba(11,11,12,.72);backdrop-f
 .chip{position:absolute;z-index:5;display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.96);color:var(--black);border-radius:16px;padding:10px 14px 10px 10px;box-shadow:var(--sh);font:600 14px Inter,sans-serif;line-height:1.25}
 .chip small{display:block;font-weight:500;font-size:12px;color:var(--grey2)}
 .chip i{width:32px;height:32px;border-radius:10px;background:var(--mint);display:grid;place-items:center;flex:none}
-.c1{left:0;bottom:12%}.c2{right:0;bottom:34%}
-@media(min-width:960px){.hero-grid{grid-template-columns:1fr 1.05fr}.hero{padding-top:var(--s7)}.stage{height:660px}.ph{width:290px}}
+.c1{left:4%;bottom:14%}.c2{right:4%;top:22%}
+@media(min-width:960px){.hero-grid{grid-template-columns:1fr 1.05fr}.hero{padding-top:var(--s7)}.stage{height:680px}.ph{width:310px}}
 @media(max-width:959px){.hero{padding-top:var(--s5)}.stage{height:520px;margin-top:-8px}.ph{width:230px}.c2{display:none}}
-@media(max-width:520px){.hero-grid{gap:var(--s3)}.hero .note{display:none}.price b{font-size:24px}h1{font-size:36px}.hero .lead{margin-top:var(--s2)}.price{margin-top:var(--s3)}.cta{margin-top:var(--s3)}.stage{height:440px}.ph{width:196px;border-radius:36px;padding:8px}.scr{border-radius:29px}.p1{transform:translate(-112%,-46%) rotateY(18deg) rotateZ(-4deg) scale(.82)}.p3{transform:translate(12%,-54%) rotateY(-18deg) rotateZ(4deg) scale(.82)}.c1{left:0;bottom:6%}}
+@media(max-width:520px){.hero-grid{gap:var(--s3)}.hero .note{display:none}.price b{font-size:24px}h1{font-size:36px}.hero .lead{margin-top:var(--s2)}.price{margin-top:var(--s3)}.cta{margin-top:var(--s3)}.stage{height:440px}.ph{width:210px;border-radius:38px;padding:8px}.scr{border-radius:31px}.c1{left:0;bottom:8%}}
 
 /* ---------- 2 VOORBEELDWERK ---------- */
 .work{background:var(--ink2);overflow:hidden}
@@ -139,15 +139,15 @@ header{position:sticky;top:0;z-index:50;background:rgba(11,11,12,.72);backdrop-f
 .light .lead{color:var(--grey2)}
 .split{display:grid;gap:var(--s3);margin-top:var(--s6)}
 .col{border-radius:var(--r3);padding:clamp(28px,4vw,48px)}
-.col.no{background:#fff;box-shadow:0 1px 0 rgba(0,0,0,.04)}
-.col.yes{background:var(--black);color:var(--white)}
+.col.no{background:var(--ink2);box-shadow:inset 0 0 0 1px var(--line)}
+.col.yes{background:#0f1a14;color:var(--white);box-shadow:inset 0 0 0 1.5px rgba(184,245,208,.45)}
 .col h3{font-size:24px;margin-bottom:var(--s3)}
 .list{list-style:none;padding:0;display:grid;gap:var(--s2)}
 .list li{display:flex;gap:14px;align-items:flex-start;font-size:17px}
 .list li::before{content:"";flex:none;width:24px;height:24px;margin-top:1px;border-radius:50%;background-position:center;background-repeat:no-repeat}
-.no .list li::before{background-color:#f1e4e4;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8.5 8.5l7 7M15.5 8.5l-7 7' stroke='%23b4373b' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E")}
+.no .list li::before{background-color:#2b1618;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8.5 8.5l7 7M15.5 8.5l-7 7' stroke='%23ff7a7a' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E")}
 .yes .list li::before{background-color:var(--mint);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 12.3l3.2 3.1L17 8.6' fill='none' stroke='%230b0b0c' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
-.no .list li{color:#33353a}
+.no .list li{color:var(--grey)}
 .yes .list li span{color:var(--grey);display:block;font-size:15px}
 @media(min-width:880px){.split{grid-template-columns:1fr 1.15fr}}
 
@@ -174,7 +174,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(11,11,12,.72);backdrop-f
 .step .n{font:800 64px/1 Poppins,sans-serif;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px var(--mint);margin-bottom:var(--s2)}
 .step p{color:var(--grey);margin-top:var(--s1)}
 .step h3{font-size:22px}
-@media(min-width:880px){.steps{grid-template-columns:repeat(3,1fr);gap:var(--s5)}.steps::before{content:"";position:absolute;left:0;right:0;top:32px;height:1px;background:linear-gradient(90deg,var(--line),var(--mint) 50%,var(--line))}.step .n{background:var(--ink2);display:inline-block;padding-right:var(--s2);position:relative}}
+@media(min-width:880px){.steps{grid-template-columns:repeat(3,1fr);gap:var(--s5)}.steps::before{content:"";position:absolute;left:0;right:0;top:32px;height:1px;background:linear-gradient(90deg,var(--line),var(--mint) 50%,var(--line))}.step .n{background:var(--black);display:inline-block;padding-right:var(--s2);position:relative}}
 
 /* ---------- 6 PAKKETTEN (mint) ---------- */
 .mintsec{background:var(--mint);color:var(--black)}
@@ -222,13 +222,13 @@ header{position:sticky;top:0;z-index:50;background:rgba(11,11,12,.72);backdrop-f
 @media(min-width:880px){.about{grid-template-columns:1.25fr 1fr;gap:var(--s7)}.promises{grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}.promises div{border-bottom:0;padding:var(--s4) var(--s4) var(--s4) 0}.promises div+div{border-left:1px solid var(--line);padding-left:var(--s4)}}
 
 /* ---------- 8 FAQ (licht) ---------- */
-.faq{max-width:820px;margin:0 auto;border-top:1px solid rgba(0,0,0,.1)}
-.faq details{border-bottom:1px solid rgba(0,0,0,.1)}
+.faq{max-width:820px;margin:0 auto;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
 .faq summary{list-style:none;cursor:pointer;padding:var(--s3) 48px var(--s3) 0;font:700 18px/1.35 Poppins,sans-serif;letter-spacing:-.015em;position:relative}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"";position:absolute;right:0;top:50%;width:32px;height:32px;margin-top:-16px;border-radius:50%;background:var(--black) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 11v10M11 16h10' stroke='%23b8f5d0' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E") center no-repeat;transition:transform .5s var(--ease)}
+.faq summary::after{content:"";position:absolute;right:0;top:50%;width:32px;height:32px;margin-top:-16px;border-radius:50%;background:var(--mint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 11v10M11 16h10' stroke='%230b0b0c' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E") center no-repeat;transition:transform .5s var(--ease)}
 .faq details[open] summary::after{transform:rotate(45deg)}
-.faq details p{color:#3b3d42;padding:0 48px var(--s3) 0}
+.faq details p{color:var(--grey);padding:0 48px var(--s3) 0}
 
 /* ---------- 9 SCAN ---------- */
 .scan{overflow:hidden}
@@ -339,9 +339,7 @@ dialog::backdrop{background:rgba(5,5,6,.82);backdrop-filter:blur(6px)}
       <p class="note">Binnen een week 3 verbeterpunten voor je socials. Gratis en vrijblijvend.</p>
     </div>
     <div class="stage" id="stage" aria-hidden="true">
-      <div class="ph p1" data-par="-18"><div class="scr"><img src="img/w3.webp" alt="" width="540" height="675" style="object-position:50% 30%"></div></div>
-      <div class="ph p3" data-par="22"><div class="scr"><img src="img/w6.webp" alt="" width="540" height="675" style="object-position:50% 40%"></div></div>
-      <div class="ph p2" data-par="0">
+      <div class="ph p2" data-par="8">
         <div class="scr">
           <div class="bar"><i></i>jouwzaak</div>
           <div class="feed">
@@ -383,7 +381,7 @@ dialog::backdrop{background:rgba(5,5,6,.82);backdrop-filter:blur(6px)}
 </section>
 
 <!-- 3 · PROBLEEM + OPLOSSING -->
-<section class="light on-light">
+<section>
   <div class="wrap">
     <div class="head rv" style="margin-bottom:0">
       <span class="kicker">Herkenbaar?</span>
@@ -413,7 +411,7 @@ dialog::backdrop{background:rgba(5,5,6,.82);backdrop-filter:blur(6px)}
 </section>
 
 <!-- 4 · VOOR / NA -->
-<section class="grain">
+<section class="grain" style="background:var(--ink2)">
   <div class="wrap">
     <div class="head rv">
       <span class="kicker">Het verschil</span>
@@ -447,7 +445,7 @@ dialog::backdrop{background:rgba(5,5,6,.82);backdrop-filter:blur(6px)}
 </section>
 
 <!-- 5 · WERKWIJZE -->
-<section id="werkwijze" style="background:var(--ink2)">
+<section id="werkwijze">
   <div class="wrap">
     <div class="head rv" style="margin-bottom:0">
       <span class="kicker">Hoe het werkt</span>
@@ -527,7 +525,7 @@ dialog::backdrop{background:rgba(5,5,6,.82);backdrop-filter:blur(6px)}
 </section>
 
 <!-- 8 · FAQ -->
-<section class="light on-light" id="faq">
+<section id="faq" style="background:var(--ink2)">
   <div class="wrap">
     <div class="head rv">
       <span class="kicker">Veelgestelde vragen</span>
