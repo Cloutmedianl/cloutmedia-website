@@ -279,6 +279,43 @@ dialog::backdrop{background:rgba(0,0,0,.72)}
 .dlg h2{font-size:28px}.dlg h3{margin-top:22px;font-size:18px}.dlg p,.dlg li{color:#33353a;font-size:16px}.dlg ul,.dlg ol{padding-left:22px}.dlg li{margin:4px 0}
 .close{position:sticky;top:0;float:right;background:#0b0b0c;color:#fff;border:0;width:44px;height:44px;border-radius:50%;font-size:22px;cursor:pointer;margin-left:12px}
 
+
+/* ===== alles netjes in het midden ===== */
+section>.wrap>.eyebrow,section>.wrap>h2,section>.wrap>.lead{display:block;text-align:center;margin-left:auto;margin-right:auto}
+section>.wrap>.eyebrow{display:flex;justify-content:center}
+section>.wrap>h2{max-width:22ch}
+section>.wrap>.lead{max-width:60ch}
+.grid,.plans,.timeline,.faq,.quiz{margin-left:auto;margin-right:auto}
+.grid .card{text-align:center}
+.grid .card .ico{margin-left:auto;margin-right:auto}
+.promise{flex-direction:column;align-items:center}
+.answer{text-align:center;max-width:900px;margin-left:auto;margin-right:auto}
+.plans{justify-content:center}
+.plan{text-align:center}
+.plan .badge{align-self:center}
+.check{justify-items:center}
+.check li{text-align:left}
+.small{text-align:center;max-width:70ch;margin-left:auto;margin-right:auto}
+.timeline{max-width:760px}
+.story>div:last-child{text-align:center}
+.story .eyebrow{justify-content:center;width:100%}
+.story .lead{margin-left:auto;margin-right:auto}
+.quote{border-left:0;padding-left:0;border-top:3px solid var(--mint);padding-top:18px;max-width:30ch;margin-left:auto;margin-right:auto}
+.scan>div:first-child{text-align:center}
+.scan>div:first-child .eyebrow{justify-content:center;width:100%}
+.scan>div:first-child .lead{margin-left:auto;margin-right:auto}
+.gets li{text-align:left}
+.hero-grid>div:first-child{text-align:center}
+.hero .eyebrow{justify-content:center;width:100%}
+.hero .lead{margin-left:auto;margin-right:auto}
+.ticks,.hero .btns{justify-content:center}
+.foot{text-align:center}
+.foot img{margin-left:auto;margin-right:auto}
+.foot p{margin-left:auto;margin-right:auto}
+.copy{text-align:center}
+.tag,.hero .note{max-width:none;margin-left:auto;margin-right:auto;text-align:center}
+@media(min-width:960px){.hero-grid{grid-template-columns:1fr;max-width:900px;margin:0 auto}.stage{height:620px}}
+
 /* één look voor alle beelden */
 .look{filter:saturate(1.05) contrast(1.03)}
 
