@@ -177,34 +177,33 @@ header{position:sticky;top:0;z-index:50;background:rgba(11,11,12,.72);backdrop-f
 @media(min-width:880px){.steps{grid-template-columns:repeat(3,1fr);gap:var(--s5)}.steps::before{content:"";position:absolute;left:0;right:0;top:32px;height:1px;background:linear-gradient(90deg,var(--line),var(--mint) 50%,var(--line))}.step .n{background:var(--black);display:inline-block;padding-right:var(--s2);position:relative}}
 
 /* ---------- 6 PAKKETTEN (mint) ---------- */
-.mintsec{background:var(--mint);color:var(--black)}
-.mintsec .kicker{color:#1e5c3b}
-.mintsec .lead{color:#2c4a3a}
+.mintsec{background:var(--ink2);color:var(--white)}
+.mintsec .wrap{position:relative}
 .plans{display:grid;gap:var(--s3);max-width:920px;margin:0 auto}
-.plan{border-radius:var(--r3);padding:clamp(28px,4vw,44px);display:flex;flex-direction:column;background:#fff;color:var(--black);box-shadow:0 30px 60px -30px rgba(11,40,24,.35)}
-.plan.top{background:var(--black);color:var(--white);box-shadow:0 40px 80px -24px rgba(11,40,24,.55)}
+.plan{border-radius:var(--r3);padding:clamp(28px,4vw,44px);display:flex;flex-direction:column;background:var(--ink3);color:var(--white);box-shadow:inset 0 0 0 1px var(--line)}
+.plan.top{background:#fff;color:var(--black);box-shadow:0 40px 90px -30px rgba(184,245,208,.35)}
 .ph3{display:flex;align-items:center;justify-content:space-between;gap:var(--s2)}
 .plan h3{font-size:26px}
 .badge{background:var(--mint);color:var(--black);font:700 13px Poppins,sans-serif;padding:6px 12px;border-radius:999px}
-.for{color:var(--grey2);font-size:15px;margin-top:6px}
-.plan.top .for{color:var(--grey)}
+.for{color:var(--grey);font-size:15px;margin-top:6px}
+.plan.top .for{color:var(--grey2)}
 .amt{font:800 clamp(56px,7vw,72px)/1 Poppins,sans-serif;letter-spacing:-.04em;margin:var(--s4) 0 var(--s1);white-space:nowrap}
 .amt small{font:500 16px Inter,sans-serif;letter-spacing:0;opacity:.6;margin-left:6px}
-.ul{list-style:none;padding:0;margin-top:var(--s3);border-top:1px solid rgba(0,0,0,.08)}
-.plan.top .ul{border-color:rgba(255,255,255,.1)}
-.ul li{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid rgba(0,0,0,.06)}
-.plan.top .ul li{border-color:rgba(255,255,255,.07)}
-.ul li::before{content:"";flex:none;width:20px;height:20px;border-radius:50%;background:var(--black) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.3l3 2.9L14.6 7' fill='none' stroke='%23b8f5d0' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center no-repeat}
-.plan.top .ul li::before{background-color:var(--mint);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.3l3 2.9L14.6 7' fill='none' stroke='%230b0b0c' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.ul{list-style:none;padding:0;margin-top:var(--s3);border-top:1px solid rgba(255,255,255,.1)}
+.plan.top .ul{border-color:rgba(0,0,0,.08)}
+.ul li{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.plan.top .ul li{border-color:rgba(0,0,0,.06)}
+.ul li::before{content:"";flex:none;width:20px;height:20px;border-radius:50%;background:var(--mint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.3l3 2.9L14.6 7' fill='none' stroke='%230b0b0c' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center no-repeat}
+.plan.top .ul li::before{background-color:var(--black);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.3l3 2.9L14.6 7' fill='none' stroke='%23b8f5d0' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
 .after-plans{text-align:center;margin-top:var(--s5)}
-.after-plans .fine{font-size:14px;color:#2c4a3a;margin:var(--s3) auto 0;max-width:64ch}
-.picker{max-width:920px;margin:var(--s5) auto 0;background:rgba(255,255,255,.55);border-radius:var(--r2);padding:var(--s3);display:flex;flex-wrap:wrap;align-items:center;gap:var(--s2);justify-content:center;text-align:center;min-height:96px}
+.after-plans .fine{font-size:14px;color:var(--grey);margin:var(--s3) auto 0;max-width:64ch}
+.picker{max-width:920px;margin:var(--s5) auto 0;background:var(--ink3);box-shadow:inset 0 0 0 1px var(--line);border-radius:var(--r2);padding:var(--s3);display:flex;flex-wrap:wrap;align-items:center;gap:var(--s2);justify-content:center;text-align:center;min-height:96px}
 .picker p{font-weight:600;max-width:none}
-.picker .q{color:#2c4a3a;font-weight:500;margin-right:4px}
-.pick{min-height:44px;padding:0 18px;border-radius:999px;border:1.5px solid rgba(11,11,12,.25);background:#fff;font-weight:600;font-size:15px;cursor:pointer;transition:border-color .3s,background .3s}
-.pick:hover{border-color:var(--black)}
+.picker .q{color:var(--mint);font-weight:500;margin-right:4px}
+.pick{min-height:44px;padding:0 18px;border-radius:999px;border:1.5px solid var(--line);background:var(--black);color:var(--white);font-weight:600;font-size:15px;cursor:pointer;transition:border-color .3s,background .3s}
+.pick:hover{border-color:var(--mint)}
 .picker .res b{font-family:Poppins,sans-serif}
-.picker .again{background:none;border:0;text-decoration:underline;cursor:pointer;font-size:15px;padding:10px;color:#2c4a3a}
+.picker .again{background:none;border:0;text-decoration:underline;cursor:pointer;font-size:15px;padding:10px;color:var(--grey)}
 @media(min-width:700px){.plans{grid-template-columns:1fr 1fr}}
 
 /* ---------- 7 OVER LUCA ---------- */
@@ -466,7 +465,7 @@ dialog::backdrop{background:rgba(5,5,6,.82);backdrop-filter:blur(6px)}
 </section>
 
 <!-- 6 · PAKKETTEN -->
-<section class="mintsec on-light" id="pakketten">
+<section class="mintsec grain" id="pakketten">
   <div class="wrap">
     <div class="head rv">
       <span class="kicker">Pakketten</span>
@@ -501,7 +500,7 @@ dialog::backdrop{background:rgba(5,5,6,.82);backdrop-filter:blur(6px)}
     </div>
     <div class="picker rv" id="picker" aria-live="polite"></div>
     <div class="after-plans">
-      <a class="btn dark" href="#scan">Begin met een gratis scan <span class="arr" aria-hidden="true">→</span></a>
+      <a class="btn" href="#scan">Begin met een gratis scan <span class="arr" aria-hidden="true">→</span></a>
       <p class="fine">Ter vergelijking: een bureau vraagt voor social media beheer vaak €500 tot €1.500 per maand. Niet inbegrepen: advertenties, reageren op berichten en filmen of fotograferen op locatie.</p>
     </div>
   </div>
