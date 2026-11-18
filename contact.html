@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact · Clout Media</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head><body>
+<nav aria-label="Hoofdmenu"><a class="logo" href="index.html">clout media<span></span></a><div class="links"><a href="index.html#diensten">Diensten</a><a href="index.html#werkwijze">Werkwijze</a><a href="index.html#pakketten">Pakketten</a><a href="over-ons.html">Over ons</a><a class="btn" href="contact.html" aria-current="page">Plan een kennismaking</a></div></nav>
+<main><section class="band"><div class="wrap contact"><div>
+<h1>Plan een kennismaking</h1>
+<p>Benieuwd hoe jouw socials eruit kunnen zien? Laat je gegevens achter, dan nemen we contact met je op en maken we 2 gratis voorbeeldposts voor jouw zaak. We reageren binnen 2 werkdagen.</p>
+<h3 style="margin-top:24px">Wat je kunt verwachten</h3>
+<ul class="exp"><li>Het eerste gesprek is gratis en vrijblijvend.</li><li>Je hebt direct contact met ons, zonder tussenpersonen.</li><li>Je gegevens gebruiken we alleen om contact met je op te nemen.</li></ul>
+<div class="lines"><div><small>WhatsApp of bellen</small><strong>06 36 28 54 09</strong></div><div><small>Liever mailen?</small><strong>cloutmedianl@gmail.com</strong></div><div><small>Instagram &amp; TikTok</small><strong>@cloutmedianl</strong></div></div>
+</div>
+<form class="form" id="form" novalidate>
+<h2 style="font-size:24px;margin:0 0 4px">Contactformulier</h2>
+<label for="f-bedrijf">Bedrijf</label><input id="f-bedrijf" autocomplete="organization">
+<label for="f-naam">Naam *</label><input id="f-naam" autocomplete="name" required>
+<label for="f-tel">Telefoonnummer</label><input id="f-tel" type="tel" autocomplete="tel">
+<label for="f-mail">E-mailadres *</label><input id="f-mail" type="email" autocomplete="email" required>
+<label for="f-vraag">Vraag</label><textarea id="f-vraag" rows="4"></textarea>
+<label class="chk"><input type="checkbox" id="f-ok" required> <span>Ik ga akkoord met de <a href="privacy.html">privacyverklaring</a> en de verwerking van mijn gegevens. *</span></label>
+<p class="err" id="err" role="alert"></p>
+<button class="btn" type="submit">Verstuur aanvraag</button>
+<div class="done" id="done" hidden><p style="margin:0 0 8px"><strong>Bijna klaar.</strong> Tik op de knop om je aanvraag via WhatsApp naar ons te sturen.</p><a class="btn" id="wa" href="#" target="_blank" rel="noopener">Verstuur via WhatsApp</a></div>
+</form></div></section></main>
+<footer><div class="wrap">
+<div><a class="logo" href="index.html">clout media<span style="background:#b8f5d0"></span></a><p style="margin-top:10px;font-size:14px">Strakke socials voor lokale ondernemers.</p></div>
+<div><h4>Pagina's</h4><ul><li><a href="index.html#diensten">Diensten</a></li><li><a href="index.html#werkwijze">Werkwijze</a></li><li><a href="index.html#pakketten">Pakketten</a></li><li><a href="over-ons.html">Over ons</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacyverklaring</a></li></ul></div>
+<div><h4>Contact</h4><ul><li>cloutmedianl@gmail.com</li><li>06 36 28 54 09</li><li>Instagram &amp; TikTok: @cloutmedianl</li></ul></div>
+</div><div class="copy"><span>© 2026 Clout Media · Flevoland</span><span>KvK-nummer volgt</span></div></footer>
+<script>{
+const f=document.getElementById('form');
+f.addEventListener('submit',e=>{e.preventDefault();
+const v=id=>document.getElementById(id).value.trim(),err=document.getElementById('err');
+if(!v('f-naam')||!/^\S+@\S+\.\S+$/.test(v('f-mail'))){err.textContent='Vul je naam en een geldig e-mailadres in.';return}
+if(!document.getElementById('f-ok').checked){err.textContent='Vink het akkoord aan om je aanvraag te versturen.';return}
+err.textContent='';
+const t='Hoi Clout Media, ik wil graag kennismaken.\nBedrijf: '+(v('f-bedrijf')||'-')+'\nNaam: '+v('f-naam')+'\nTelefoon: '+(v('f-tel')||'-')+'\nE-mail: '+v('f-mail')+'\nVraag: '+(v('f-vraag')||'-');
+document.getElementById('wa').href='https://wa.me/31636285409?text='+encodeURIComponent(t);
+document.getElementById('done').hidden=false;});
+}</script>
+</body></html>
