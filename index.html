@@ -263,14 +263,20 @@ fieldset{border:0;padding:0}
 @media(min-width:960px){.scan-grid{grid-template-columns:1fr 1fr;gap:var(--s7)}.scan .copy{position:sticky;top:120px}}
 
 /* footer */
-footer{border-top:1px solid var(--line);padding:var(--s5) 0 120px;color:var(--grey);font-size:15px}
-.foot{display:flex;flex-wrap:wrap;gap:var(--s3) var(--s5);align-items:center;justify-content:space-between}
-.foot img{height:30px;width:auto}
-.foot ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:6px var(--s3)}
-.foot a,.foot .linkbtn{text-decoration:none;transition:color .3s;display:inline-block;padding:10px 0}
-.foot a:hover,.foot .linkbtn:hover{color:var(--mint)}
-.copyr{margin-top:var(--s2);font-size:13px;color:#7d7e82}
-@media(min-width:960px){footer{padding-bottom:var(--s5)}}
+footer{position:relative;overflow:hidden;border-top:1px solid var(--line);padding:var(--s7) 0 0;color:var(--grey);font-size:15px}
+.fgrid{display:grid;gap:var(--s5);position:relative;z-index:1}
+.fbrand img{height:36px;width:auto}
+.fbrand p{margin-top:var(--s2);max-width:34ch;line-height:1.55}
+.fbrand .btn{margin-top:var(--s3);min-height:48px;padding:0 22px;font-size:15px}
+.fcol h4{font:600 13px Inter,sans-serif;letter-spacing:.04em;text-transform:uppercase;color:#7d7e82;margin-bottom:var(--s2)}
+.fcol ul{list-style:none;padding:0;display:grid;gap:4px}
+.fcol a,.fcol .linkbtn{color:var(--white);text-decoration:none;display:inline-flex;align-items:center;gap:10px;padding:8px 0;font-size:16px;transition:color .3s}
+.fcol a:hover,.fcol .linkbtn:hover{color:var(--mint)}
+.fcol svg{flex:none;opacity:.7}
+.fbottom{position:relative;z-index:1;display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s1) var(--s3);margin-top:var(--s6);padding:var(--s3) 0;border-top:1px solid var(--line);font-size:13px;color:#7d7e82}
+.wordmark{position:relative;font:800 clamp(64px,17vw,250px)/.8 Poppins,sans-serif;letter-spacing:-.06em;text-align:center;white-space:nowrap;color:transparent;-webkit-text-stroke:1.5px rgba(184,245,208,.24);margin:var(--s4) 0 -.12em;user-select:none;pointer-events:none}
+@media(min-width:880px){.fgrid{grid-template-columns:1.6fr 1fr 1fr}}
+@media(max-width:959px){footer{padding-bottom:88px}}
 
 /* zwevend: desktop WhatsApp, mobiel één balk */
 .wa{position:fixed;right:24px;bottom:24px;z-index:60;width:60px;height:60px;border-radius:50%;background:#25d366;display:none;place-items:center;box-shadow:0 12px 30px rgba(0,0,0,.45);transition:transform .5s var(--ease)}
@@ -591,19 +597,35 @@ dialog::backdrop{background:rgba(5,5,6,.82);backdrop-filter:blur(6px)}
 
 <footer>
   <div class="wrap">
-    <div class="foot">
-      <img src="img/logo.png" alt="Clout Media" width="90" height="30" loading="lazy">
-      <ul>
-        <li><a href="https://wa.me/31636285409">06 36 28 54 09</a></li>
-        <li><a href="mailto:cloutmedianl@gmail.com">cloutmedianl@gmail.com</a></li>
-        <li><a href="https://www.instagram.com/cloutmedianl/" target="_blank" rel="noopener">Instagram</a></li>
-        <li><button type="button" class="linkbtn" data-open="privacy">Privacyverklaring</button></li>
-        <li><button type="button" class="linkbtn" data-open="voorwaarden">Algemene voorwaarden</button></li>
-      </ul>
+    <div class="fgrid">
+      <div class="fbrand">
+        <img src="img/logo.png" alt="Clout Media" width="108" height="36" loading="lazy">
+        <p>Strakke socials voor lokale ondernemers. Gevestigd in Flevoland, actief in heel Nederland.</p>
+        <a class="btn" href="#scan">Gratis social media scan <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+      <div class="fcol">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="https://wa.me/31636285409" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>06 36 28 54 09</a></li>
+          <li><a href="mailto:cloutmedianl@gmail.com"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2"/></svg>cloutmedianl@gmail.com</a></li>
+          <li><a href="https://www.instagram.com/cloutmedianl/" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></svg>@cloutmedianl</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="#werk">Voorbeeldwerk</a></li>
+          <li><a href="#pakketten">Pakketten</a></li>
+          <li><a href="#faq">Vragen</a></li>
+          <li><button type="button" class="linkbtn" data-open="privacy">Privacyverklaring</button></li>
+          <li><button type="button" class="linkbtn" data-open="voorwaarden">Algemene voorwaarden</button></li>
+        </ul>
+      </div>
     </div>
-    <!-- KVK: zet hier later "· KvK 12345678" achter het jaartal -->
-    <p class="copyr">© 2026 Clout Media · Social media beheer voor lokale ondernemers in Lelystad, Flevoland en heel Nederland</p>
+    <!-- KVK: zet hier later "· KvK 12345678" achter Clout Media -->
+    <div class="fbottom"><span>© 2026 Clout Media</span><span>Social media beheer in Lelystad, Flevoland en heel Nederland</span></div>
   </div>
+  <div class="wordmark" aria-hidden="true">clout media</div>
 </footer>
 
 <a class="wa" href="https://wa.me/31636285409?text=Hoi%20Clout%20Media%2C%20ik%20wil%20graag%20meer%20weten." target="_blank" rel="noopener" aria-label="Stuur ons een WhatsApp-bericht"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-3.9-.5-5.6-1.5l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7zm5.9-8c-.3-.2-1.9-1-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.3-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6.3-.5c.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.2 3.2 1.3 3.4c.2.2 2.3 3.5 5.6 4.9 2.8 1.1 3.3.9 3.9.8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg></a>
