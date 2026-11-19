@@ -36,7 +36,7 @@ h3{font-size:21px;line-height:1.25;letter-spacing:-.02em}
 p{max-width:62ch}
 strong,b{color:var(--white);font-weight:600}
 .mint{color:var(--mint)}
-.nw{white-space:nowrap}
+.nw,.factrow .nw{display:inline;white-space:nowrap;font:inherit;color:inherit;letter-spacing:inherit;margin:0}
 :focus-visible{outline:2px solid var(--mint);outline-offset:3px;border-radius:8px}
 .skip{position:absolute;left:16px;top:-60px;z-index:100;background:var(--mint);color:var(--ink);padding:12px 18px;border-radius:999px;font-weight:600;text-decoration:none}
 .skip:focus{top:16px}
