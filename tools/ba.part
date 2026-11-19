@@ -11,9 +11,9 @@
         <div class="t" style="background:#f2f2f2">Bedankt voor 100 volgers!!</div>
       </div>
       <div class="side after" aria-hidden="true">
-        <img src="img/w1.webp" alt="" loading="lazy"><img src="img/w2.webp" alt="" loading="lazy"><img src="img/w3.webp" alt="" loading="lazy">
-        <img src="img/w4.webp" alt="" loading="lazy"><img src="img/w5.webp" alt="" loading="lazy"><img src="img/w6.webp" alt="" loading="lazy">
-        <img src="img/w7.webp" alt="" loading="lazy"><img src="img/w8.webp" alt="" loading="lazy"><img src="img/w9.webp" alt="" loading="lazy">
+        <div><img src="img/w1.webp" alt="" loading="lazy" width="540" height="675"></div><div><img src="img/w2.webp" alt="" loading="lazy" width="540" height="675"></div><div><img src="img/w3.webp" alt="" loading="lazy" width="540" height="675"></div>
+        <div><img src="img/w4.webp" alt="" loading="lazy" width="540" height="675"></div><div><img src="img/w5.webp" alt="" loading="lazy" width="540" height="675"></div><div><img src="img/w6.webp" alt="" loading="lazy" width="540" height="675"></div>
+        <div><img src="img/w7.webp" alt="" loading="lazy" width="540" height="675"></div><div><img src="img/w8.webp" alt="" loading="lazy" width="540" height="675"></div><div><img src="img/w9.webp" alt="" loading="lazy" width="540" height="675"></div>
       </div>
       <span class="tx t1">Voor</span><span class="tx t2">Na</span>
       <div class="line" aria-hidden="true"></div>
