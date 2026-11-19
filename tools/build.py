@@ -96,7 +96,7 @@ def page(path,key,title,desc,body,bar=True,extra_head=''):
     open(fp,'w',encoding='utf-8').write(html)
 
 def phero(kicker,lines,lead):
-    l=''.join(f'<span class="ln"><span>{x}</span></span>' for x in lines)
+    l=' '.join(f'<span class="ln"><span>{x}</span></span>' for x in lines)
     return f'''<section class="phero"><div class="glow" aria-hidden="true"></div><div class="wrap" style="position:relative">
   <span class="kicker fade-up">{kicker}</span><h1 class="reveal">{l}</h1><p class="lead fade-up fu1">{lead}</p></div></section>'''
 
@@ -168,7 +168,7 @@ home=f'''<section class="hero"><div class="glow" aria-hidden="true"></div>
   <div class="wrap hgrid">
     <div>
       <span class="kicker fade-up">Social media beheer · Heel Nederland</span>
-      <h1 class="reveal"><span class="ln"><span>Elke maand strakke</span></span><span class="ln"><span>posts en Reels.</span></span><span class="ln"><span class="mint">Zonder dat jij er</span></span><span class="ln"><span class="mint">tijd in steekt.</span></span></h1>
+      <h1 class="reveal"><span class="ln"><span>Elke maand strakke</span></span> <span class="ln"><span>posts en Reels.</span></span> <br class="hbr"><span class="ln"><span class="mint">Zonder dat jij er</span></span> <span class="ln"><span class="mint">tijd in steekt.</span></span></h1>
       <p class="lead fade-up fu1">Voor lokale ondernemers. Jij stuurt foto's en video's via WhatsApp, wij maken er elke week opvallende content van.</p>
       <p class="price fade-up fu2"><b>Vanaf €150</b><span>per maand · maandelijks opzegbaar</span></p>
       <div class="ctas fade-up fu3"><a class="btn btn-main" href="scan/">Gratis social media scan {ARR}</a><a class="tlink" href="pakketten/">Bekijk pakketten</a></div>
@@ -282,15 +282,20 @@ pak=phero('Pakketten',['Duidelijke prijzen.','Geen kleine lettertjes.'],'Drie pa
 page('pakketten/index.html','pakketten','Pakketten en prijzen | Clout Media','Drie pakketten: Start €150 (8 posts), Compleet €250 (8 posts en 4 Reels/TikToks) en Premium €395 met Google Bedrijfsprofiel en website-aanpassingen. Maandelijks opzegbaar.',pak,extra_head=faq_ld(PF))
 
 # ---------------- OVER ----------------
+# FOTO van Luca: zet hier het pad, bijv. 'img/luca.webp' (staand, ca. 1600x2000), en draai de build.
+# Zolang dit leeg is, staat er geen foto en geen vervanging op de pagina.
+FOTO=''
+FOTO_HTML=(f'<figure class="portrait rv"><img src="../{FOTO}" alt="Luca, oprichter van Clout Media" width="800" height="1000" loading="lazy"></figure>' if FOTO else '')
+FOTO_COMMENT='<!-- FOTO: plek staat klaar. Zet in tools/build.py FOTO = "img/luca.webp" en draai de build. -->'
 over=phero('Over Clout Media',['Frisse ideeën.','Zakelijke ervaring.'],'Wie er achter Clout Media zit, hoe we werken en wat je van ons kunt verwachten.')+f'''
 <section style="padding-top:24px">
   <div class="wrap">
-    <!-- FOTO: zodra je een foto hebt, komt die hier naast de tekst -->
-    <div class="about">
+    {FOTO_COMMENT}
+    <div class="about{' has-foto' if FOTO else ''}">
       <div class="rv"><p class="quote">"Ik ben opgegroeid met social media. Ik weet hoe je <span class="mint">opvalt in een feed</span>, en dat wil ik voor jouw zaak doen."</p>
-        <div class="sign"><i>L</i><div><b>Luca</b><small>Oprichter van Clout Media</small></div></div></div>
-      <div class="txt rv d1"><p>Ik ben student Handel &amp; Ondernemen. Ik zag hoeveel goede lokale zaken online bijna onzichtbaar zijn, terwijl hun werk prima is. Dat is zonde, want hun klanten zitten de hele dag op hun telefoon.</p>
-        <p>Achter de schermen krijg ik ondersteuning van een ervaren adviseur op het gebied van ondernemen en bedrijfsprocessen. Zo combineer ik frisse ideeën met zakelijke ervaring.</p></div>
+        <div class="sign"><div><b>Luca</b><small>Oprichter van Clout Media</small></div></div></div>
+      <div class="side2">{FOTO_HTML}<div class="txt rv d1"><p>Ik ben student Handel &amp; Ondernemen. Ik zag hoeveel goede lokale zaken online bijna onzichtbaar zijn, terwijl hun werk prima is. Dat is zonde, want hun klanten zitten de hele dag op hun telefoon.</p>
+        <p>Achter de schermen krijg ik ondersteuning van een ervaren adviseur op het gebied van ondernemen en bedrijfsprocessen. Zo combineer ik frisse ideeën met zakelijke ervaring.</p></div></div>
     </div>
   </div>
 </section>
@@ -314,7 +319,7 @@ scan=f'''<section class="phero" style="text-align:left;padding-bottom:clamp(80px
   <div class="wrap sgrid" style="position:relative">
     <div class="copy">
       <span class="kicker fade-up">Gratis social media scan</span>
-      <h1 class="reveal" style="margin:0;max-width:16ch"><span class="ln"><span>Ontdek wat er beter</span></span><span class="ln"><span class="mint">kan aan je socials.</span></span></h1>
+      <h1 class="reveal" style="margin:0;max-width:16ch"><span class="ln"><span>Ontdek wat er beter</span></span> <span class="ln"><span class="mint">kan aan je socials.</span></span></h1>
       <p class="lead fade-up fu1">We bekijken je pagina en sturen je binnen 1-2 werkdagen 3 concrete verbeterpunten. Gratis en vrijblijvend.</p>
       <ul class="points fade-up fu2"><li>Hoe je feed overkomt op een nieuwe klant</li><li>3 verbeterpunten die je meteen kunt toepassen</li><li>Daarna een kennismaking, als jij dat wilt</li></ul>
       <div class="contact fade-up fu3">

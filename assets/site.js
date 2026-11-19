@@ -121,6 +121,22 @@
   });
   function shut(x){const a=x.querySelector('.ans');if(reduce){x.open=false;return}a.style.height=a.scrollHeight+'px';requestAnimationFrame(()=>{a.style.height='0px'});a.addEventListener('transitionend',()=>{x.open=false;a.style.height=''},{once:true})}
 
+  // WhatsApp-knop (computer): pas na de hero, en nooit boven beelden of tekst
+  const wa=$('.wa');
+  if(wa){
+    const hero=$('.hero,.phero'),blockTag=/^(IMG|PICTURE|VIDEO|SVG|PATH|P|H1|H2|H3|H4|LI|A|SPAN|B|STRONG|SMALL|EM|I|BUTTON|TD|TH|LABEL|INPUT|SUMMARY|FIGCAPTION|CAPTION|LEGEND)$/i;
+    const hasText=el=>[...el.childNodes].some(n=>n.nodeType===3&&n.data.trim());
+    const free=()=>{const r=wa.getBoundingClientRect(),pad=10;
+      const pts=[[r.left-pad,r.top-pad],[r.right+pad,r.top-pad],[r.left-pad,r.bottom+pad],[r.right+pad,r.bottom+pad],[(r.left+r.right)/2,(r.top+r.bottom)/2],[r.left-pad,(r.top+r.bottom)/2],[(r.left+r.right)/2,r.top-pad]];
+      for(const [x,y] of pts){if(x<0||y<0||x>innerWidth||y>innerHeight)continue;
+        for(const el of d.elementsFromPoint(x,y)){if(wa.contains(el))continue;if(blockTag.test(el.tagName)||hasText(el))return false;break}}
+      for(const el of $$('.word,.stage,.fan')){const b=el.getBoundingClientRect();if(b.width&&!(b.right<r.left-pad||b.left>r.right+pad||b.bottom<r.top-pad||b.top>r.bottom+pad))return false}
+      return true};
+    let q=0;const upd=()=>{q=0;if(getComputedStyle(wa).display==='none')return;const past=hero?hero.getBoundingClientRect().bottom<0:scrollY>400;wa.classList.toggle('show',past&&free())};
+    const sch=()=>{if(!q)q=requestAnimationFrame(upd)};
+    addEventListener('scroll',sch,{passive:true});addEventListener('resize',sch);setTimeout(upd,300);
+  }
+
   // zwevende balk op mobiel: pas na de hero, niet op de scanpagina
   const mbar=$('#mbar');
   if(mbar&&d.body.dataset.page!=='scan'){
