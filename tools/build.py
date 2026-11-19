@@ -313,7 +313,7 @@ scan=f'''<section class="phero" style="text-align:left;padding-bottom:clamp(80px
       <div class="cfield"><label class="consent"><input type="checkbox" id="ok" required> <span>Ik ga akkoord met de <a href="../privacy/" target="_blank">privacyverklaring</a>. Mijn gegevens worden alleen gebruikt voor de scan en om contact met mij op te nemen.</span></label></div>
       <p class="failmsg" role="alert">Versturen lukte niet. Stuur ons een WhatsApp op <a href="{WA}">06 36 28 54 09</a> of mail naar cloutmedianl@gmail.com.</p>
       <button class="btn btn-dark" type="submit">Vraag mijn gratis scan aan {ARR}</button>
-      <div class="done" role="status"><div class="ok" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#b8f5d0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h2 tabindex="-1">Bedankt, je aanvraag is binnen</h2><p>Je krijgt je scan binnen een week. Heb je in de tussentijd een vraag? Stuur ons gerust een WhatsApp.</p></div>
+      <div class="done" role="status"><div class="ok" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#b8f5d0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h2 tabindex="-1">Bedankt, je aanvraag is binnen</h2><p>Je krijgt je scan binnen 1 à 2 werkdagen. Heb je in de tussentijd een vraag? Stuur ons gerust een WhatsApp.</p></div>
     </form>
   </div>
 </section>'''
