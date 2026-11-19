@@ -12,7 +12,7 @@ I_MAIL='<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect
 I_IG='<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>'
 WA_BIG='<svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-3.9-.5-5.6-1.5l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7zm5.9-8c-.3-.2-1.9-1-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.3-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6.3-.5c.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.2 3.2 1.3 3.4c.2.2 2.3 3.5 5.6 4.9 2.8 1.1 3.3.9 3.9.8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>'
 
-MENU=[('werk','Werk'),('pakketten','Pakketten'),('over','Over'),('vragen','Vragen')]
+MENU=[('home','Home'),('werk','Werk'),('pakketten','Pakketten'),('over','Over'),('vragen','Vragen')]
 
 def head(r,key,title,desc,img='img/og.jpg'):
     url=SITE+('' if key=='home' else (key+'/' if key not in('404',) else '404.html'))
@@ -41,7 +41,8 @@ def head(r,key,title,desc,img='img/og.jpg'):
 '''
 
 def header(r,key):
-    links=''.join(f'<a href="{r}{k}/"{" aria-current=\"page\"" if k==key else ""}>{t}</a>' for k,t in MENU)
+    href=lambda k:(r or './') if k=='home' else f'{r}{k}/'
+    links=''.join(f'<a href="{href(k)}"{" aria-current=\"page\"" if k==key else ""}>{t}</a>' for k,t in MENU)
     return f'''<a class="skip" href="#main">Naar de inhoud</a>
 <header class="hdr">
   <div class="wrap nav">
@@ -70,7 +71,7 @@ def footer(r,key,bar=True):
         <li><a href="mailto:cloutmedianl@gmail.com">{I_MAIL}cloutmedianl@gmail.com</a></li>
         <li><a href="https://www.instagram.com/cloutmedianl/" target="_blank" rel="noopener">{I_IG}@cloutmedianl</a></li></ul></div>
       <div class="fcol"><h4>Menu</h4><ul>
-        <li><a href="{r}werk/">Werk</a></li><li><a href="{r}pakketten/">Pakketten</a></li><li><a href="{r}over/">Over</a></li><li><a href="{r}vragen/">Vragen</a></li>
+        <li><a href="{r or './'}">Home</a></li><li><a href="{r}werk/">Werk</a></li><li><a href="{r}pakketten/">Pakketten</a></li><li><a href="{r}over/">Over</a></li><li><a href="{r}vragen/">Vragen</a></li>
         <li><a href="{r}privacy/">Privacyverklaring</a></li><li><a href="{r}voorwaarden/">Algemene voorwaarden</a></li></ul></div>
     </div>
     <!-- KVK: zet hier later "· KvK 12345678" achter Clout Media -->
@@ -151,6 +152,10 @@ def steps(long=False):
        ('Wij posten','Wij ontwerpen, monteren en plannen alles in. Elke maand kijken we wat werkt en wat beter kan.',['Posts en video\'s in jouw stijl','Alles staat op tijd online','Bij Compleet: een maandoverzicht'])]
     return '<div class="steps">'+''.join(f'<div class="step rv{" d"+str(i) if i else ""}"><div class="n">{i+1}</div><h3>{t}</h3><p>{p}</p>{"<ul>"+"".join(f"<li>{x}</li>" for x in xs)+"</ul>" if long else ""}</div>' for i,(t,p,xs) in enumerate(S))+'</div>'
 
+def steps_compact():
+    S=[('Kennismaking','We bespreken je zaak, je klanten en je stijl.'),('Contentplan','Wij maken een plan. Jij stuurt beelden via WhatsApp.'),('Wij posten','Wij ontwerpen, monteren en plannen alles in.')]
+    return '<ol class="card csteps rv">'+''.join(f'<li><span class="cn">{i+1}</span><div><h3>{t}</h3><p>{p}</p></div></li>' for i,(t,p) in enumerate(S))+'</ol>'
+
 # ---------------- HOME ----------------
 FEED=''.join(f'<img src="img/{w}.webp" alt="" width="540" height="675"{" fetchpriority=\"high\"" if i==0 else ""}>' for i,w in enumerate(['w2','w5','w7','w3','w6','w2','w5','w7','w3','w6']))
 home=f'''<section class="hero"><div class="glow" aria-hidden="true"></div>
@@ -170,20 +175,34 @@ home=f'''<section class="hero"><div class="glow" aria-hidden="true"></div>
       </div>
     </div>
   </div>
+  <a class="scrollhint" href="#main-2" aria-label="Scroll naar beneden"><span></span></a>
 </section>
 
-<section class="alt">
-  <div class="wrap">
-    <div class="head rv"><span class="kicker">Voorbeeldwerk</span><h2>Elke zaak een eigen stijl</h2><p class="lead">Van lunchroom tot sportschool. Klik op een post om hem groot te bekijken.</p></div>
-    <div class="shots3">{''.join(shot(*x) for x in SHOTS[:3])}</div>
-    <div class="railbar" style="justify-content:center;margin-top:28px"><p class="tag"><b>Voorbeeldwerk</b> AI-beelden. Echte klantcases volgen.</p></div>
-    <div class="more"><a class="btn btn-ghost" href="werk/">Bekijk al ons werk {ARR}</a></div>
+<section class="facts" id="main-2" aria-label="Kernpunten"><div class="wrap"><ul class="factrow rv">
+  <li><b>Vaste prijs</b><span>vanaf €150 per maand</span></li>
+  <li><b>Maandelijks opzegbaar</b><span>nooit langer vast dan een maand</span></li>
+  <li><b>Scan binnen 1 à 2 werkdagen</b><span>gratis en vrijblijvend</span></li></ul></div></section>
+
+<section class="alt" style="overflow-x:clip">
+  <div class="wrap feat">
+    <div class="rv">
+      <span class="kicker">Uitgelicht werk</span>
+      <h2>Content die opvalt in de feed</h2>
+      <p class="lead">Van lunchroom tot sportschool: wij maken posts die passen bij jouw zaak.</p>
+      <div class="ctas"><a class="btn btn-ghost" href="werk/">Bekijk al ons werk {ARR}</a></div>
+      <p class="tag" style="margin-top:24px"><b>Voorbeeldwerk</b> AI-beelden</p>
+    </div>
+    <a class="fan" href="werk/" aria-label="Bekijk al ons werk">
+      <img class="fp f1" src="img/w5.webp" srcset="img/w5.webp 540w, img/w5-2x.webp 1080w" sizes="(max-width:700px) 50vw, 300px" alt="Voorbeeld van een reel-cover voor een sportschool" width="540" height="675" loading="lazy">
+      <img class="fp f2" src="img/w3.webp" srcset="img/w3.webp 540w, img/w3-2x.webp 1080w" sizes="(max-width:700px) 50vw, 300px" alt="Voorbeeldpost voor een bloemenwinkel" width="540" height="675" loading="lazy">
+      <img class="fp f3" src="img/w2.webp" srcset="img/w2.webp 540w, img/w2-2x.webp 1080w" sizes="(max-width:700px) 56vw, 330px" alt="Voorbeeldpost voor een lunchroom: nieuw op de kaart" width="540" height="675" loading="lazy">
+    </a>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="head rv"><span class="kicker">Herkenbaar?</span><h2>Je weet dat socials belangrijk zijn. Het komt er alleen niet van.</h2></div>
+    <div class="head rv"><span class="kicker">Waarom Clout Media</span><h2>Je weet dat socials belangrijk zijn. Het komt er alleen niet van.</h2></div>
     {SPLIT}
   </div>
 </section>
@@ -191,23 +210,24 @@ home=f'''<section class="hero"><div class="glow" aria-hidden="true"></div>
 <section class="alt">
   <div class="wrap">
     <div class="head rv"><span class="kicker">Hoe het werkt</span><h2>In 3 stappen van stil naar strak</h2></div>
-    {steps()}
+    {steps_compact()}
+    <div class="more"><a class="tlink" href="over/#werkwijze">Meer over onze werkwijze {ARR}</a></div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="head rv"><span class="kicker">Pakketten</span><h2>Duidelijke prijzen. Geen kleine lettertjes.</h2><p class="lead">Beide pakketten zijn maandelijks opzegbaar.</p></div>
-    <div class="mini">
-      <a class="card minip hov rv" href="pakketten/" style="text-decoration:none"><div><h3>Start</h3><p>8 posts · Instagram en Facebook</p></div><div class="amt">€150<small>/mnd</small></div></a>
-      <a class="card minip top hov rv d1" href="pakketten/" style="text-decoration:none"><div><h3>Compleet <span class="badge">Aanrader</span></h3><p>8 posts · 4 Reels/TikToks</p></div><div class="amt">€250<small>/mnd</small></div></a>
+    <div class="head rv"><span class="kicker">Kies je route</span><h2>Waar wil je beginnen?</h2></div>
+    <div class="routes">
+      <a class="card route hov rv" href="werk/"><span class="rn">01</span><h3>Zie wat we maken</h3><p>Voorbeeldposts en het verschil tussen een gewone feed en een strakke feed.</p><span class="rarr" aria-hidden="true">→</span></a>
+      <a class="card route hov rv d1" href="pakketten/"><span class="rn">02</span><h3>Bekijk de prijzen <span class="from">vanaf €150</span></h3><p>Twee pakketten, maandelijks opzegbaar. Met een korte kiezer als je twijfelt.</p><span class="rarr" aria-hidden="true">→</span></a>
+      <a class="card route hov rv d2" href="over/"><span class="rn">03</span><h3>Leer ons kennen</h3><p>Wie er achter Clout Media zit, hoe we werken en wat je van ons kunt verwachten.</p><span class="rarr" aria-hidden="true">→</span></a>
     </div>
-    <div class="more"><a class="btn btn-ghost" href="pakketten/">Bekijk pakketten {ARR}</a></div>
+    <p class="routeq rv"><a class="tlink" href="vragen/">Nog vragen? Bekijk de veelgestelde vragen {ARR}</a></p>
   </div>
 </section>
 
-{cta('Jij runt je zaak. <span class="mint">Wij zorgen dat de rest het ziet.</span>','Begin met een gratis scan. Binnen 1 à 2 werkdagen weet je wat er beter kan.',alt=True)}
-{LB}'''
+{cta('Jij runt je zaak. <span class="mint">Wij zorgen dat de rest het ziet.</span>','Begin met een gratis scan. Binnen 1 à 2 werkdagen weet je wat er beter kan.',alt=True)}'''
 page('index.html','home','Social media beheer Lelystad &amp; Flevoland | Clout Media','Social media beheer voor lokale ondernemers in Lelystad, Flevoland en heel Nederland. Elke maand strakke posts en korte video\'s, vanaf €150 per maand. Vraag een gratis social media scan aan.',home,
      extra_head='<script>(function(){var m={"#werk":"werk/","#pakketten":"pakketten/","#over":"over/","#faq":"vragen/","#scan":"scan/","#werkwijze":"over/#werkwijze"};if(m[location.hash])location.replace(m[location.hash])})()</script>\n<link rel="preload" as="image" href="img/w2.webp" fetchpriority="high">\n<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Clout Media","description":"Social media beheer voor lokale ondernemers in Lelystad, Flevoland en heel Nederland","url":"'+SITE+'","email":"cloutmedianl@gmail.com","telephone":"+31636285409","areaServed":["Lelystad","Flevoland","Nederland"],"priceRange":"€150 - €250 per maand","sameAs":["https://www.instagram.com/cloutmedianl/"]}</script>\n')
 
