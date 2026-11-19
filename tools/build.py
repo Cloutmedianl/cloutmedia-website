@@ -14,6 +14,8 @@ WA_BIG='<svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><path
 
 MENU=[('home','Home'),('werk','Werk'),('pakketten','Pakketten'),('over','Over'),('vragen','Vragen')]
 
+import hashlib
+VER=hashlib.md5((open(os.path.join(OUT,'assets','site.css'),'rb').read()+open(os.path.join(OUT,'assets','site.js'),'rb').read())).hexdigest()[:8]
 def head(r,key,title,desc,img='img/og.jpg'):
     url=SITE+('' if key=='home' else (key+'/' if key not in('404',) else '404.html'))
     return f'''<!DOCTYPE html>
@@ -37,7 +39,7 @@ def head(r,key,title,desc,img='img/og.jpg'):
 <link rel="apple-touch-icon" href="{r}assets/icon-180.png">
 <link rel="preload" href="{r}assets/fonts/poppins-700.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="{r}assets/fonts/inter-400.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="{r}assets/site.css">
+<link rel="stylesheet" href="{r}assets/site.css?v={VER}">
 '''
 
 def header(r,key):
@@ -81,7 +83,7 @@ def footer(r,key,bar=True):
 </footer>
 <a class="wa" href="{WA}?text=Hoi%20Clout%20Media%2C%20ik%20wil%20graag%20meer%20weten." target="_blank" rel="noopener" aria-label="Stuur ons een WhatsApp-bericht">{WA_BIG}</a>
 {'<div class="mbar" id="mbar"><a class="btn btn-main" href="'+r+'scan/">Gratis scan</a><a class="mw" href="'+WA+'" target="_blank" rel="noopener" aria-label="WhatsApp">'+WA_BIG+'</a></div>' if bar else ''}
-<script src="{r}assets/site.js" defer></script>
+<script src="{r}assets/site.js?v={VER}" defer></script>
 </body>
 </html>
 '''
