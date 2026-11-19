@@ -28,7 +28,7 @@
 
   // één keer rustig binnenkomen
   const io=('IntersectionObserver' in window&&!reduce)?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'}):null;
-  $$('.rv,.word').forEach(el=>io?io.observe(el):el.classList.add('in'));
+  $$('.rv,.word,.fan').forEach(el=>io?io.observe(el):el.classList.add('in'));
 
   // hero: telefoon kantelt licht mee met de muis (alleen computer)
   const tilt=$('.tilt'),stage=$('.stage');

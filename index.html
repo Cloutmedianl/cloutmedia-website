@@ -29,7 +29,7 @@
 <header class="hdr">
   <div class="wrap nav">
     <a class="logo" href="./" aria-label="Clout Media, naar home"><img src="img/logo.png" alt="Clout Media" width="102" height="34"></a>
-    <nav class="menu" aria-label="Hoofdmenu"><a href="werk/">Werk</a><a href="pakketten/">Pakketten</a><a href="over/">Over</a><a href="vragen/">Vragen</a></nav>
+    <nav class="menu" aria-label="Hoofdmenu"><a href="./" aria-current="page">Home</a><a href="werk/">Werk</a><a href="pakketten/">Pakketten</a><a href="over/">Over</a><a href="vragen/">Vragen</a></nav>
     <div class="nav-r">
       <a class="btn btn-main" href="scan/">Gratis scan</a>
       <button class="burger" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="sheet"><span></span></button>
@@ -38,7 +38,7 @@
 </header>
 <div class="sheet" id="sheet" aria-hidden="true">
   <div class="nav"><a class="logo" href="./" aria-label="Clout Media, naar home"><img src="img/logo.png" alt="Clout Media" width="102" height="34"></a><button class="x" type="button" aria-label="Menu sluiten"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
-  <nav aria-label="Menu"><a href="werk/">Werk</a><a href="pakketten/">Pakketten</a><a href="over/">Over</a><a href="vragen/">Vragen</a></nav>
+  <nav aria-label="Menu"><a href="./" aria-current="page">Home</a><a href="werk/">Werk</a><a href="pakketten/">Pakketten</a><a href="over/">Over</a><a href="vragen/">Vragen</a></nav>
   <a class="btn btn-main" href="scan/">Gratis social media scan <span class="arr" aria-hidden="true">→</span></a>
 </div>
 <main id="main">
@@ -59,20 +59,34 @@
       </div>
     </div>
   </div>
+  <a class="scrollhint" href="#main-2" aria-label="Scroll naar beneden"><span></span></a>
 </section>
 
-<section class="alt">
-  <div class="wrap">
-    <div class="head rv"><span class="kicker">Voorbeeldwerk</span><h2>Elke zaak een eigen stijl</h2><p class="lead">Van lunchroom tot sportschool. Klik op een post om hem groot te bekijken.</p></div>
-    <div class="shots3"><button class="shot" type="button" data-big="img/w2-2x.webp" data-cap="Lunchroom · nieuw op de kaart"><div class="im"><img src="img/w2.webp" srcset="img/w2.webp 540w, img/w2-2x.webp 1080w" sizes="(max-width:700px) 78vw, 340px" alt="Voorbeeldpost voor een lunchroom: nieuw op de kaart" width="540" height="675" loading="lazy"></div><span>Lunchroom</span><small>Nieuw op de kaart</small></button><button class="shot" type="button" data-big="img/w5-2x.webp" data-cap="Sportschool · reel-cover"><div class="im"><img src="img/w5.webp" srcset="img/w5.webp 540w, img/w5-2x.webp 1080w" sizes="(max-width:700px) 78vw, 340px" alt="Voorbeeld van een reel-cover voor een sportschool" width="540" height="675" loading="lazy"></div><span>Sportschool</span><small>Reel-cover</small></button><button class="shot" type="button" data-big="img/w3-2x.webp" data-cap="Bloemenwinkel · actiepost"><div class="im"><img src="img/w3.webp" srcset="img/w3.webp 540w, img/w3-2x.webp 1080w" sizes="(max-width:700px) 78vw, 340px" alt="Voorbeeldpost voor een bloemenwinkel" width="540" height="675" loading="lazy"></div><span>Bloemenwinkel</span><small>Actiepost</small></button></div>
-    <div class="railbar" style="justify-content:center;margin-top:28px"><p class="tag"><b>Voorbeeldwerk</b> AI-beelden. Echte klantcases volgen.</p></div>
-    <div class="more"><a class="btn btn-ghost" href="werk/">Bekijk al ons werk <span class="arr" aria-hidden="true">→</span></a></div>
+<section class="facts" id="main-2" aria-label="Kernpunten"><div class="wrap"><ul class="factrow rv">
+  <li><b>Vaste prijs</b><span>vanaf €150 per maand</span></li>
+  <li><b>Maandelijks opzegbaar</b><span>nooit langer vast dan een maand</span></li>
+  <li><b>Scan binnen 1 à 2 werkdagen</b><span>gratis en vrijblijvend</span></li></ul></div></section>
+
+<section class="alt" style="overflow-x:clip">
+  <div class="wrap feat">
+    <div class="rv">
+      <span class="kicker">Uitgelicht werk</span>
+      <h2>Content die opvalt in de feed</h2>
+      <p class="lead">Van lunchroom tot sportschool: wij maken posts die passen bij jouw zaak.</p>
+      <div class="ctas"><a class="btn btn-ghost" href="werk/">Bekijk al ons werk <span class="arr" aria-hidden="true">→</span></a></div>
+      <p class="tag" style="margin-top:24px"><b>Voorbeeldwerk</b> AI-beelden</p>
+    </div>
+    <a class="fan" href="werk/" aria-label="Bekijk al ons werk">
+      <img class="fp f1" src="img/w5.webp" srcset="img/w5.webp 540w, img/w5-2x.webp 1080w" sizes="(max-width:700px) 50vw, 300px" alt="Voorbeeld van een reel-cover voor een sportschool" width="540" height="675" loading="lazy">
+      <img class="fp f2" src="img/w3.webp" srcset="img/w3.webp 540w, img/w3-2x.webp 1080w" sizes="(max-width:700px) 50vw, 300px" alt="Voorbeeldpost voor een bloemenwinkel" width="540" height="675" loading="lazy">
+      <img class="fp f3" src="img/w2.webp" srcset="img/w2.webp 540w, img/w2-2x.webp 1080w" sizes="(max-width:700px) 56vw, 330px" alt="Voorbeeldpost voor een lunchroom: nieuw op de kaart" width="540" height="675" loading="lazy">
+    </a>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="head rv"><span class="kicker">Herkenbaar?</span><h2>Je weet dat socials belangrijk zijn. Het komt er alleen niet van.</h2></div>
+    <div class="head rv"><span class="kicker">Waarom Clout Media</span><h2>Je weet dat socials belangrijk zijn. Het komt er alleen niet van.</h2></div>
     <div class="split">
   <div class="card col no rv"><h3>Zonder Clout Media</h3><ul class="list">
     <li>Je bent de hele dag met je klanten bezig, posten schiet erbij in.</li>
@@ -91,24 +105,25 @@
 <section class="alt">
   <div class="wrap">
     <div class="head rv"><span class="kicker">Hoe het werkt</span><h2>In 3 stappen van stil naar strak</h2></div>
-    <div class="steps"><div class="step rv"><div class="n">1</div><h3>Kennismaking</h3><p>We bespreken je zaak, je klanten en je stijl. Online of op locatie, wanneer het jou uitkomt.</p></div><div class="step rv d1"><div class="n">2</div><h3>Contentplan</h3><p>Wij maken een plan voor de maand. Jij stuurt foto's en video's van je werk via WhatsApp.</p></div><div class="step rv d2"><div class="n">3</div><h3>Wij posten</h3><p>Wij ontwerpen, monteren en plannen alles in. Elke maand kijken we wat werkt en wat beter kan.</p></div></div>
+    <ol class="card csteps rv"><li><span class="cn">1</span><div><h3>Kennismaking</h3><p>We bespreken je zaak, je klanten en je stijl.</p></div></li><li><span class="cn">2</span><div><h3>Contentplan</h3><p>Wij maken een plan. Jij stuurt beelden via WhatsApp.</p></div></li><li><span class="cn">3</span><div><h3>Wij posten</h3><p>Wij ontwerpen, monteren en plannen alles in.</p></div></li></ol>
+    <div class="more"><a class="tlink" href="over/#werkwijze">Meer over onze werkwijze <span class="arr" aria-hidden="true">→</span></a></div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="head rv"><span class="kicker">Pakketten</span><h2>Duidelijke prijzen. Geen kleine lettertjes.</h2><p class="lead">Beide pakketten zijn maandelijks opzegbaar.</p></div>
-    <div class="mini">
-      <a class="card minip hov rv" href="pakketten/" style="text-decoration:none"><div><h3>Start</h3><p>8 posts · Instagram en Facebook</p></div><div class="amt">€150<small>/mnd</small></div></a>
-      <a class="card minip top hov rv d1" href="pakketten/" style="text-decoration:none"><div><h3>Compleet <span class="badge">Aanrader</span></h3><p>8 posts · 4 Reels/TikToks</p></div><div class="amt">€250<small>/mnd</small></div></a>
+    <div class="head rv"><span class="kicker">Kies je route</span><h2>Waar wil je beginnen?</h2></div>
+    <div class="routes">
+      <a class="card route hov rv" href="werk/"><span class="rn">01</span><h3>Zie wat we maken</h3><p>Voorbeeldposts en het verschil tussen een gewone feed en een strakke feed.</p><span class="rarr" aria-hidden="true">→</span></a>
+      <a class="card route hov rv d1" href="pakketten/"><span class="rn">02</span><h3>Bekijk de prijzen <span class="from">vanaf €150</span></h3><p>Twee pakketten, maandelijks opzegbaar. Met een korte kiezer als je twijfelt.</p><span class="rarr" aria-hidden="true">→</span></a>
+      <a class="card route hov rv d2" href="over/"><span class="rn">03</span><h3>Leer ons kennen</h3><p>Wie er achter Clout Media zit, hoe we werken en wat je van ons kunt verwachten.</p><span class="rarr" aria-hidden="true">→</span></a>
     </div>
-    <div class="more"><a class="btn btn-ghost" href="pakketten/">Bekijk pakketten <span class="arr" aria-hidden="true">→</span></a></div>
+    <p class="routeq rv"><a class="tlink" href="vragen/">Nog vragen? Bekijk de veelgestelde vragen <span class="arr" aria-hidden="true">→</span></a></p>
   </div>
 </section>
 
 <section class="cta alt" data-nobar><div class="glow" aria-hidden="true"></div><div class="wrap rv" style="position:relative">
   <h2>Jij runt je zaak. <span class="mint">Wij zorgen dat de rest het ziet.</span></h2><p class="lead">Begin met een gratis scan. Binnen 1 à 2 werkdagen weet je wat er beter kan.</p><div class="ctas"><a class="btn btn-main" href="scan/">Gratis social media scan <span class="arr" aria-hidden="true">→</span></a><a class="btn btn-ghost" href="https://wa.me/31636285409" target="_blank" rel="noopener">Stuur een WhatsApp</a></div></div></section>
-<div class="lb" id="lb" aria-hidden="true" role="dialog" aria-label="Voorbeeldpost groot bekijken"><button class="x" type="button" aria-label="Sluiten"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></button><figure><img src="" alt="" width="1080" height="1350"><figcaption></figcaption></figure></div>
 </main>
 <footer class="ftr">
   <div class="wrap">
@@ -119,7 +134,7 @@
         <li><a href="mailto:cloutmedianl@gmail.com"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>cloutmedianl@gmail.com</a></li>
         <li><a href="https://www.instagram.com/cloutmedianl/" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>@cloutmedianl</a></li></ul></div>
       <div class="fcol"><h4>Menu</h4><ul>
-        <li><a href="werk/">Werk</a></li><li><a href="pakketten/">Pakketten</a></li><li><a href="over/">Over</a></li><li><a href="vragen/">Vragen</a></li>
+        <li><a href="./">Home</a></li><li><a href="werk/">Werk</a></li><li><a href="pakketten/">Pakketten</a></li><li><a href="over/">Over</a></li><li><a href="vragen/">Vragen</a></li>
         <li><a href="privacy/">Privacyverklaring</a></li><li><a href="voorwaarden/">Algemene voorwaarden</a></li></ul></div>
     </div>
     <!-- KVK: zet hier later "· KvK 12345678" achter Clout Media -->
