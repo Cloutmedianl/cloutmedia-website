@@ -120,7 +120,7 @@ FAQ=[('Wat kost het?','Start kost €150 per maand en Compleet €250 per maand.
 ('Zit ik ergens aan vast?','Nee. Je pakket is maandelijks opzegbaar. Zeg je op voor het eind van de maand? Dan stopt je pakket aan het eind van die maand.','prijs'),
 ('Wat moet ik zelf doen?','Alleen foto\'s en video\'s maken van je werk, je zaak of je producten, en die via WhatsApp sturen. Foto\'s met je telefoon zijn prima. Wij vertellen je precies wat we nodig hebben.',''),
 ('Ik ben geen fotograaf. Is dat erg?','Nee. Je krijgt van ons simpele tips voor goede telefoonfoto\'s, en wij maken er strakke posts en video\'s van.',''),
-('Wat krijg ik bij de gratis scan?','We bekijken je social media en sturen je binnen een week 3 concrete verbeterpunten. Daarna kies je zelf of je met ons verder wilt. Dat hoeft niet.',''),
+('Wat krijg ik bij de gratis scan?','We bekijken je social media en sturen je binnen 1 à 2 werkdagen 3 concrete verbeterpunten. Daarna kies je zelf of je met ons verder wilt. Dat hoeft niet.',''),
 ('Hoe snel zie ik resultaat?','Je pagina ziet er meteen strakker uit. Voor meer volgers en bereik is meestal een paar maanden regelmatig posten nodig. We beloven geen aantallen, wel goed werk en elke week iets nieuws.','prijs'),
 ('Voor welke bedrijven werken jullie?','Voor alle soorten lokale ondernemers: horeca, winkels, beauty, sport, dienstverleners en meer. In Lelystad, Flevoland en de rest van Nederland.',''),
 ('Reageren jullie ook op berichten en reacties?','Nee, dat zit niet in de pakketten. Jij houdt zelf contact met je klanten. Wil je dat wel uitbesteden, vraag dan naar de mogelijkheden.','')]
@@ -130,7 +130,7 @@ def faq_ld(items):
     import json
     return '<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a,_ in items]},ensure_ascii=False)+'</script>\n'
 
-PROMISES='''<div class="promises rv"><div><b>Maandelijks opzegbaar</b><span>Je zit nooit langer vast dan de lopende maand.</span></div><div><b>Je scan binnen een week</b><span>Na je aanvraag heb je binnen een week je verbeterpunten.</span></div><div><b>Vaste prijs</b><span>Je betaalt wat op de site staat. Geen extra kosten achteraf.</span></div></div>'''
+PROMISES='''<div class="promises rv"><div><b>Maandelijks opzegbaar</b><span>Je zit nooit langer vast dan de lopende maand.</span></div><div><b>Je scan binnen 1 à 2 werkdagen</b><span>Na je aanvraag heb je binnen 1 à 2 werkdagen je verbeterpunten.</span></div><div><b>Vaste prijs</b><span>Je betaalt wat op de site staat. Geen extra kosten achteraf.</span></div></div>'''
 
 SPLIT='''<div class="split">
   <div class="card col no rv"><h3>Zonder Clout Media</h3><ul class="list">
@@ -161,7 +161,7 @@ home=f'''<section class="hero"><div class="glow" aria-hidden="true"></div>
       <p class="lead fade-up fu1">Voor lokale ondernemers. Jij stuurt foto's en video's via WhatsApp, wij maken er elke week opvallende content van.</p>
       <p class="price fade-up fu2"><b>Vanaf €150</b><span>per maand · maandelijks opzegbaar</span></p>
       <div class="ctas fade-up fu3"><a class="btn btn-main" href="scan/">Gratis social media scan {ARR}</a><a class="tlink" href="pakketten/">Bekijk pakketten</a></div>
-      <p class="note fade-up fu4">Binnen een week 3 verbeterpunten voor je socials. Gratis en vrijblijvend.</p>
+      <p class="note fade-up fu4">Binnen 1 à 2 werkdagen 3 verbeterpunten voor je socials. Gratis en vrijblijvend.</p>
     </div>
     <div class="stage" aria-hidden="true"><div class="glow"></div>
       <div class="tilt"><div class="phone"><div class="screen"><div class="ig"><i></i>jouwzaak</div><div class="feed">{FEED}</div></div></div>
@@ -206,7 +206,7 @@ home=f'''<section class="hero"><div class="glow" aria-hidden="true"></div>
   </div>
 </section>
 
-{cta('Jij runt je zaak. <span class="mint">Wij zorgen dat de rest het ziet.</span>','Begin met een gratis scan. Binnen een week weet je wat er beter kan.',alt=True)}
+{cta('Jij runt je zaak. <span class="mint">Wij zorgen dat de rest het ziet.</span>','Begin met een gratis scan. Binnen 1 à 2 werkdagen weet je wat er beter kan.',alt=True)}
 {LB}'''
 page('index.html','home','Social media beheer Lelystad &amp; Flevoland | Clout Media','Social media beheer voor lokale ondernemers in Lelystad, Flevoland en heel Nederland. Elke maand strakke posts en korte video\'s, vanaf €150 per maand. Vraag een gratis social media scan aan.',home,
      extra_head='<script>(function(){var m={"#werk":"werk/","#pakketten":"pakketten/","#over":"over/","#faq":"vragen/","#scan":"scan/","#werkwijze":"over/#werkwijze"};if(m[location.hash])location.replace(m[location.hash])})()</script>\n<link rel="preload" as="image" href="img/w2.webp" fetchpriority="high">\n<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Clout Media","description":"Social media beheer voor lokale ondernemers in Lelystad, Flevoland en heel Nederland","url":"'+SITE+'","email":"cloutmedianl@gmail.com","telephone":"+31636285409","areaServed":["Lelystad","Flevoland","Nederland"],"priceRange":"€150 - €250 per maand","sameAs":["https://www.instagram.com/cloutmedianl/"]}</script>\n')
@@ -282,7 +282,7 @@ scan=f'''<section class="phero" style="text-align:left;padding-bottom:clamp(80px
     <div class="copy">
       <span class="kicker fade-up">Gratis social media scan</span>
       <h1 class="reveal" style="margin:0;max-width:16ch"><span class="ln"><span>Ontdek wat er beter</span></span><span class="ln"><span class="mint">kan aan je socials.</span></span></h1>
-      <p class="lead fade-up fu1">We bekijken je pagina en sturen je binnen een week 3 concrete verbeterpunten. Gratis en vrijblijvend.</p>
+      <p class="lead fade-up fu1">We bekijken je pagina en sturen je binnen 1 à 2 werkdagen 3 concrete verbeterpunten. Gratis en vrijblijvend.</p>
       <ul class="points fade-up fu2"><li>Hoe je feed overkomt op een nieuwe klant</li><li>3 verbeterpunten die je meteen kunt toepassen</li><li>Daarna een kennismaking, als jij dat wilt</li></ul>
       <div class="contact fade-up fu3">
         <a class="card hov" href="{WA}" target="_blank" rel="noopener">{I_WA}<span><small>WhatsApp of bellen</small><strong>06 36 28 54 09</strong></span></a>
@@ -317,7 +317,7 @@ scan=f'''<section class="phero" style="text-align:left;padding-bottom:clamp(80px
     </form>
   </div>
 </section>'''
-page('scan/index.html','scan','Gratis social media scan | Clout Media','Vraag een gratis social media scan aan. Binnen een week krijg je 3 concrete verbeterpunten voor je socials. Gratis en vrijblijvend.',scan,bar=False)
+page('scan/index.html','scan','Gratis social media scan | Clout Media','Vraag een gratis social media scan aan. Binnen 1 à 2 werkdagen krijg je 3 concrete verbeterpunten voor je socials. Gratis en vrijblijvend.',scan,bar=False)
 
 # ---------------- JURIDISCH ----------------
 def legal(path,key,title,h1,lead,part,desc):
