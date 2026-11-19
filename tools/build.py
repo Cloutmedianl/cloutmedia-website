@@ -224,7 +224,7 @@ werk=phero('Voorbeeldwerk',['Elke zaak','een eigen stijl'],'Van lunchroom tot sp
     <div class="under"><p class="tag"><b>Voorbeeld</b> Verzonnen feeds, ter illustratie.</p></div>
   </div>
 </section>
-{cta('Benieuwd hoe jouw feed eruit kan zien?','Vraag een gratis scan aan. Binnen een week heb je 3 concrete verbeterpunten.')}
+{cta('Benieuwd hoe jouw feed eruit kan zien?','Vraag een gratis scan aan. Binnen 1 à 2 werkdagen heb je 3 concrete verbeterpunten.')}
 {LB}'''
 page('werk/index.html','werk','Voorbeeldwerk | Clout Media','Bekijk voorbeeldposts van Clout Media voor lunchrooms, sportscholen, bloemisten, nagelstudio\'s en bakkers. Elke zaak een eigen stijl.',werk)
 
