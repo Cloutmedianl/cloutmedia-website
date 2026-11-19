@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /site/
+Disallow: /nieuw/
+Disallow: /screenshots/
+Disallow: /tools/
+
+Sitemap: https://cloutmedianl.github.io/cloutmedia-website/sitemap.xml

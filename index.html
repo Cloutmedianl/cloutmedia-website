@@ -1,750 +1,134 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="nl" data-root="">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Social media beheer Lelystad &amp; Flevoland | Clout Media</title>
 <meta name="description" content="Social media beheer voor lokale ondernemers in Lelystad, Flevoland en heel Nederland. Elke maand strakke posts en korte video's, vanaf €150 per maand. Vraag een gratis social media scan aan.">
 <link rel="canonical" href="https://cloutmedianl.github.io/cloutmedia-website/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Clout Media · Strakke socials voor lokale ondernemers">
-<meta property="og:description" content="Elke maand strakke posts en korte video's. Vanaf €150 per maand. Vraag een gratis social media scan aan.">
+<meta property="og:site_name" content="Clout Media">
+<meta property="og:title" content="Social media beheer Lelystad &amp; Flevoland | Clout Media">
+<meta property="og:description" content="Social media beheer voor lokale ondernemers in Lelystad, Flevoland en heel Nederland. Elke maand strakke posts en korte video's, vanaf €150 per maand. Vraag een gratis social media scan aan.">
+<meta property="og:url" content="https://cloutmedianl.github.io/cloutmedia-website/">
 <meta property="og:image" content="https://cloutmedianl.github.io/cloutmedia-website/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0b0b0c">
-<link rel="icon" href="img/icoon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="preload" href="assets/fonts/poppins-700.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="assets/fonts/inter-400.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+<script>(function(){var m={"#werk":"werk/","#pakketten":"pakketten/","#over":"over/","#faq":"vragen/","#scan":"scan/","#werkwijze":"over/#werkwijze"};if(m[location.hash])location.replace(m[location.hash])})()</script>
 <link rel="preload" as="image" href="img/w2.webp" fetchpriority="high">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","name":"Clout Media","description":"Social media beheer voor lokale ondernemers in Lelystad, Flevoland en heel Nederland","url":"https://cloutmedianl.github.io/cloutmedia-website/","email":"cloutmedianl@gmail.com","telephone":"+31636285409","areaServed":["Lelystad","Flevoland","Nederland"],"priceRange":"€150 - €250 per maand","sameAs":["https://www.instagram.com/cloutmedianl/"]}
-</script>
-<style>
-/* ============================================================
-   CLOUT MEDIA · visueel systeem
-   Kleur    zwart #0b0b0c · mint #b8f5d0 · wit · licht #f4f4f1
-   Type     Poppins (koppen, -0.03em) · Inter (tekst, 1.6)
-   Ruimte   veelvouden van 8px
-   Hoeken   12 · 20 · 28 · pil
-   Schaduw  één diepe schaduw voor alles wat zweeft
-   Beweging 0.6s ease-out, alleen waar het iets toevoegt
-   ============================================================ */
-:root{
-  --black:#0b0b0c;--ink2:#141417;--ink3:#1c1c20;--line:#2a2b30;
-  --mint:#b8f5d0;--white:#fff;--paper:#f4f4f1;--grey:#b4b5b1;--grey2:#5b5d62;
-  --r1:12px;--r2:20px;--r3:28px;
-  --sh:0 40px 80px -20px rgba(0,0,0,.6),0 12px 24px -8px rgba(0,0,0,.4);
-  --ease:cubic-bezier(.16,1,.3,1);
-  --s1:8px;--s2:16px;--s3:24px;--s4:32px;--s5:48px;--s6:64px;--s7:96px;--s8:128px;
-}
-*{box-sizing:border-box;margin:0;min-width:0}
-html{scroll-behavior:smooth;scroll-padding-top:80px}
-body{background:var(--black);color:var(--white);font:17px/1.6 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-img{max-width:100%;display:block;height:auto}
-a{color:inherit}
-button{font:inherit;color:inherit}
-h1,h2,h3{font-family:Poppins,Inter,sans-serif;letter-spacing:-.03em;font-weight:800}
-h1{font-size:clamp(36px,6.2vw,72px);line-height:1.02;text-wrap:balance}
-h2{font-size:clamp(32px,4.8vw,56px);line-height:1.04;text-wrap:balance}
-h3{font-size:20px;line-height:1.3;font-weight:700;letter-spacing:-.02em}
-p{max-width:62ch}
-.mint{color:var(--mint)}
-.wrap{max-width:1200px;margin:0 auto;padding:0 var(--s3)}
-section{position:relative;padding:var(--s7) 0}
-.kicker{font:600 14px Inter,sans-serif;letter-spacing:.02em;color:var(--mint);margin-bottom:var(--s2);display:block}
-.lead{font-size:clamp(17px,1.6vw,19px);color:var(--grey);margin-top:var(--s3)}
-.head{max-width:760px;margin:0 auto var(--s6);text-align:center}
-.head p{margin-left:auto;margin-right:auto}
-@media(max-width:700px){section{padding:var(--s6) 0}.head{margin-bottom:var(--s5)}.wrap{padding:0 20px}}
-
-/* korrel op donkere vlakken */
-.grain::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
-
-/* knoppen */
-.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border-radius:999px;background:var(--mint);color:var(--black);font:700 17px Poppins,sans-serif;letter-spacing:-.01em;text-decoration:none;text-align:center;border:0;cursor:pointer;transition:transform .5s var(--ease),box-shadow .5s var(--ease),background .3s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 16px 40px -12px rgba(184,245,208,.55)}
-.btn .arr{transition:transform .5s var(--ease)}
-.btn:hover .arr{transform:translateX(4px)}
-.btn.dark{background:var(--black);color:var(--white)}
-.btn.dark:hover{box-shadow:0 16px 40px -12px rgba(0,0,0,.5)}
-.tlink{font-weight:600;text-decoration:none;border-bottom:1.5px solid currentColor;padding:12px 0 2px;display:inline-block}
-.tlink:hover{color:var(--mint)}
-:focus-visible{outline:3px solid var(--mint);outline-offset:3px;border-radius:6px}
-.on-light :focus-visible{outline-color:var(--black)}
-
-/* menu */
-header{position:sticky;top:0;z-index:50;background:rgba(11,11,12,.72);backdrop-filter:saturate(1.4) blur(16px);-webkit-backdrop-filter:saturate(1.4) blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:var(--s2);height:72px}
-.nav img{height:34px;width:auto}
-.links{display:none;gap:var(--s4);font-weight:500;font-size:15px}
-.links a{text-decoration:none;color:var(--grey);transition:color .3s;padding:12px 0}
-.links a:hover{color:var(--white)}
-.nav .btn{min-height:44px;padding:0 20px;font-size:15px}
-@media(min-width:960px){.links{display:flex}}
-
-/* ---------- 1 HERO ---------- */
-.hero{padding:var(--s6) 0 var(--s7);overflow:hidden}
-.hero .glow{position:absolute;width:900px;height:900px;right:-220px;top:-180px;border-radius:50%;background:radial-gradient(circle,rgba(184,245,208,.2),transparent 60%);pointer-events:none}
-.hero-grid{display:grid;gap:var(--s5);align-items:center;position:relative}
-.hero h1 .mint{display:block}
-.hero .lead{max-width:48ch}
-.price{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-top:var(--s4);font-weight:600}
-.price b{font:800 28px Poppins,sans-serif;letter-spacing:-.02em}
-.price span{color:var(--grey);font-weight:500}
-.cta{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s2) var(--s4);margin-top:var(--s4)}
-.hero .note{font-size:14px;color:var(--grey);margin-top:var(--s2)}
-.stage{position:relative;height:620px;perspective:1600px}
-.ph{position:absolute;top:50%;left:50%;width:270px;aspect-ratio:9/19.2;border-radius:44px;background:#121215;padding:10px;box-shadow:var(--sh),inset 0 0 0 1.5px #3a3a41,0 0 0 7px #0d0d0f;will-change:transform}
-.ph::before{content:"";position:absolute;top:18px;left:50%;width:78px;height:22px;margin-left:-39px;border-radius:20px;background:#0b0b0c;z-index:4}
-.scr{position:relative;width:100%;height:100%;border-radius:35px;overflow:hidden;background:#fff}
-.scr img{width:100%;height:100%;object-fit:cover}
-.p1{transform:translate(-118%,-47%) rotateY(18deg) rotateZ(-4deg) scale(.86);opacity:.9}
-.p3{transform:translate(18%,-53%) rotateY(-18deg) rotateZ(4deg) scale(.86);opacity:.9}
-.p2{transform:translate(-50%,-50%) rotate(-3deg);z-index:3}
-.bar{position:absolute;top:0;left:0;right:0;z-index:3;background:#fff;padding:44px 14px 10px;display:flex;align-items:center;gap:10px;color:#0b0b0c;font:600 14px Inter,sans-serif;border-bottom:1px solid #eee}
-.bar i{width:28px;height:28px;border-radius:50%;background:conic-gradient(#b8f5d0,#0b0b0c,#b8f5d0);flex:none}
-.feed{position:absolute;left:0;right:0;top:84px;display:grid;gap:3px;animation:feed 30s linear infinite}
-.feed img{height:auto;aspect-ratio:4/5}
-@keyframes feed{to{transform:translateY(calc(-50% - 1.5px))}}
-.chip{position:absolute;z-index:5;display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.96);color:var(--black);border-radius:16px;padding:10px 14px 10px 10px;box-shadow:var(--sh);font:600 14px Inter,sans-serif;line-height:1.25}
-.chip small{display:block;font-weight:500;font-size:12px;color:var(--grey2)}
-.chip i{width:32px;height:32px;border-radius:10px;background:var(--mint);display:grid;place-items:center;flex:none}
-.c1{left:4%;bottom:14%}.c2{right:4%;top:22%}
-@media(min-width:960px){.hero-grid{grid-template-columns:1fr 1.05fr}.hero{padding-top:var(--s7)}.stage{height:680px}.ph{width:310px}}
-@media(max-width:959px){.hero{padding-top:var(--s5)}.stage{height:520px;margin-top:-8px}.ph{width:230px}.c2{display:none}}
-@media(max-width:520px){.hero-grid{gap:var(--s3)}.hero .note{display:none}.price b{font-size:24px}h1{font-size:36px}.hero .lead{margin-top:var(--s2)}.price{margin-top:var(--s3)}.cta{margin-top:var(--s3)}.stage{height:440px}.ph{width:210px;border-radius:38px;padding:8px}.scr{border-radius:31px}.c1{left:0;bottom:8%}}
-
-/* ---------- 2 VOORBEELDWERK ---------- */
-.work{background:var(--ink2);overflow:hidden}
-.rail{display:flex;gap:var(--s3);overflow-x:auto;scroll-snap-type:x mandatory;padding:8px max(var(--s3),calc((100vw - 1200px)/2 + var(--s3))) var(--s4);scrollbar-width:none;cursor:grab}
-.rail::-webkit-scrollbar{display:none}
-.shot{flex:none;width:min(340px,76vw);scroll-snap-align:center;margin:0;background:none;border:0;padding:0;cursor:zoom-in;text-align:left}
-.shot img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r2);box-shadow:var(--sh);transition:transform .7s var(--ease)}
-.shot:hover img{transform:translateY(-6px) scale(1.01)}
-.shot span{display:block;margin-top:var(--s2);font-weight:600}
-.shot small{display:block;color:var(--grey);font-size:14px}
-.railnav{display:flex;align-items:center;justify-content:space-between;gap:var(--s2);margin-top:var(--s2)}
-.label{display:inline-flex;align-items:center;gap:10px;font-size:14px;color:var(--grey)}
-.label b{background:var(--ink3);color:var(--white);padding:6px 12px;border-radius:999px;font-weight:600;white-space:nowrap;box-shadow:inset 0 0 0 1px var(--line)}
-.arrows{display:flex;gap:var(--s1)}
-.arrows button{width:48px;height:48px;border-radius:50%;border:0;background:var(--ink3);box-shadow:inset 0 0 0 1px var(--line);cursor:pointer;display:grid;place-items:center;transition:background .3s}
-.arrows button:hover{background:#26262b}
-@media(max-width:700px){.arrows{display:none}.railnav{justify-content:center;text-align:center}}
-
-/* ---------- 3 PROBLEEM + OPLOSSING (licht) ---------- */
-.light{background:var(--paper);color:var(--black)}
-.light .kicker{color:#2f7a52}
-.light .lead{color:var(--grey2)}
-.split{display:grid;gap:var(--s3);margin-top:var(--s6)}
-.col{border-radius:var(--r3);padding:clamp(28px,4vw,48px)}
-.col.no{background:var(--ink2);box-shadow:inset 0 0 0 1px var(--line)}
-.col.yes{background:#0f1a14;color:var(--white);box-shadow:inset 0 0 0 1.5px rgba(184,245,208,.45)}
-.col h3{font-size:24px;margin-bottom:var(--s3)}
-.list{list-style:none;padding:0;display:grid;gap:var(--s2)}
-.list li{display:flex;gap:14px;align-items:flex-start;font-size:17px}
-.list li::before{content:"";flex:none;width:24px;height:24px;margin-top:1px;border-radius:50%;background-position:center;background-repeat:no-repeat}
-.no .list li::before{background-color:#2b1618;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8.5 8.5l7 7M15.5 8.5l-7 7' stroke='%23ff7a7a' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E")}
-.yes .list li::before{background-color:var(--mint);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 12.3l3.2 3.1L17 8.6' fill='none' stroke='%230b0b0c' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
-.no .list li{color:var(--grey)}
-.yes .list li span{color:var(--grey);display:block;font-size:15px}
-@media(min-width:880px){.split{grid-template-columns:1fr 1.15fr}}
-
-/* ---------- 4 VOOR / NA ---------- */
-.ba{position:relative;max-width:820px;margin:0 auto;border-radius:var(--r3);overflow:hidden;box-shadow:var(--sh);aspect-ratio:1/1;background:#fff;user-select:none;touch-action:pan-y}
-.side{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);gap:3px;background:#fff}
-.side>*{position:relative;overflow:hidden}
-.side img{width:100%;height:100%;object-fit:cover}
-.before img{filter:saturate(.55) brightness(.92) contrast(.86)}
-.before .t{display:grid;place-items:center;padding:12%;text-align:center;font:400 clamp(11px,1.9vw,17px)/1.35 Arial,Helvetica,sans-serif;color:#222}
-.before .cap{position:absolute;left:6%;right:6%;bottom:7%;font:700 clamp(9px,1.5vw,14px)/1.2 Arial,sans-serif;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.7)}
-.after{clip-path:inset(0 0 0 var(--pos,50%))}
-.ba .line{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:2px;margin-left:-1px;background:var(--mint);z-index:3}
-.ba .knob{position:absolute;top:50%;left:var(--pos,50%);width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:var(--mint);z-index:4;display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.4)}
-.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:5;margin:0}
-.tagx{position:absolute;top:16px;z-index:4;font:700 14px Poppins,sans-serif;padding:8px 14px;border-radius:999px}
-.t1{left:16px;background:#fff;color:#0b0b0c;box-shadow:0 6px 18px rgba(0,0,0,.2)}.t2{right:16px;background:#0b0b0c;color:var(--mint)}
-.ba:has(input:focus-visible){outline:3px solid var(--mint);outline-offset:4px}
-.under{display:flex;justify-content:center;margin-top:var(--s3)}
-
-/* ---------- 5 WERKWIJZE ---------- */
-.steps{display:grid;gap:var(--s5);position:relative;margin-top:var(--s6);counter-reset:s}
-.step{position:relative}
-.step .n{font:800 64px/1 Poppins,sans-serif;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px var(--mint);margin-bottom:var(--s2)}
-.step p{color:var(--grey);margin-top:var(--s1)}
-.step h3{font-size:22px}
-@media(min-width:880px){.steps{grid-template-columns:repeat(3,1fr);gap:var(--s5)}.steps::before{content:"";position:absolute;left:0;right:0;top:32px;height:1px;background:linear-gradient(90deg,var(--line),var(--mint) 50%,var(--line))}.step .n{background:var(--black);display:inline-block;padding-right:var(--s2);position:relative}}
-
-/* ---------- 6 PAKKETTEN (mint) ---------- */
-.mintsec{background:var(--ink2);color:var(--white)}
-.mintsec .wrap{position:relative}
-.plans{display:grid;gap:var(--s3);max-width:920px;margin:0 auto}
-.plan{border-radius:var(--r3);padding:clamp(28px,4vw,44px);display:flex;flex-direction:column;background:var(--ink3);color:var(--white);box-shadow:inset 0 0 0 1px var(--line)}
-.plan.top{background:#fff;color:var(--black);box-shadow:0 40px 90px -30px rgba(184,245,208,.35)}
-.ph3{display:flex;align-items:center;justify-content:space-between;gap:var(--s2)}
-.plan h3{font-size:26px}
-.badge{background:var(--mint);color:var(--black);font:700 13px Poppins,sans-serif;padding:6px 12px;border-radius:999px}
-.for{color:var(--grey);font-size:15px;margin-top:6px}
-.plan.top .for{color:var(--grey2)}
-.amt{font:800 clamp(56px,7vw,72px)/1 Poppins,sans-serif;letter-spacing:-.04em;margin:var(--s4) 0 var(--s1);white-space:nowrap}
-.amt small{font:500 16px Inter,sans-serif;letter-spacing:0;opacity:.6;margin-left:6px}
-.ul{list-style:none;padding:0;margin-top:var(--s3);border-top:1px solid rgba(255,255,255,.1)}
-.plan.top .ul{border-color:rgba(0,0,0,.08)}
-.ul li{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.07)}
-.plan.top .ul li{border-color:rgba(0,0,0,.06)}
-.ul li::before{content:"";flex:none;width:20px;height:20px;border-radius:50%;background:var(--mint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.3l3 2.9L14.6 7' fill='none' stroke='%230b0b0c' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center no-repeat}
-.plan.top .ul li::before{background-color:var(--black);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.3l3 2.9L14.6 7' fill='none' stroke='%23b8f5d0' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
-.after-plans{text-align:center;margin-top:var(--s5)}
-.after-plans .fine{font-size:14px;color:var(--grey);margin:var(--s3) auto 0;max-width:64ch}
-.picker{max-width:920px;margin:var(--s5) auto 0;background:var(--ink3);box-shadow:inset 0 0 0 1px var(--line);border-radius:var(--r2);padding:var(--s3);display:flex;flex-wrap:wrap;align-items:center;gap:var(--s2);justify-content:center;text-align:center;min-height:96px}
-.picker p{font-weight:600;max-width:none}
-.picker .q{color:var(--mint);font-weight:500;margin-right:4px}
-.pick{min-height:44px;padding:0 18px;border-radius:999px;border:1.5px solid var(--line);background:var(--black);color:var(--white);font-weight:600;font-size:15px;cursor:pointer;transition:border-color .3s,background .3s}
-.pick:hover{border-color:var(--mint)}
-.picker .res b{font-family:Poppins,sans-serif}
-.picker .again{background:none;border:0;text-decoration:underline;cursor:pointer;font-size:15px;padding:10px;color:var(--grey)}
-@media(min-width:700px){.plans{grid-template-columns:1fr 1fr}}
-
-/* ---------- 7 OVER LUCA ---------- */
-.about{display:grid;gap:var(--s5);align-items:end}
-.big{font:700 clamp(26px,3.4vw,40px)/1.22 Poppins,sans-serif;letter-spacing:-.025em;max-width:24ch}
-.big em{font-style:normal;color:var(--mint)}
-.about .txt p{color:var(--grey);margin-top:var(--s2)}
-.sign{display:flex;align-items:center;gap:var(--s2);margin-top:var(--s4)}
-.sign i{width:48px;height:48px;border-radius:50%;background:var(--mint);color:var(--black);display:grid;place-items:center;font:800 18px Poppins,sans-serif;font-style:normal}
-.sign b{display:block}.sign small{color:var(--grey);font-size:14px}
-.promises{display:grid;gap:0;margin-top:var(--s6);border-top:1px solid var(--line)}
-.promises div{padding:var(--s3) 0;border-bottom:1px solid var(--line)}
-.promises b{font:700 18px Poppins,sans-serif;letter-spacing:-.01em;display:block}
-.promises span{color:var(--grey);font-size:15px}
-@media(min-width:880px){.about{grid-template-columns:1.25fr 1fr;gap:var(--s7)}.promises{grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}.promises div{border-bottom:0;padding:var(--s4) var(--s4) var(--s4) 0}.promises div+div{border-left:1px solid var(--line);padding-left:var(--s4)}}
-
-/* ---------- 8 FAQ (licht) ---------- */
-.faq{max-width:820px;margin:0 auto;border-top:1px solid var(--line)}
-.faq details{border-bottom:1px solid var(--line)}
-.faq summary{list-style:none;cursor:pointer;padding:var(--s3) 48px var(--s3) 0;font:700 18px/1.35 Poppins,sans-serif;letter-spacing:-.015em;position:relative}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"";position:absolute;right:0;top:50%;width:32px;height:32px;margin-top:-16px;border-radius:50%;background:var(--mint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 11v10M11 16h10' stroke='%230b0b0c' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E") center no-repeat;transition:transform .5s var(--ease)}
-.faq details[open] summary::after{transform:rotate(45deg)}
-.faq details p{color:var(--grey);padding:0 48px var(--s3) 0}
-
-/* ---------- 9 SCAN ---------- */
-.scan{overflow:hidden}
-.scan .glow{position:absolute;width:900px;height:900px;left:-300px;bottom:-400px;border-radius:50%;background:radial-gradient(circle,rgba(184,245,208,.16),transparent 60%);pointer-events:none}
-.scan-grid{display:grid;gap:var(--s5);align-items:start;position:relative}
-.points{list-style:none;padding:0;margin-top:var(--s4);display:grid;gap:var(--s2)}
-.points li{display:flex;gap:12px;align-items:center;font-weight:500}
-.points li::before{content:"";flex:none;width:22px;height:22px;border-radius:50%;background:var(--mint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.3l3 2.9L14.6 7' fill='none' stroke='%230b0b0c' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center no-repeat}
-.alt{margin-top:var(--s4);color:var(--grey);font-size:15px}
-.alt a{color:var(--white);font-weight:600}
-.form{background:#fff;color:var(--black);border-radius:var(--r3);padding:clamp(24px,4vw,40px);display:grid;gap:var(--s2);box-shadow:var(--sh)}
-.form h3{font-size:24px}
-.form .sub{color:var(--grey2);font-size:15px;margin-top:-8px}
-.row2{display:grid;gap:var(--s2)}
-@media(min-width:560px){.row2{grid-template-columns:1fr 1fr}}
-.field label,.field legend{display:block;font-weight:600;font-size:15px;margin-bottom:6px}
-.field input{width:100%;min-height:52px;font:16px Inter,sans-serif;padding:12px 14px;border:1.5px solid #d7d7d2;border-radius:var(--r1);background:#fff;color:var(--black);transition:border-color .3s}
-.field input:focus{border-color:var(--black);outline:none}
-.form :focus-visible{outline:3px solid var(--black);outline-offset:2px}
-.hint{font-size:13px;color:#6a6c70;margin-top:4px}
-fieldset{border:0;padding:0}
-.seg{display:flex;flex-wrap:wrap;gap:var(--s1)}
-.seg label{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 16px;border-radius:999px;border:1.5px solid #d7d7d2;font-weight:600;font-size:15px;cursor:pointer;margin:0}
-.seg input{accent-color:var(--black);width:18px;height:18px}
-.seg label:has(input:checked){background:var(--mint);border-color:var(--black)}
-.consent{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:#33353a}
-.consent input{width:22px;height:22px;flex:none;margin-top:1px;accent-color:var(--black)}
-.linkbtn{background:none;border:0;padding:0;font:inherit;color:inherit;text-decoration:underline;cursor:pointer}
-.form .btn{width:100%;background:var(--black);color:#fff}
-.msg{display:none;border-radius:16px;padding:16px 18px;font-weight:600}
-.msg.ok{display:block;background:var(--mint)}.msg.err{display:block;background:#ffe1e1}
-@media(min-width:960px){.scan-grid{grid-template-columns:1fr 1fr;gap:var(--s7)}.scan .copy{position:sticky;top:120px}}
-
-/* footer */
-footer{position:relative;overflow:hidden;border-top:1px solid var(--line);padding:var(--s7) 0 0;color:var(--grey);font-size:15px}
-.fgrid{display:grid;gap:var(--s5);position:relative;z-index:1}
-.fbrand img{height:36px;width:auto}
-.fbrand p{margin-top:var(--s2);max-width:34ch;line-height:1.55}
-.fbrand .btn{margin-top:var(--s3);min-height:48px;padding:0 22px;font-size:15px}
-.fcol h4{font:600 13px Inter,sans-serif;letter-spacing:.04em;text-transform:uppercase;color:#7d7e82;margin-bottom:var(--s2)}
-.fcol ul{list-style:none;padding:0;display:grid;gap:4px}
-.fcol a,.fcol .linkbtn{color:var(--white);text-decoration:none;display:inline-flex;align-items:center;gap:10px;padding:8px 0;font-size:16px;transition:color .3s}
-.fcol a:hover,.fcol .linkbtn:hover{color:var(--mint)}
-.fcol svg{flex:none;opacity:.7}
-.fbottom{position:relative;z-index:1;display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s1) var(--s3);margin-top:var(--s6);padding:var(--s3) 0;border-top:1px solid var(--line);font-size:13px;color:#7d7e82}
-.wordmark{position:relative;font:800 clamp(64px,17vw,250px)/.8 Poppins,sans-serif;letter-spacing:-.06em;text-align:center;white-space:nowrap;color:transparent;-webkit-text-stroke:1.5px rgba(184,245,208,.24);margin:var(--s4) 0 -.12em;user-select:none;pointer-events:none}
-@media(min-width:880px){.fgrid{grid-template-columns:1.6fr 1fr 1fr}}
-@media(max-width:959px){footer{padding-bottom:88px}}
-
-/* zwevend: desktop WhatsApp, mobiel één balk */
-.wa{position:fixed;right:24px;bottom:24px;z-index:60;width:60px;height:60px;border-radius:50%;background:#25d366;display:none;place-items:center;box-shadow:0 12px 30px rgba(0,0,0,.45);transition:transform .5s var(--ease)}
-.wa:hover{transform:scale(1.06)}
-@media(min-width:960px){.wa{display:grid}}
-.mbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:55;display:flex;gap:8px;padding:8px;border-radius:999px;background:rgba(20,20,23,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 20px 40px rgba(0,0,0,.5),inset 0 0 0 1px rgba(255,255,255,.08);transform:translateY(140%);transition:transform .6s var(--ease)}
-.mbar.show{transform:none}
-.mbar .btn{flex:1;min-height:48px;font-size:16px}
-.mbar .mw{flex:none;width:48px;height:48px;border-radius:50%;background:#25d366;display:grid;place-items:center}
-@media(min-width:960px){.mbar{display:none}}
-
-/* lightbox + vensters */
-dialog{border:0;padding:0;margin:auto}
-dialog::backdrop{background:rgba(5,5,6,.82);backdrop-filter:blur(6px)}
-.lb{background:transparent;max-width:min(92vw,560px);width:100%;overflow:visible}
-.lb img{width:100%;border-radius:var(--r2);box-shadow:var(--sh)}
-.lb p{color:#fff;text-align:center;margin:14px auto 0;font-size:14px;max-width:none}
-.lb .x{position:absolute;top:-18px;right:-18px;width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:#0b0b0c;font-size:22px;cursor:pointer}
-.legal{max-width:760px;width:calc(100% - 28px);border-radius:var(--r3);background:#fff;color:#0b0b0c}
-.dlg{padding:clamp(22px,4vw,40px);max-height:82vh;overflow:auto}
-.dlg h2{font-size:28px}.dlg h3{margin-top:22px;font-size:18px}.dlg p,.dlg li{color:#33353a;font-size:16px}.dlg ul,.dlg ol{padding-left:22px}.dlg li{margin:4px 0}
-.close{position:sticky;top:0;float:right;background:#0b0b0c;color:#fff;border:0;width:44px;height:44px;border-radius:50%;font-size:22px;cursor:pointer;margin-left:12px}
-
-/* rustig in beeld */
-.rv{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
-.rv.in{opacity:1;transform:none}
-.d1{transition-delay:.08s}.d2{transition-delay:.16s}
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .rv{opacity:1;transform:none;transition:none}
-  .feed{animation:none}
-  .btn,.shot img,.mbar,.faq summary::after{transition:none}
-}
-</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Clout Media","description":"Social media beheer voor lokale ondernemers in Lelystad, Flevoland en heel Nederland","url":"https://cloutmedianl.github.io/cloutmedia-website/","email":"cloutmedianl@gmail.com","telephone":"+31636285409","areaServed":["Lelystad","Flevoland","Nederland"],"priceRange":"€150 - €250 per maand","sameAs":["https://www.instagram.com/cloutmedianl/"]}</script>
 </head>
-<body>
-
-<header>
+<body data-page="home">
+<a class="skip" href="#main">Naar de inhoud</a>
+<header class="hdr">
   <div class="wrap nav">
-    <a href="#top" aria-label="Clout Media, naar boven"><img src="img/logo.png" alt="Clout Media" width="102" height="34"></a>
-    <nav class="links" aria-label="Hoofdmenu">
-      <a href="#werk">Voorbeeldwerk</a>
-      <a href="#werkwijze">Werkwijze</a>
-      <a href="#pakketten">Pakketten</a>
-      <a href="#faq">Vragen</a>
-    </nav>
-    <a class="btn" href="#scan">Gratis scan</a>
+    <a class="logo" href="./" aria-label="Clout Media, naar home"><img src="img/logo.png" alt="Clout Media" width="102" height="34"></a>
+    <nav class="menu" aria-label="Hoofdmenu"><a href="werk/">Werk</a><a href="pakketten/">Pakketten</a><a href="over/">Over</a><a href="vragen/">Vragen</a></nav>
+    <div class="nav-r">
+      <a class="btn btn-main" href="scan/">Gratis scan</a>
+      <button class="burger" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="sheet"><span></span></button>
+    </div>
   </div>
 </header>
-
-<main id="top">
-
-<!-- 1 · HERO -->
-<section class="hero grain">
-  <div class="glow" aria-hidden="true"></div>
-  <div class="wrap hero-grid">
+<div class="sheet" id="sheet" aria-hidden="true">
+  <div class="nav"><a class="logo" href="./" aria-label="Clout Media, naar home"><img src="img/logo.png" alt="Clout Media" width="102" height="34"></a><button class="x" type="button" aria-label="Menu sluiten"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
+  <nav aria-label="Menu"><a href="werk/">Werk</a><a href="pakketten/">Pakketten</a><a href="over/">Over</a><a href="vragen/">Vragen</a></nav>
+  <a class="btn btn-main" href="scan/">Gratis social media scan <span class="arr" aria-hidden="true">→</span></a>
+</div>
+<main id="main">
+<section class="hero"><div class="glow" aria-hidden="true"></div>
+  <div class="wrap hgrid">
     <div>
-      <span class="kicker">Social media beheer · Heel Nederland</span>
-      <h1>Elke maand strakke posts en Reels. <span class="mint">Zonder dat jij er tijd in steekt.</span></h1>
-      <p class="lead">Voor lokale ondernemers. Jij stuurt foto's en video's via WhatsApp, wij maken er elke week opvallende content van.</p>
-      <p class="price"><b>Vanaf €150</b><span>per maand · maandelijks opzegbaar</span></p>
-      <div class="cta">
-        <a class="btn" href="#scan">Gratis social media scan <span class="arr" aria-hidden="true">→</span></a>
-        <a class="tlink" href="#pakketten">Bekijk pakketten</a>
-      </div>
-      <p class="note">Binnen een week 3 verbeterpunten voor je socials. Gratis en vrijblijvend.</p>
+      <span class="kicker fade-up">Social media beheer · Heel Nederland</span>
+      <h1 class="reveal"><span class="ln"><span>Elke maand strakke</span></span><span class="ln"><span>posts en Reels.</span></span><span class="ln"><span class="mint">Zonder dat jij er</span></span><span class="ln"><span class="mint">tijd in steekt.</span></span></h1>
+      <p class="lead fade-up fu1">Voor lokale ondernemers. Jij stuurt foto's en video's via WhatsApp, wij maken er elke week opvallende content van.</p>
+      <p class="price fade-up fu2"><b>Vanaf €150</b><span>per maand · maandelijks opzegbaar</span></p>
+      <div class="ctas fade-up fu3"><a class="btn btn-main" href="scan/">Gratis social media scan <span class="arr" aria-hidden="true">→</span></a><a class="tlink" href="pakketten/">Bekijk pakketten</a></div>
+      <p class="note fade-up fu4">Binnen een week 3 verbeterpunten voor je socials. Gratis en vrijblijvend.</p>
     </div>
-    <div class="stage" id="stage" aria-hidden="true">
-      <div class="ph p2" data-par="8">
-        <div class="scr">
-          <div class="bar"><i></i>jouwzaak</div>
-          <div class="feed">
-            <img src="img/w2.webp" alt="" width="540" height="675" fetchpriority="high">
-            <img src="img/w5.webp" alt="" width="540" height="675">
-            <img src="img/w7.webp" alt="" width="540" height="675">
-            <img src="img/w3.webp" alt="" width="540" height="675">
-            <img src="img/w2.webp" alt="" width="540" height="675">
-            <img src="img/w5.webp" alt="" width="540" height="675">
-            <img src="img/w7.webp" alt="" width="540" height="675">
-            <img src="img/w3.webp" alt="" width="540" height="675">
-          </div>
-        </div>
+    <div class="stage" aria-hidden="true"><div class="glow"></div>
+      <div class="tilt"><div class="phone"><div class="screen"><div class="ig"><i></i>jouwzaak</div><div class="feed"><img src="img/w2.webp" alt="" width="540" height="675" fetchpriority="high"><img src="img/w5.webp" alt="" width="540" height="675"><img src="img/w7.webp" alt="" width="540" height="675"><img src="img/w3.webp" alt="" width="540" height="675"><img src="img/w6.webp" alt="" width="540" height="675"><img src="img/w2.webp" alt="" width="540" height="675"><img src="img/w5.webp" alt="" width="540" height="675"><img src="img/w7.webp" alt="" width="540" height="675"><img src="img/w3.webp" alt="" width="540" height="675"><img src="img/w6.webp" alt="" width="540" height="675"></div></div></div>
+        <div class="chip c1"><i><svg width="16" height="16" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="4" fill="none" stroke="#fff" stroke-width="2"/><path d="M10 8.8v6.4l5.4-3.2z" fill="#fff"/></svg></i><span>Nieuwe Reel<small>staat ingepland</small></span></div>
+        <div class="chip c2"><i><svg width="16" height="16" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span>Post van deze week<small>klaar en online</small></span></div>
       </div>
-      <div class="chip c1"><i><svg width="16" height="16" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="4" fill="none" stroke="#0b0b0c" stroke-width="2.2"/><path d="M10 8.8v6.4l5.4-3.2z" fill="#0b0b0c"/></svg></i><span>Nieuwe Reel<small>staat ingepland</small></span></div>
-      <div class="chip c2"><i><svg width="16" height="16" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#0b0b0c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span>Post van deze week<small>klaar en online</small></span></div>
     </div>
   </div>
 </section>
 
-<!-- 2 · VOORBEELDWERK -->
-<section class="work" id="werk">
-  <div class="wrap head rv">
-    <span class="kicker">Voorbeeldwerk</span>
-    <h2>Elke zaak een eigen stijl</h2>
-    <p class="lead">Van lunchroom tot sportschool. Klik op een post om hem groot te bekijken.</p>
-  </div>
-  <div class="rail" id="rail">
-    <button class="shot" type="button" data-big="img/w2-2x.webp" data-cap="Lunchroom · nieuw op de kaart"><img src="img/w2.webp" srcset="img/w2.webp 540w, img/w2-2x.webp 1080w" sizes="(max-width:700px) 76vw, 340px" alt="Voorbeeldpost voor een lunchroom: nieuw op de kaart" loading="lazy" width="540" height="675"><span>Lunchroom</span><small>Nieuw op de kaart</small></button>
-    <button class="shot" type="button" data-big="img/w5-2x.webp" data-cap="Sportschool · reel-cover"><img src="img/w5.webp" srcset="img/w5.webp 540w, img/w5-2x.webp 1080w" sizes="(max-width:700px) 76vw, 340px" alt="Voorbeeld van een reel-cover voor een sportschool" loading="lazy" width="540" height="675"><span>Sportschool</span><small>Reel-cover</small></button>
-    <button class="shot" type="button" data-big="img/w3-2x.webp" data-cap="Bloemenwinkel · actiepost"><img src="img/w3.webp" srcset="img/w3.webp 540w, img/w3-2x.webp 1080w" sizes="(max-width:700px) 76vw, 340px" alt="Voorbeeldpost voor een bloemenwinkel" loading="lazy" width="540" height="675"><span>Bloemenwinkel</span><small>Actiepost</small></button>
-    <button class="shot" type="button" data-big="img/w6-2x.webp" data-cap="Nagelstudio · nieuwe kleur"><img src="img/w6.webp" srcset="img/w6.webp 540w, img/w6-2x.webp 1080w" sizes="(max-width:700px) 76vw, 340px" alt="Voorbeeldpost voor een nagelstudio" loading="lazy" width="540" height="675"><span>Nagelstudio</span><small>Nieuwe kleur</small></button>
-    <button class="shot" type="button" data-big="img/w7-2x.webp" data-cap="Bakker · vers uit de oven"><img src="img/w7.webp" srcset="img/w7.webp 540w, img/w7-2x.webp 1080w" sizes="(max-width:700px) 76vw, 340px" alt="Voorbeeldpost voor een bakker" loading="lazy" width="540" height="675"><span>Bakker</span><small>Vers uit de oven</small></button>
-  </div>
-  <div class="wrap railnav">
-    <p class="label"><b>Voorbeeldwerk</b> AI-beelden. Echte klantcases volgen.</p>
-    <div class="arrows"><button type="button" id="prev" aria-label="Vorige posts"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" id="next" aria-label="Volgende posts"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+<section class="alt">
+  <div class="wrap">
+    <div class="head rv"><span class="kicker">Voorbeeldwerk</span><h2>Elke zaak een eigen stijl</h2><p class="lead">Van lunchroom tot sportschool. Klik op een post om hem groot te bekijken.</p></div>
+    <div class="shots3"><button class="shot" type="button" data-big="img/w2-2x.webp" data-cap="Lunchroom · nieuw op de kaart"><div class="im"><img src="img/w2.webp" srcset="img/w2.webp 540w, img/w2-2x.webp 1080w" sizes="(max-width:700px) 78vw, 340px" alt="Voorbeeldpost voor een lunchroom: nieuw op de kaart" width="540" height="675" loading="lazy"></div><span>Lunchroom</span><small>Nieuw op de kaart</small></button><button class="shot" type="button" data-big="img/w5-2x.webp" data-cap="Sportschool · reel-cover"><div class="im"><img src="img/w5.webp" srcset="img/w5.webp 540w, img/w5-2x.webp 1080w" sizes="(max-width:700px) 78vw, 340px" alt="Voorbeeld van een reel-cover voor een sportschool" width="540" height="675" loading="lazy"></div><span>Sportschool</span><small>Reel-cover</small></button><button class="shot" type="button" data-big="img/w3-2x.webp" data-cap="Bloemenwinkel · actiepost"><div class="im"><img src="img/w3.webp" srcset="img/w3.webp 540w, img/w3-2x.webp 1080w" sizes="(max-width:700px) 78vw, 340px" alt="Voorbeeldpost voor een bloemenwinkel" width="540" height="675" loading="lazy"></div><span>Bloemenwinkel</span><small>Actiepost</small></button></div>
+    <div class="railbar" style="justify-content:center;margin-top:28px"><p class="tag"><b>Voorbeeldwerk</b> AI-beelden. Echte klantcases volgen.</p></div>
+    <div class="more"><a class="btn btn-ghost" href="werk/">Bekijk al ons werk <span class="arr" aria-hidden="true">→</span></a></div>
   </div>
 </section>
 
-<!-- 3 · PROBLEEM + OPLOSSING -->
 <section>
   <div class="wrap">
-    <div class="head rv" style="margin-bottom:0">
-      <span class="kicker">Herkenbaar?</span>
-      <h2>Je weet dat socials belangrijk zijn. Het komt er alleen niet van.</h2>
-    </div>
+    <div class="head rv"><span class="kicker">Herkenbaar?</span><h2>Je weet dat socials belangrijk zijn. Het komt er alleen niet van.</h2></div>
     <div class="split">
-      <div class="col no rv">
-        <h3>Zonder Clout Media</h3>
-        <ul class="list">
-          <li>Je bent de hele dag met je klanten bezig, posten schiet erbij in.</li>
-          <li>Je opent je socials en weet niet wat je moet posten.</li>
-          <li>Twee posts in een week, en dan een maand niks.</li>
-          <li>Je post weleens iets, maar je ziet er niks van terug.</li>
-        </ul>
-      </div>
-      <div class="col yes rv d1">
-        <h3>Met Clout Media</h3>
-        <ul class="list">
-          <li><div>Posts in de stijl van jouw zaak<span>Strak ontworpen, met teksten die klanten aanspreken.</span></div></li>
-          <li><div>Korte video's van jouw beelden<span>Gemonteerd met tekst en muziek. Daar bereik je nieuwe mensen mee.</span></div></li>
-          <li><div>Een plan per maand, alles ingepland<span>Elke week staat er iets nieuws online. Jij hoeft nergens aan te denken.</span></div></li>
-          <li><div>Eén vast aanspreekpunt<span>Beelden sturen, vragen stellen of iets aanpassen: gewoon via WhatsApp.</span></div></li>
-        </ul>
-      </div>
-    </div>
+  <div class="card col no rv"><h3>Zonder Clout Media</h3><ul class="list">
+    <li>Je bent de hele dag met je klanten bezig, posten schiet erbij in.</li>
+    <li>Je opent je socials en weet niet wat je moet posten.</li>
+    <li>Twee posts in een week, en dan een maand niks.</li>
+    <li>Je post weleens iets, maar je ziet er niks van terug.</li></ul></div>
+  <div class="card col yes rv d1"><h3>Met Clout Media</h3><ul class="list">
+    <li><div>Posts in de stijl van jouw zaak<span>Strak ontworpen, met teksten die klanten aanspreken.</span></div></li>
+    <li><div>Korte video's van jouw beelden<span>Gemonteerd met tekst en muziek. Daar bereik je nieuwe mensen mee.</span></div></li>
+    <li><div>Een plan per maand, alles ingepland<span>Elke week staat er iets nieuws online. Jij hoeft nergens aan te denken.</span></div></li>
+    <li><div>Eén vast aanspreekpunt<span>Beelden sturen, vragen stellen of iets aanpassen: gewoon via WhatsApp.</span></div></li></ul></div>
+</div>
   </div>
 </section>
 
-<!-- 4 · VOOR / NA -->
-<section class="grain" style="background:var(--ink2)">
+<section class="alt">
   <div class="wrap">
-    <div class="head rv">
-      <span class="kicker">Het verschil</span>
-      <h2>Sleep en zie wat er verandert</h2>
-      <p class="lead">Links een gemiddelde feed. Rechts dezelfde zaak met Clout Media.</p>
-    </div>
-    <div class="ba rv" id="ba">
-      <div class="side before" aria-hidden="true">
-        <div><img src="img/w7.webp" alt="" loading="lazy" style="object-position:20% 80%;transform:scale(1.6) rotate(1.5deg)"><span class="cap">goedemorgen!! vers brood 🙂</span></div>
-        <div class="t" style="background:#fdf6d8">Wij zijn vandaag open tot 18:00!!</div>
-        <div><img src="img/w2.webp" alt="" loading="lazy" style="object-position:40% 75%;transform:scale(1.8)"></div>
-        <div class="t" style="background:#f2f2f2">Fijne feestdagen allemaal 🎄<br>groetjes het team</div>
-        <div><img src="img/w3.webp" alt="" loading="lazy" style="object-position:70% 85%;transform:scale(1.7) rotate(-2deg)"><span class="cap">nieuwe bloemen binnen</span></div>
-        <div><img src="img/w6.webp" alt="" loading="lazy" style="object-position:30% 90%;transform:scale(1.9)"></div>
-        <div class="t" style="background:#e8f0fb">LET OP: maandag gesloten</div>
-        <div><img src="img/w5.webp" alt="" loading="lazy" style="object-position:30% 70%;transform:scale(1.7)"><span class="cap">kom ook sporten!</span></div>
-        <div class="t" style="background:#f2f2f2">Bedankt voor 100 volgers!!</div>
-      </div>
-      <div class="side after" aria-hidden="true">
-        <img src="img/w1.webp" alt="" loading="lazy"><img src="img/w2.webp" alt="" loading="lazy"><img src="img/w3.webp" alt="" loading="lazy">
-        <img src="img/w4.webp" alt="" loading="lazy"><img src="img/w5.webp" alt="" loading="lazy"><img src="img/w6.webp" alt="" loading="lazy">
-        <img src="img/w7.webp" alt="" loading="lazy"><img src="img/w8.webp" alt="" loading="lazy"><img src="img/w9.webp" alt="" loading="lazy">
-      </div>
-      <span class="tagx t1">Voor</span><span class="tagx t2">Na</span>
-      <div class="line" aria-hidden="true"></div>
-      <div class="knob" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24"><path d="M9 6l-5 6 5 6M15 6l5 6-5 6" fill="none" stroke="#0b0b0c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <input type="range" min="0" max="100" value="50" aria-label="Schuif om de feed voor en na te vergelijken">
-    </div>
-    <div class="under"><p class="label"><b>Voorbeeld</b> Verzonnen feeds, ter illustratie.</p></div>
+    <div class="head rv"><span class="kicker">Hoe het werkt</span><h2>In 3 stappen van stil naar strak</h2></div>
+    <div class="steps"><div class="step rv"><div class="n">1</div><h3>Kennismaking</h3><p>We bespreken je zaak, je klanten en je stijl. Online of op locatie, wanneer het jou uitkomt.</p></div><div class="step rv d1"><div class="n">2</div><h3>Contentplan</h3><p>Wij maken een plan voor de maand. Jij stuurt foto's en video's van je werk via WhatsApp.</p></div><div class="step rv d2"><div class="n">3</div><h3>Wij posten</h3><p>Wij ontwerpen, monteren en plannen alles in. Elke maand kijken we wat werkt en wat beter kan.</p></div></div>
   </div>
 </section>
 
-<!-- 5 · WERKWIJZE -->
-<section id="werkwijze">
+<section>
   <div class="wrap">
-    <div class="head rv" style="margin-bottom:0">
-      <span class="kicker">Hoe het werkt</span>
-      <h2>In 3 stappen van stil naar strak</h2>
+    <div class="head rv"><span class="kicker">Pakketten</span><h2>Duidelijke prijzen. Geen kleine lettertjes.</h2><p class="lead">Beide pakketten zijn maandelijks opzegbaar.</p></div>
+    <div class="mini">
+      <a class="card minip hov rv" href="pakketten/" style="text-decoration:none"><div><h3>Start</h3><p>8 posts · Instagram en Facebook</p></div><div class="amt">€150<small>/mnd</small></div></a>
+      <a class="card minip top hov rv d1" href="pakketten/" style="text-decoration:none"><div><h3>Compleet <span class="badge">Aanrader</span></h3><p>8 posts · 4 Reels/TikToks</p></div><div class="amt">€250<small>/mnd</small></div></a>
     </div>
-    <div class="steps">
-      <div class="step rv"><div class="n">1</div><h3>Kennismaking</h3><p>We bespreken je zaak, je klanten en je stijl. Online of op locatie, wanneer het jou uitkomt.</p></div>
-      <div class="step rv d1"><div class="n">2</div><h3>Contentplan</h3><p>Wij maken een plan voor de maand. Jij stuurt foto's en video's van je werk via WhatsApp.</p></div>
-      <div class="step rv d2"><div class="n">3</div><h3>Wij posten</h3><p>Wij ontwerpen, monteren en plannen alles in. Elke maand kijken we wat werkt en wat beter kan.</p></div>
-    </div>
+    <div class="more"><a class="btn btn-ghost" href="pakketten/">Bekijk pakketten <span class="arr" aria-hidden="true">→</span></a></div>
   </div>
 </section>
 
-<!-- 6 · PAKKETTEN -->
-<section class="mintsec grain" id="pakketten">
-  <div class="wrap">
-    <div class="head rv">
-      <span class="kicker">Pakketten</span>
-      <h2>Duidelijke prijzen. Geen kleine lettertjes.</h2>
-      <p class="lead">Beide pakketten zijn maandelijks opzegbaar. Bedragen zijn per maand.</p>
-    </div>
-    <div class="plans">
-      <div class="plan rv">
-        <div class="ph3"><h3>Start</h3></div>
-        <p class="for">Voor zaken die er online strak en verzorgd uit willen zien.</p>
-        <div class="amt">€150<small>per maand</small></div>
-        <ul class="ul">
-          <li>8 posts per maand</li>
-          <li>Instagram en Facebook</li>
-          <li>Contentplan en alles ingepland</li>
-          <li>Vast aanspreekpunt</li>
-        </ul>
-      </div>
-      <div class="plan top rv d1">
-        <div class="ph3"><h3>Compleet</h3><span class="badge">Aanrader</span></div>
-        <p class="for">Voor zaken die ook nieuwe klanten willen bereiken.</p>
-        <div class="amt">€250<small>per maand</small></div>
-        <ul class="ul">
-          <li>8 posts per maand</li>
-          <li>4 Reels/TikToks per maand</li>
-          <li>Instagram, Facebook en TikTok</li>
-          <li>Contentplan en alles ingepland</li>
-          <li>Maandoverzicht van wat werkte</li>
-          <li>Vast aanspreekpunt</li>
-        </ul>
-      </div>
-    </div>
-    <div class="picker rv" id="picker" aria-live="polite"></div>
-    <div class="after-plans">
-      <a class="btn" href="#scan">Begin met een gratis scan <span class="arr" aria-hidden="true">→</span></a>
-      <p class="fine">Ter vergelijking: een bureau vraagt voor social media beheer vaak €500 tot €1.500 per maand. Niet inbegrepen: advertenties, reageren op berichten en filmen of fotograferen op locatie.</p>
-    </div>
-  </div>
-</section>
-
-<!-- 7 · OVER LUCA + BELOFTES -->
-<section class="grain" id="over">
-  <div class="wrap">
-    <!-- FOTO: zodra je een foto hebt, zet ik die hier naast de tekst -->
-    <div class="about">
-      <div class="rv">
-        <span class="kicker">Over Clout Media</span>
-        <p class="big">"Ik ben opgegroeid met social media. Ik weet hoe je <em>opvalt in een feed</em>, en dat wil ik voor jouw zaak doen."</p>
-        <div class="sign"><i>L</i><div><b>Luca</b><small>Oprichter van Clout Media</small></div></div>
-      </div>
-      <div class="txt rv d1">
-        <p>Ik ben student Handel &amp; Ondernemen. Ik zag hoeveel goede lokale zaken online bijna onzichtbaar zijn, terwijl hun werk prima is. Dat is zonde, want hun klanten zitten de hele dag op hun telefoon.</p>
-        <p>Achter de schermen krijg ik ondersteuning van een ervaren adviseur op het gebied van ondernemen en bedrijfsprocessen. Zo combineer ik frisse ideeën met zakelijke ervaring.</p>
-      </div>
-    </div>
-    <div class="promises rv">
-      <div><b>Je scan binnen een week</b><span>Na je aanvraag heb je binnen een week je verbeterpunten.</span></div>
-      <div><b>Vaste prijs</b><span>Je betaalt wat op de site staat. Geen extra kosten achteraf.</span></div>
-      <div><b>Eén vast aanspreekpunt</b><span>Je hebt altijd met dezelfde persoon contact.</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- 8 · FAQ -->
-<section id="faq" style="background:var(--ink2)">
-  <div class="wrap">
-    <div class="head rv">
-      <span class="kicker">Veelgestelde vragen</span>
-      <h2>Goed om te weten</h2>
-    </div>
-    <div class="faq">
-      <details><summary>Wat kost het?</summary><p>Start kost €150 per maand en Compleet €250 per maand. De scan en het kennismakingsgesprek zijn gratis.</p></details>
-      <details><summary>Zit ik ergens aan vast?</summary><p>Nee. Je pakket is maandelijks opzegbaar. Zeg je op voor het eind van de maand? Dan stopt je pakket aan het eind van die maand.</p></details>
-      <details><summary>Wat moet ik zelf doen?</summary><p>Alleen foto's en video's maken van je werk, je zaak of je producten, en die via WhatsApp sturen. Foto's met je telefoon zijn prima. Wij vertellen je precies wat we nodig hebben.</p></details>
-      <details><summary>Ik ben geen fotograaf. Is dat erg?</summary><p>Nee. Je krijgt van ons simpele tips voor goede telefoonfoto's, en wij maken er strakke posts en video's van.</p></details>
-      <details><summary>Wat krijg ik bij de gratis scan?</summary><p>We bekijken je social media en sturen je binnen een week 3 concrete verbeterpunten. Daarna kies je zelf of je met ons verder wilt. Dat hoeft niet.</p></details>
-      <details><summary>Hoe snel zie ik resultaat?</summary><p>Je pagina ziet er meteen strakker uit. Voor meer volgers en bereik is meestal een paar maanden regelmatig posten nodig. We beloven geen aantallen, wel goed werk en elke week iets nieuws.</p></details>
-      <details><summary>Voor welke bedrijven werken jullie?</summary><p>Voor alle soorten lokale ondernemers: horeca, winkels, beauty, sport, dienstverleners en meer. In Lelystad, Flevoland en de rest van Nederland.</p></details>
-      <details><summary>Reageren jullie ook op berichten en reacties?</summary><p>Nee, dat zit niet in de pakketten. Jij houdt zelf contact met je klanten. Wil je dat wel uitbesteden, vraag dan naar de mogelijkheden.</p></details>
-    </div>
-  </div>
-</section>
-
-<!-- 9 · SCAN + SLOT -->
-<section class="scan grain" id="scan">
-  <div class="glow" aria-hidden="true"></div>
-  <div class="wrap scan-grid">
-    <div class="copy rv">
-      <span class="kicker">Gratis social media scan</span>
-      <h2>Jij runt je zaak. <span class="mint">Wij zorgen dat de rest het ziet.</span></h2>
-      <p class="lead">Begin met een gratis scan. We bekijken je pagina en sturen je binnen een week 3 concrete verbeterpunten. Gratis en vrijblijvend.</p>
-      <ul class="points"><li>Hoe je feed overkomt op een nieuwe klant</li><li>3 verbeterpunten die je meteen kunt toepassen</li><li>Daarna een kennismaking, als jij dat wilt</li></ul>
-      <p class="alt">Liever direct contact? <a href="https://wa.me/31636285409" target="_blank" rel="noopener">Stuur een WhatsApp</a> of mail naar <a href="mailto:cloutmedianl@gmail.com">cloutmedianl@gmail.com</a>.</p>
-    </div>
-
-    <form class="form rv d1" id="form" novalidate>
-      <h3>Vraag je gratis scan aan</h3>
-      <p class="sub">Invullen duurt 1 minuut.</p>
-      <input type="hidden" name="_subject" value="Nieuwe aanvraag gratis scan via cloutmedia.nl">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <div class="row2">
-        <div class="field"><label for="f1">Je naam</label><input id="f1" name="Naam" autocomplete="name" required></div>
-        <div class="field"><label for="f2">Bedrijfsnaam</label><input id="f2" name="Bedrijf" autocomplete="organization" required></div>
-      </div>
-      <div class="row2">
-        <div class="field"><label for="f3">Plaats</label><input id="f3" name="Plaats" autocomplete="address-level2" placeholder="Bijv. Lelystad" required></div>
-        <div class="field"><label for="f4">E-mail</label><input id="f4" name="E-mail" type="email" autocomplete="email" required></div>
-      </div>
-      <div class="field"><label for="f5">Link naar je social media</label><input id="f5" name="Social link" placeholder="Bijv. instagram.com/jouwzaak" required><p class="hint">Nog geen pagina? Vul dan "geen" in.</p></div>
-      <fieldset class="field">
-        <legend>Hoe wil je daarna kennismaken?</legend>
-        <div class="seg">
-          <label><input type="radio" name="Afspraak" value="Online" checked> Online</label>
-          <label><input type="radio" name="Afspraak" value="Op locatie"> Op locatie</label>
-          <label><input type="radio" name="Afspraak" value="Alleen de scan"> Alleen de scan</label>
-        </div>
-      </fieldset>
-      <label class="consent"><input type="checkbox" id="ok" required> <span>Ik ga akkoord met de <button type="button" class="linkbtn" data-open="privacy">privacyverklaring</button>. Mijn gegevens worden alleen gebruikt voor de scan en om contact met mij op te nemen.</span></label>
-      <button class="btn" type="submit">Vraag mijn gratis scan aan</button>
-      <div class="msg" id="msg" role="status"></div>
-    </form>
-  </div>
-</section>
-
+<section class="cta alt" data-nobar><div class="glow" aria-hidden="true"></div><div class="wrap rv" style="position:relative">
+  <h2>Jij runt je zaak. <span class="mint">Wij zorgen dat de rest het ziet.</span></h2><p class="lead">Begin met een gratis scan. Binnen een week weet je wat er beter kan.</p><div class="ctas"><a class="btn btn-main" href="scan/">Gratis social media scan <span class="arr" aria-hidden="true">→</span></a><a class="btn btn-ghost" href="https://wa.me/31636285409" target="_blank" rel="noopener">Stuur een WhatsApp</a></div></div></section>
+<div class="lb" id="lb" aria-hidden="true" role="dialog" aria-label="Voorbeeldpost groot bekijken"><button class="x" type="button" aria-label="Sluiten"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></button><figure><img src="" alt="" width="1080" height="1350"><figcaption></figcaption></figure></div>
 </main>
-
-<footer>
+<footer class="ftr">
   <div class="wrap">
     <div class="fgrid">
-      <div class="fbrand">
-        <img src="img/logo.png" alt="Clout Media" width="108" height="36" loading="lazy">
-        <p>Strakke socials voor lokale ondernemers. Gevestigd in Flevoland, actief in heel Nederland.</p>
-      </div>
-      <div class="fcol">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="https://wa.me/31636285409" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>06 36 28 54 09</a></li>
-          <li><a href="mailto:cloutmedianl@gmail.com"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2"/></svg>cloutmedianl@gmail.com</a></li>
-          <li><a href="https://www.instagram.com/cloutmedianl/" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/></svg>@cloutmedianl</a></li>
-        </ul>
-      </div>
-      <div class="fcol">
-        <h4>Menu</h4>
-        <ul>
-          <li><a href="#werk">Voorbeeldwerk</a></li>
-          <li><a href="#pakketten">Pakketten</a></li>
-          <li><a href="#faq">Vragen</a></li>
-          <li><button type="button" class="linkbtn" data-open="privacy">Privacyverklaring</button></li>
-          <li><button type="button" class="linkbtn" data-open="voorwaarden">Algemene voorwaarden</button></li>
-        </ul>
-      </div>
+      <div class="fbrand"><img src="img/logo.png" alt="Clout Media" width="108" height="36" loading="lazy"><p>Strakke socials voor lokale ondernemers. Gevestigd in Flevoland, actief in heel Nederland.</p></div>
+      <div class="fcol"><h4>Contact</h4><ul>
+        <li><a href="https://wa.me/31636285409" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>06 36 28 54 09</a></li>
+        <li><a href="mailto:cloutmedianl@gmail.com"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>cloutmedianl@gmail.com</a></li>
+        <li><a href="https://www.instagram.com/cloutmedianl/" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>@cloutmedianl</a></li></ul></div>
+      <div class="fcol"><h4>Menu</h4><ul>
+        <li><a href="werk/">Werk</a></li><li><a href="pakketten/">Pakketten</a></li><li><a href="over/">Over</a></li><li><a href="vragen/">Vragen</a></li>
+        <li><a href="privacy/">Privacyverklaring</a></li><li><a href="voorwaarden/">Algemene voorwaarden</a></li></ul></div>
     </div>
     <!-- KVK: zet hier later "· KvK 12345678" achter Clout Media -->
-    <div class="fbottom"><span>© 2026 Clout Media</span><span>Social media beheer in Lelystad, Flevoland en heel Nederland</span></div>
+    <div class="fbot"><span>© 2026 Clout Media</span><span>Social media beheer in Lelystad, Flevoland en heel Nederland</span></div>
   </div>
-  <div class="wordmark" aria-hidden="true">clout media</div>
+  <div class="word" aria-hidden="true">clout media</div>
 </footer>
-
-<a class="wa" href="https://wa.me/31636285409?text=Hoi%20Clout%20Media%2C%20ik%20wil%20graag%20meer%20weten." target="_blank" rel="noopener" aria-label="Stuur ons een WhatsApp-bericht"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-3.9-.5-5.6-1.5l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7zm5.9-8c-.3-.2-1.9-1-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.3-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6.3-.5c.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.2 3.2 1.3 3.4c.2.2 2.3 3.5 5.6 4.9 2.8 1.1 3.3.9 3.9.8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg></a>
-<div class="mbar" id="mbar"><a class="btn" href="#scan">Gratis scan</a><a class="mw" href="https://wa.me/31636285409" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm5.9 15.7c-.3-.2-1.9-1-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.3-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6.3-.5c.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.2 3.2 1.3 3.4c.2.2 2.3 3.5 5.6 4.9 2.8 1.1 3.3.9 3.9.8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg></a></div>
-
-<dialog class="lb" id="lb"><button class="x" type="button" aria-label="Sluiten" data-close>×</button><img id="lbimg" src="" alt=""><p id="lbcap"></p></dialog>
-
-<!-- PRIVACYVERKLARING -->
-<dialog class="legal" id="privacy">
-  <div class="dlg">
-    <button class="close" type="button" aria-label="Sluiten" data-close>×</button>
-    <h2>Privacyverklaring</h2>
-    <p>Laatst bijgewerkt: 18 november 2026</p>
-    <h3>Wie zijn wij?</h3><p>Clout Media, gevestigd in Flevoland, is<!-- KVK: zet hier later " (KvK: 12345678)" achter Flevoland --> verantwoordelijk voor de verwerking van je gegevens. Contact: cloutmedianl@gmail.com.</p>
-    <h3>Welke gegevens?</h3><p>Als je het formulier invult of contact opneemt, verwerken we je naam, bedrijfsnaam, plaats, e-mailadres, de link naar je social media en je voorkeur voor een afspraak. Neem je contact op via WhatsApp, dan ook je telefoonnummer.</p>
-    <h3>Waarvoor?</h3><ul><li>Om je gratis scan te maken en te versturen</li><li>Om contact met je op te nemen en een afspraak te plannen</li><li>Om onze diensten uit te voeren als je klant wordt</li><li>Voor onze administratie, als de wet dat verplicht</li></ul>
-    <h3>Wie verwerkt je gegevens nog meer?</h3><p>Het formulier wordt verstuurd via FormSubmit, dat het bericht doorstuurt naar ons e-mailadres (Gmail van Google). Berichten via WhatsApp lopen via WhatsApp (Meta). We verkopen je gegevens nooit en gebruiken geen trackingcookies.</p>
-    <h3>Hoe lang bewaren we ze?</h3><p>Word je geen klant, dan verwijderen we je gegevens binnen 12 maanden na het laatste contact. Word je wel klant, dan bewaren we ze zolang we samenwerken, en daarna zolang de wet dat verplicht (bijvoorbeeld 7 jaar voor facturen).</p>
-    <h3>Jouw rechten</h3><p>Je mag je gegevens inzien, laten aanpassen of laten verwijderen, en bezwaar maken tegen het gebruik. Mail ons via cloutmedianl@gmail.com; we reageren binnen 4 weken. Ben je het niet eens met hoe we met je gegevens omgaan, dan kun je een klacht indienen bij de Autoriteit Persoonsgegevens.</p>
-  </div>
-</dialog>
-
-<!-- ALGEMENE VOORWAARDEN -->
-<dialog class="legal" id="voorwaarden">
-  <div class="dlg">
-    <button class="close" type="button" aria-label="Sluiten" data-close>×</button>
-    <h2>Algemene voorwaarden</h2>
-    <p>Clout Media · Versie 18 november 2026<!-- KVK: zet hier later " · KvK: 12345678" achter Clout Media --></p>
-    <h3>1. Wanneer gelden deze voorwaarden?</h3><p>Deze voorwaarden gelden voor alle offertes, opdrachten en diensten van Clout Media. Afwijkende afspraken gelden alleen als we die samen schriftelijk hebben vastgelegd (ook per e-mail of WhatsApp).</p>
-    <h3>2. Offerte en start</h3><ol><li>Een offerte is 30 dagen geldig.</li><li>De samenwerking start zodra je de offerte of het pakket per e-mail of WhatsApp hebt bevestigd.</li><li>De gratis scan is vrijblijvend en verplicht je tot niets.</li></ol>
-    <h3>3. Wat wij doen</h3><ol><li>We leveren de diensten uit het pakket dat je kiest, zoals beschreven op de website of in de offerte.</li><li>We doen ons best om goed werk te leveren (een inspanningsverplichting). We garanderen geen resultaten, zoals een bepaald aantal volgers, likes, bereik of klanten.</li><li>Posts of video's die in een maand niet gebruikt zijn, schuiven niet door naar de volgende maand, tenzij we dat samen afspreken.</li></ol>
-    <h3>4. Wat jij doet</h3><ol><li>Je levert op tijd de foto's, video's en informatie aan die we nodig hebben. Lever je niet of te laat aan, dan kan de planning schuiven. De maandprijs blijft dan gelijk.</li><li>Je geeft ons toegang tot je social media-accounts als dat nodig is om in te plannen. Je kunt die toegang altijd weer intrekken.</li><li>Je zorgt dat je het recht hebt om het materiaal te gebruiken dat je aanlevert (bijvoorbeeld foto's van anderen, muziek of herkenbare personen). Dient iemand daar toch een claim over in, dan ben jij daarvoor verantwoordelijk en niet Clout Media.</li></ol>
-    <h3>5. Prijs en betaling</h3><ol><li>Je betaalt per maand, vooraf. De prijzen staan op de website of in de offerte.</li><li>Facturen betaal je binnen 14 dagen.</li><li>Betaal je niet op tijd, dan sturen we een herinnering. Blijft betaling uit, dan mogen we het werk stilleggen tot er betaald is.</li><li>Prijswijzigingen laten we minstens 1 maand van tevoren weten. Ben je het er niet mee eens, dan kun je opzeggen tegen de datum waarop de nieuwe prijs ingaat.</li></ol>
-    <h3>6. Looptijd en opzeggen</h3><ol><li>Je pakket loopt per maand en wordt elke maand automatisch verlengd.</li><li>Je kunt altijd opzeggen per e-mail of WhatsApp. Zeg je op voor het eind van de maand, dan stopt het pakket aan het eind van die maand.</li><li>Clout Media kan ook opzeggen, met dezelfde termijn.</li></ol>
-    <h3>7. Rechten op het werk</h3><ol><li>Na betaling mag je de content die we voor je maken onbeperkt gebruiken voor je eigen bedrijf, ook na afloop van de samenwerking.</li><li>Clout Media mag het werk laten zien in zijn portfolio en op zijn eigen socials, tenzij je laat weten dat je dat niet wilt.</li></ol>
-    <h3>8. Aansprakelijkheid</h3><ol><li>Clout Media is alleen aansprakelijk voor directe schade door een fout van ons, en nooit voor meer dan het bedrag dat je in de maand voor de schade hebt betaald.</li><li>We zijn niet aansprakelijk voor gevolgen van wijzigingen of storingen bij Instagram, TikTok, Facebook of andere platforms, zoals een geblokkeerd account of minder bereik.</li></ol>
-    <h3>9. Privacy en geheimhouding</h3><p>We gaan zorgvuldig om met je gegevens en met vertrouwelijke informatie over je bedrijf. Lees ook onze privacyverklaring.</p>
-    <h3>10. Klachten en recht</h3><ol><li>Ben je ergens niet tevreden over, laat het ons dan zo snel mogelijk weten. Dan zoeken we samen een oplossing.</li><li>Op deze voorwaarden is Nederlands recht van toepassing.</li></ol>
-  </div>
-</dialog>
-
-<script>
-{
-  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const $=id=>document.getElementById(id);
-
-  // vensters (privacy, voorwaarden, lightbox)
-  const open=d=>{try{d.showModal()}catch(e){d.setAttribute('open','')}};
-  document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>open($(b.dataset.open))));
-  document.querySelectorAll('dialog').forEach(d=>{d.querySelector('[data-close]').addEventListener('click',()=>d.close());d.addEventListener('click',e=>{if(e.target===d)d.close()})});
-
-  // rustig in beeld
-  const els=document.querySelectorAll('.rv');
-  if('IntersectionObserver' in window&&!reduce){
-    const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-    els.forEach(el=>io.observe(el));
-  }else els.forEach(el=>el.classList.add('in'));
-
-  // hero: telefoons bewegen licht mee
-  const phones=[...document.querySelectorAll('[data-par]')],stage=$('stage');
-  const base=phones.map(p=>getComputedStyle(p).transform);
-  if(!reduce){
-    let tick=false;
-    const par=()=>{tick=false;const y=Math.min(scrollY,900);phones.forEach((p,i)=>{const k=+p.dataset.par;p.style.transform=(base[i]==='none'?'':base[i])+` translateY(${(-y*k/100).toFixed(1)}px)`})};
-    addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(par)}},{passive:true});
-  }
-
-  // voorbeeldwerk: pijlen + lightbox
-  const rail=$('rail');
-  const step=()=>rail.querySelector('.shot').offsetWidth+24;
-  $('prev').addEventListener('click',()=>rail.scrollBy({left:-step(),behavior:reduce?'auto':'smooth'}));
-  $('next').addEventListener('click',()=>rail.scrollBy({left:step(),behavior:reduce?'auto':'smooth'}));
-  const lb=$('lb'),lbimg=$('lbimg'),lbcap=$('lbcap');
-  rail.querySelectorAll('.shot').forEach(s=>s.addEventListener('click',()=>{lbimg.src=s.dataset.big;lbimg.alt=s.querySelector('img').alt;lbcap.textContent=s.dataset.cap+' · Voorbeeldwerk, AI-beeld';open(lb)}));
-
-  // voor/na
-  const ba=$('ba'),range=ba.querySelector('input');
-  const setPos=v=>ba.style.setProperty('--pos',v+'%');
-  range.addEventListener('input',()=>setPos(range.value));setPos(50);
-
-  // pakketkiezer (compact)
-  const pk=$('picker');
-  const Q=[
-    ['Twijfel je? Op welke socials wil je actief zijn?',[['Instagram en/of Facebook',0],['Ook TikTok',1]]],
-    ['Wat wil je vooral bereiken?',[['Er strak uitzien',0],['Nieuwe klanten bereiken met video',1]]],
-    ['Wat is je budget per maand?',[['Tot €200',-2],['€200 of meer',1]]]
-  ];
-  let qi=0,score=0;
-  const render=()=>{
-    if(qi<Q.length){
-      pk.innerHTML=`<p><span class="q">${qi+1}/3</span>${Q[qi][0]}</p>`+Q[qi][1].map(([t,v])=>`<button type="button" class="pick" data-v="${v}">${t}</button>`).join('');
-      pk.querySelectorAll('.pick').forEach(b=>b.addEventListener('click',()=>{score+=+b.dataset.v;qi++;render();const f=pk.querySelector('button');if(f)f.focus({preventScroll:true})}));
-    }else{
-      const c=score>=1;
-      pk.innerHTML=`<p class="res">Ons advies: <b>${c?'Compleet · €250':'Start · €150'}</b>. ${c?'Met korte video\'s bereik je ook mensen die je nog niet kennen.':'Een strakke, verzorgde pagina voor een vaste, lage prijs. Later overstappen kan altijd.'}</p><button type="button" class="again">Opnieuw</button>`;
-      pk.querySelector('.again').addEventListener('click',()=>{qi=0;score=0;render()});
-    }
-  };
-  render();
-
-  // één zwevende balk op mobiel
-  const mbar=$('mbar'),scan=$('scan'),hero=document.querySelector('.hero');
-  const onScroll=()=>{const r=scan.getBoundingClientRect(),h=hero.getBoundingClientRect();mbar.classList.toggle('show',h.bottom<0&&!(r.top<innerHeight&&r.bottom>0))};
-  addEventListener('scroll',onScroll,{passive:true});onScroll();
-
-  // formulier naar Gmail via FormSubmit (niet aanpassen)
-  const f=$('form'),msg=$('msg');
-  f.addEventListener('submit',async e=>{
-    e.preventDefault();msg.className='msg';
-    if(!f.reportValidity())return;
-    const btn=f.querySelector('button[type=submit]');btn.disabled=true;btn.textContent='Bezig met versturen...';
-    try{
-      const res=await fetch('https://formsubmit.co/ajax/cloutmedianl@gmail.com',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)});
-      if(!res.ok)throw new Error();
-      msg.className='msg ok';msg.textContent='Bedankt! Je aanvraag is binnen. Je krijgt je scan binnen een week.';btn.style.display='none';
-    }catch(err){
-      btn.disabled=false;btn.textContent='Vraag mijn gratis scan aan';
-      msg.className='msg err';msg.innerHTML='Versturen lukte niet. Stuur ons een WhatsApp op <a href="https://wa.me/31636285409">06 36 28 54 09</a> of mail naar cloutmedianl@gmail.com.';
-    }
-  });
-}
-</script>
+<a class="wa" href="https://wa.me/31636285409?text=Hoi%20Clout%20Media%2C%20ik%20wil%20graag%20meer%20weten." target="_blank" rel="noopener" aria-label="Stuur ons een WhatsApp-bericht"><svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-3.9-.5-5.6-1.5l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7zm5.9-8c-.3-.2-1.9-1-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.3-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6.3-.5c.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.2 3.2 1.3 3.4c.2.2 2.3 3.5 5.6 4.9 2.8 1.1 3.3.9 3.9.8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg></a>
+<div class="mbar" id="mbar"><a class="btn btn-main" href="scan/">Gratis scan</a><a class="mw" href="https://wa.me/31636285409" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-3.9-.5-5.6-1.5l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7zm5.9-8c-.3-.2-1.9-1-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.3-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6.3-.5c.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.2 3.2 1.3 3.4c.2.2 2.3 3.5 5.6 4.9 2.8 1.1 3.3.9 3.9.8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg></a></div>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

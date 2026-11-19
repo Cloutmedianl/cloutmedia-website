@@ -1,0 +1,22 @@
+<div class="ba rv" id="ba">
+      <div class="side before" aria-hidden="true">
+        <div><img src="img/w7.webp" alt="" loading="lazy" style="object-position:20% 80%;transform:scale(1.6) rotate(1.5deg)"><span class="cap">goedemorgen!! vers brood 🙂</span></div>
+        <div class="t" style="background:#fdf6d8">Wij zijn vandaag open tot 18:00!!</div>
+        <div><img src="img/w2.webp" alt="" loading="lazy" style="object-position:40% 75%;transform:scale(1.8)"></div>
+        <div class="t" style="background:#f2f2f2">Fijne feestdagen allemaal 🎄<br>groetjes het team</div>
+        <div><img src="img/w3.webp" alt="" loading="lazy" style="object-position:70% 85%;transform:scale(1.7) rotate(-2deg)"><span class="cap">nieuwe bloemen binnen</span></div>
+        <div><img src="img/w6.webp" alt="" loading="lazy" style="object-position:30% 90%;transform:scale(1.9)"></div>
+        <div class="t" style="background:#e8f0fb">LET OP: maandag gesloten</div>
+        <div><img src="img/w5.webp" alt="" loading="lazy" style="object-position:30% 70%;transform:scale(1.7)"><span class="cap">kom ook sporten!</span></div>
+        <div class="t" style="background:#f2f2f2">Bedankt voor 100 volgers!!</div>
+      </div>
+      <div class="side after" aria-hidden="true">
+        <img src="img/w1.webp" alt="" loading="lazy"><img src="img/w2.webp" alt="" loading="lazy"><img src="img/w3.webp" alt="" loading="lazy">
+        <img src="img/w4.webp" alt="" loading="lazy"><img src="img/w5.webp" alt="" loading="lazy"><img src="img/w6.webp" alt="" loading="lazy">
+        <img src="img/w7.webp" alt="" loading="lazy"><img src="img/w8.webp" alt="" loading="lazy"><img src="img/w9.webp" alt="" loading="lazy">
+      </div>
+      <span class="tx t1">Voor</span><span class="tx t2">Na</span>
+      <div class="line" aria-hidden="true"></div>
+      <div class="knob" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24"><path d="M9 6l-5 6 5 6M15 6l5 6-5 6" fill="none" stroke="#0b0b0c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <input type="range" min="0" max="100" value="50" aria-label="Schuif om de feed voor en na te vergelijken">
+    </div>
