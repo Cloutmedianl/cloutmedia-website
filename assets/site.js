@@ -79,16 +79,33 @@
   // pakketkiezer
   const pk=$('#picker');
   if(pk){
-    const Q=[['Op welke socials wil je actief zijn?',[['Instagram en/of Facebook',0],['Ook TikTok',1]]],['Wat wil je vooral bereiken?',[['Er strak uitzien',0],['Nieuwe klanten bereiken met video',1]]],['Wat is je budget per maand?',[['Tot €200',-2],['€200 of meer',1]]]];
-    let i=0,s=0;const box=d.createElement('div');box.className='pk';pk.appendChild(box);
+    const Q=[['Op welke socials wil je actief zijn?',['Instagram/Facebook','Ook TikTok','Weet ik nog niet']],
+             ['Wat wil je vooral bereiken?',['Er verzorgd uitzien','Nieuwe klanten bereiken','Overal goed gevonden worden, ook op Google']],
+             ['Wat is je budget per maand?',['Tot €150','Tot €250','Tot €400']]];
+    const P={start:['Start','€150','Een strakke, verzorgde pagina voor een vaste, lage prijs.'],compleet:['Compleet','€250','Met korte video\'s en TikTok bereik je ook mensen die je nog niet kennen.'],premium:['Premium','€395','Je socials, je Google Bedrijfsprofiel en je website in één hand.']};
+    const advise=a=>{const [s,g,b]=a;const bud=[150,250,400][b];
+      const fit=(g===2&&bud>=400)?'premium':((s===1||g===1)&&bud>=250)?'compleet':'start';
+      const ideal=g===2?'premium':(s===1||g===1)?'compleet':'start';
+      return {fit,ideal}};
+    window.__cmAdvise=advise;
+    let i=0,ans=[];const box=d.createElement('div');box.className='pk';pk.appendChild(box);
     const paint=()=>{
-      if(i<Q.length){box.innerHTML=`<p><span class="q">${i+1}/3</span>${i===0?'Twijfel je? ':''}${Q[i][0]}</p>`+Q[i][1].map(([t,v])=>`<button type="button" class="pick" data-v="${v}">${t}</button>`).join('');
-        box.querySelectorAll('.pick').forEach(b=>b.addEventListener('click',()=>{s+=+b.dataset.v;i++;swap()}));}
-      else{const c=s>=1;box.innerHTML=`<p>Ons advies: <b>${c?'Compleet · €250':'Start · €150'}</b>. ${c?'Met korte video\'s bereik je ook mensen die je nog niet kennen.':'Een strakke, verzorgde pagina voor een vaste, lage prijs. Later overstappen kan altijd.'}</p><button type="button" class="again">Opnieuw</button>`;
-        box.querySelector('.again').addEventListener('click',()=>{i=0;s=0;swap()});}
+      if(i<Q.length){box.innerHTML=`<p><span class="q">${i+1}/3</span>${i===0?'Twijfel je? ':''}${Q[i][0]}</p>`+Q[i][1].map((t,v)=>`<button type="button" class="pick" data-v="${v}">${t}</button>`).join('');
+        box.querySelectorAll('.pick').forEach(btn=>btn.addEventListener('click',()=>{ans.push(+btn.dataset.v);i++;swap()}));}
+      else{const {fit,ideal}=advise(ans),f=P[fit],id=P[ideal];
+        const txt=fit===ideal?`Ons advies: <b>${f[0]} · ${f[1]}</b>. ${f[2]}`:`Binnen je budget past <b>${f[0]} · ${f[1]}</b>, maar voor wat je wilt bereiken raden we <b>${id[0]} · ${id[1]}</b> aan.`;
+        box.innerHTML=`<p data-fit="${fit}" data-ideal="${ideal}">${txt}</p><button type="button" class="again">Opnieuw</button>`;
+        box.querySelector('.again').addEventListener('click',()=>{i=0;ans=[];swap()});}
     };
     const swap=()=>{if(reduce){paint();box.querySelector('button')?.focus({preventScroll:true});return}box.classList.add('out');setTimeout(()=>{paint();box.classList.remove('out');box.querySelector('button')?.focus({preventScroll:true})},220)};
     paint();
+  }
+
+  // vergelijking: tabbladen op mobiel
+  const cmp=$('.cmp');
+  if(cmp){const tabs=$$('.tabs [role=tab]');
+    tabs.forEach(t=>t.addEventListener('click',()=>{tabs.forEach(x=>x.setAttribute('aria-selected',x===t?'true':'false'));cmp.dataset.on=t.dataset.col;cmp.classList.remove('sw');void cmp.offsetWidth;cmp.classList.add('sw')}));
+    $('.tabs')?.addEventListener('keydown',e=>{const k=tabs.findIndex(t=>t.getAttribute('aria-selected')==='true');let n=k;if(e.key==='ArrowRight')n=(k+1)%3;else if(e.key==='ArrowLeft')n=(k+2)%3;else return;tabs[n].click();tabs[n].focus()});
   }
 
   // vragen: soepel open/dicht, één tegelijk
