@@ -205,10 +205,15 @@ section{position:relative;padding:clamp(80px,10vw,136px) 0}
 .lb figcaption{color:var(--grey);text-align:center;margin-top:14px;font-size:14px}
 .lb .x{position:absolute;top:20px;right:20px;background:var(--card);box-shadow:inset 0 0 0 1px var(--line)}
 /* voor/na */
-.ba{position:relative;max-width:680px;margin:0 auto;border-radius:var(--r3);overflow:hidden;box-shadow:var(--sh);border:1px solid var(--line);aspect-ratio:4/5;background:#fff;user-select:none;touch-action:pan-y}
-.side{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);gap:3px;background:#fff}
-.side>*{position:relative;overflow:hidden}
-.side img{width:100%;height:100%;object-fit:cover}
+.ba{position:relative;max-width:680px;margin:0 auto;border-radius:var(--r3);overflow:hidden;box-shadow:var(--sh);border:1px solid var(--line);background:#fff;user-select:none;touch-action:pan-y}
+.ba::before{content:"";display:block;padding-top:125%}
+.side{position:absolute;top:0;left:0;width:100%;height:100%;display:block;background:#fff;--g:3px;--c:calc((100% - 2*var(--g))/3)}
+.side>*{position:absolute;overflow:hidden;width:var(--c);height:var(--c);margin:0;display:block}
+.side>:nth-child(3n+1){left:0}.side>:nth-child(3n+2){left:calc(var(--c) + var(--g))}.side>:nth-child(3n){left:calc(2*var(--c) + 2*var(--g))}
+.side>:nth-child(-n+3){top:0}.side>:nth-child(n+4):nth-child(-n+6){top:calc(var(--c) + var(--g))}.side>:nth-child(n+7){top:calc(2*var(--c) + 2*var(--g))}
+.side img{object-fit:cover;max-width:none}
+.side>div>img{position:absolute;top:0;left:0;width:100%;height:100%}
+.side>img{height:var(--c)}
 .before img{filter:saturate(.55) brightness(.92) contrast(.86)}
 .before .t{display:grid;place-items:center;padding:12%;text-align:center;font:400 clamp(12px,2vw,17px)/1.35 Arial,Helvetica,sans-serif;color:#222}
 .before .cap{position:absolute;left:6%;right:6%;bottom:7%;font:700 clamp(10px,1.6vw,14px)/1.2 Arial,sans-serif;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.7)}
@@ -220,7 +225,7 @@ section{position:relative;padding:clamp(80px,10vw,136px) 0}
 .ba .t1{left:18px;background:#fff;color:var(--ink);box-shadow:0 6px 18px rgba(0,0,0,.2)}.ba .t2{right:18px;background:var(--ink);color:#fff}
 .ba:has(input:focus-visible){outline:2px solid var(--mint);outline-offset:4px}
 .under{display:flex;justify-content:center;margin-top:24px}
-@media(max-width:700px){.ba{border-radius:var(--r2)}.ba .tx{top:10px;font-size:13px;padding:6px 12px}.ba .t1{left:10px}.ba .t2{right:10px}.ba .knob{width:52px;height:52px;margin:-26px 0 0 -26px}.ba .knob svg{width:22px;height:22px}.side{gap:2px}}
+@media(max-width:700px){.ba{border-radius:var(--r2)}.ba .tx{top:10px;font-size:13px;padding:6px 12px}.ba .t1{left:10px}.ba .t2{right:10px}.ba .knob{width:52px;height:52px;margin:-26px 0 0 -26px}.ba .knob svg{width:22px;height:22px}.side{--g:2px}}
 
 /* ---------- ZONDER / MET ---------- */
 .split{display:grid;gap:20px}
