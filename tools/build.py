@@ -59,7 +59,7 @@ def header(r,key):
 <div class="sheet" id="sheet" aria-hidden="true">
   <div class="nav"><a class="logo" href="{r or './'}" aria-label="Clout Media, naar home"><img src="{r}img/logo.png" alt="Clout Media" width="102" height="34"></a><button class="x" type="button" aria-label="Menu sluiten"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
   <nav aria-label="Menu">{links}</nav>
-  <a class="btn btn-main" href="{r}scan/">Gratis social media scan {ARR}</a>
+  <a class="btn btn-main" href="{r}scan/">Gratis scan {ARR}</a>
 </div>
 '''
 
@@ -81,7 +81,6 @@ def footer(r,key,bar=True):
   </div>
   <div class="word" aria-hidden="true">clout media</div>
 </footer>
-<a class="wa" href="{WA}?text=Hoi%20Clout%20Media%2C%20ik%20wil%20graag%20meer%20weten." target="_blank" rel="noopener" aria-label="Stuur ons een WhatsApp-bericht">{WA_BIG}</a>
 {'<div class="mbar" id="mbar"><a class="btn btn-main" href="'+r+'scan/">Gratis scan</a><a class="mw" href="'+WA+'" target="_blank" rel="noopener" aria-label="WhatsApp">'+WA_BIG+'</a></div>' if bar else ''}
 <script src="{r}assets/site.js?v={VER}" defer></script>
 </body>
@@ -97,15 +96,15 @@ def page(path,key,title,desc,body,bar=True,extra_head=''):
     fp=os.path.join(OUT,path);os.makedirs(os.path.dirname(fp) or OUT,exist_ok=True)
     open(fp,'w',encoding='utf-8').write(html)
 
-def phero(kicker,lines,lead):
+def phero(kicker,lines,lead,cls=''):
     l=' '.join(f'<span class="ln"><span>{x}</span></span>' for x in lines)
-    return f'''<section class="phero"><div class="glow" aria-hidden="true"></div><div class="wrap" style="position:relative">
-  <span class="kicker fade-up">{kicker}</span><h1 class="reveal">{l}</h1><p class="lead fade-up fu1">{lead}</p></div></section>'''
+    return f'''<section class="phero{cls}"><div class="glow" aria-hidden="true"></div><div class="wrap" style="position:relative">
+  <span class="kicker fade-up">{kicker}</span><h1 class="reveal mega">{l}</h1><p class="lead fade-up fu1">{lead}</p></div></section>'''
 
-def cta(title_html,lead,alt=False,second=True):
+def cta(title_html,lead,alt=False,second=True,extra=''):
     s2=f'<a class="btn btn-ghost" href="{WA}" target="_blank" rel="noopener">Stuur een WhatsApp</a>' if second else ''
     return f'''<section class="cta{' alt' if alt else ''}" data-nobar><div class="glow" aria-hidden="true"></div><div class="wrap rv" style="position:relative">
-  <h2>{title_html}</h2><p class="lead">{lead}</p><div class="ctas"><a class="btn btn-main" href="{{R}}scan/">Gratis social media scan {ARR}</a>{s2}</div></div></section>'''
+  <h2>{title_html}</h2><p class="lead">{lead}</p><div class="ctas"><a class="btn btn-main" href="{{R}}scan/">Gratis social media scan {ARR}</a>{s2}</div>{extra}</div></section>'''
 
 SHOTS=[('w2','Lunchroom','Nieuw op de kaart','Voorbeeldpost voor een lunchroom: nieuw op de kaart'),
        ('w5','Sportschool','Reel-cover','Voorbeeld van een reel-cover voor een sportschool'),
@@ -116,65 +115,68 @@ def shot(w,t,s,alt,lazy=True):
     return f'<button class="shot" type="button" data-big="{{R}}img/{w}-2x.webp" data-cap="{t} · {s.lower()}"><div class="im"><img src="{{R}}img/{w}.webp" srcset="{{R}}img/{w}.webp 540w, {{R}}img/{w}-2x.webp 1080w" sizes="(max-width:700px) 78vw, 340px" alt="{alt}" width="540" height="675"{" loading=\"lazy\"" if lazy else ""}></div><span>{t}</span><small>{s}</small></button>'
 LB='<div class="lb" id="lb" aria-hidden="true" role="dialog" aria-label="Voorbeeldpost groot bekijken"><button class="x" type="button" aria-label="Sluiten"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></button><figure><img src="" alt="" width="1080" height="1350"><figcaption></figcaption></figure></div>'
 
-START=['8 posts per maand','Instagram en Facebook','Contentplan en alles ingepland','Vast aanspreekpunt','Maandelijks opzegbaar']
-COMP=['8 posts per maand','4 Reels/TikToks per maand','Instagram, Facebook en TikTok','Contentplan en alles ingepland','Maandoverzicht van wat werkte','Vast aanspreekpunt','Maandelijks opzegbaar']
-PREM=['<b>Alles van Compleet</b>','<div>Google Bedrijfsprofiel bijgehouden<small>2 Google-berichten per maand, nieuwe foto\'s, openingstijden en feestdagen up-to-date</small></div>','<div>Website-aanpassingen naar wens<small>Jij vraagt, wij passen aan: teksten, foto\'s, acties en meer.</small></div>','Vast aanspreekpunt','Maandelijks opzegbaar']
+START=['8 posts per maand','Instagram en Facebook','Contentplan, alles ingepland','Vast aanspreekpunt']
+COMP=['8 posts per maand','4 Reels/TikToks per maand','Instagram, Facebook en TikTok','Contentplan, alles ingepland','Maandoverzicht van wat werkte','Vast aanspreekpunt']
+PREM=['<b>Alles van Compleet</b>','<div>Google Bedrijfsprofiel bijgehouden<small>2 Google-berichten per maand, nieuwe foto\'s, openingstijden en feestdagen up-to-date</small></div>','<div>Website-aanpassingen naar wens<small>Jij vraagt, wij passen aan: teksten, foto\'s, acties en meer.</small></div>','Vast aanspreekpunt']
 ul=lambda xs:'<ul class="ul">'+''.join(f'<li>{x}</li>' for x in xs)+'</ul>'
 
-FAQ=[('Wat kost het?','Start kost €150 per maand, Compleet €250 per maand en Premium €395 per maand. De scan en het kennismakingsgesprek zijn gratis.','prijs'),
+FAQ=[('Wat kost het?','Start kost €150, Compleet €250 en Premium €395 per maand. De scan en de kennismaking zijn gratis.','prijs'),
+('Zit ik ergens aan vast?','Nee. Je pakket is maandelijks opzegbaar en stopt aan het eind van de maand waarin je opzegt.','prijs'),
 ('Wat is het verschil tussen Compleet en Premium?','Premium is alles van Compleet, plus je Google Bedrijfsprofiel en website-aanpassingen naar wens.','prijs'),
-('Wat doen jullie met mijn Google Bedrijfsprofiel?','Bij Premium houden we je profiel bij: we plaatsen 2 Google-berichten per maand, zetten er nieuwe foto\'s op en houden je openingstijden en feestdagen up-to-date. Zo klopt je informatie als iemand je zaak opzoekt.','prijs'),
-('Wat valt onder website-aanpassingen naar wens?','Jij zegt wat er anders moet, wij passen het aan: teksten, foto\'s, openingstijden, acties en mededelingen, een nieuwe sectie of een extra pagina op je website. Grote klussen vallen erbuiten, zoals een compleet nieuwe website of nieuw ontwerp, een webshop, technische problemen, hosting of domein. Daarvoor krijg je vooraf een aparte prijs. We gaan uit van redelijk gebruik: wordt het in een maand duidelijk meer werk dan normaal, dan overleggen we eerst samen. Dit werkt met websites met een eigen beheeromgeving, zoals WordPress, Wix of Squarespace.','prijs'),
-('Moet ik mijn wachtwoorden geven?','Nee. Je maakt een eigen account voor Clout Media aan: beheerder in je Google Bedrijfsprofiel en redacteur op je website. Je kunt die toegang altijd intrekken.',''),
-('Zit ik ergens aan vast?','Nee. Je pakket is maandelijks opzegbaar. Zeg je op voor het eind van de maand? Dan stopt je pakket aan het eind van die maand.','prijs'),
-('Wat moet ik zelf doen?','Alleen foto\'s en video\'s maken van je werk, je zaak of je producten, en die via WhatsApp sturen. Foto\'s met je telefoon zijn prima. Wij vertellen je precies wat we nodig hebben.',''),
-('Ik ben geen fotograaf. Is dat erg?','Nee. Je krijgt van ons simpele tips voor goede telefoonfoto\'s, en wij maken er strakke posts en video\'s van.',''),
-('Wat krijg ik bij de gratis scan?','We bekijken je social media en sturen je binnen 1-2 werkdagen 3 concrete verbeterpunten. Daarna kies je zelf of je met ons verder wilt. Dat hoeft niet.',''),
-('Hoe snel zie ik resultaat?','Je pagina ziet er meteen strakker uit. Voor meer volgers en bereik is meestal een paar maanden regelmatig posten nodig. We beloven geen aantallen, wel goed werk en elke week iets nieuws.',''),
-('Voor welke bedrijven werken jullie?','Voor alle soorten lokale ondernemers: horeca, winkels, beauty, sport, dienstverleners en meer. In Lelystad, Flevoland en de rest van Nederland.',''),
-('Reageren jullie ook op berichten, reacties en reviews?','Nee, dat zit niet in de pakketten. Jij houdt zelf contact met je klanten. Wil je dat wel uitbesteden, vraag dan naar de mogelijkheden.','')]
-def faq(items):
-    return '<div class="faq">'+''.join(f'<details><summary>{q}<i aria-hidden="true"></i></summary><div class="ans"><p>{a}</p></div></details>' for q,a,_ in items)+'</div>'
+('Wat doen jullie met mijn Google Bedrijfsprofiel?','We plaatsen 2 Google-berichten per maand, zetten er nieuwe foto\'s op en houden je openingstijden en feestdagen up-to-date. Zo klopt je informatie als iemand je zaak opzoekt.','prijs'),
+('Wat valt onder website-aanpassingen naar wens?','Jij zegt wat er anders moet, wij passen het aan: teksten, foto\'s, openingstijden, acties en mededelingen, een nieuwe sectie of een extra pagina. Grote klussen vallen erbuiten, zoals een nieuwe website of nieuw ontwerp, een webshop, technische problemen, hosting of domein. Daarvoor krijg je vooraf een aparte prijs. Wordt het in een maand duidelijk meer werk dan normaal, dan overleggen we eerst. Dit werkt met websites met een eigen beheeromgeving, zoals WordPress, Wix of Squarespace.','prijs'),
+('Wat moet ik zelf doen?','Foto\'s en video\'s maken van je zaak, je werk of je producten, en ze via WhatsApp sturen. Met je telefoon is prima. Wij zeggen precies wat we nodig hebben.',''),
+('Ik ben geen fotograaf. Is dat erg?','Nee. Je krijgt simpele tips voor goede telefoonfoto\'s, en wij maken er strakke posts en video\'s van.',''),
+('Moet ik mijn wachtwoorden geven?','Nee. Je maakt een eigen account voor Clout Media aan: beheerder in je Google Bedrijfsprofiel en redacteur op je website. Die toegang kun je altijd intrekken.',''),
+('Wat krijg ik bij de gratis scan?','We bekijken je socials en sturen je binnen 1-2 werkdagen 3 concrete verbeterpunten. Daarna kies je zelf of je verder wilt.',''),
+('Hoe snel zie ik resultaat?','Je pagina ziet er meteen strakker uit. Voor meer bereik is meestal een paar maanden regelmatig posten nodig. Aantallen beloven we niet.',''),
+('Voor welke zaken werken jullie?','Voor alle lokale ondernemers: horeca, winkels, beauty, sport, praktijken, groothandels en meer. In heel Nederland.',''),
+('Reageren jullie op berichten, reacties en reviews?','Nee, dat zit niet in de pakketten. Het contact met je volgers houd je zelf in de hand. Wil je dat uitbesteden? Vraag naar de mogelijkheden.','')]
+def faq(items,id=''):
+    return f'<div class="faq"{" id="+chr(34)+id+chr(34) if id else ""}>'+''.join(f'<details><summary>{q}<i aria-hidden="true"></i></summary><div class="ans"><p>{a}</p></div></details>' for q,a,_ in items)+'</div>'
 def faq_ld(items):
     import json
     return '<script type="application/ld+json">'+json.dumps({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a,_ in items]},ensure_ascii=False)+'</script>\n'
 
-PROMISES='''<div class="promises rv"><div><b>Maandelijks opzegbaar</b><span>Je zit nooit langer vast dan de lopende maand.</span></div><div><b>Je scan binnen 1-2 werkdagen</b><span>Na je aanvraag heb je binnen 1-2 werkdagen je verbeterpunten.</span></div><div><b>Vaste prijs</b><span>Je betaalt wat op de site staat. Geen extra kosten achteraf.</span></div></div>'''
+PROMISES='''<div class="promises rv"><div><b>Maandelijks opzegbaar</b><span>Nooit langer vast dan de lopende maand.</span></div><div><b>Scan binnen 1-2 werkdagen</b><span>Je verbeterpunten snel in je mail.</span></div><div><b>Vaste prijs</b><span>Geen extra kosten achteraf.</span></div></div>'''
 
 SPLIT='''<div class="split">
-  <div class="card col no rv"><h3>Zonder Clout Media</h3><ul class="list">
-    <li>Je bent de hele dag met je klanten bezig, posten schiet erbij in.</li>
-    <li>Je opent je socials en weet niet wat je moet posten.</li>
-    <li>Twee posts in een week, en dan een maand niks.</li>
-    <li>Je post weleens iets, maar je ziet er niks van terug.</li></ul></div>
-  <div class="card col yes rv d1"><h3>Met Clout Media</h3><ul class="list">
-    <li><div>Posts in de stijl van jouw zaak<span>Strak ontworpen, met teksten die klanten aanspreken.</span></div></li>
-    <li><div>Korte video's van jouw beelden<span>Gemonteerd met tekst en muziek. Daar bereik je nieuwe mensen mee.</span></div></li>
-    <li><div>Een plan per maand, alles ingepland<span>Elke week staat er iets nieuws online. Jij hoeft nergens aan te denken.</span></div></li>
-    <li><div>Eén vast aanspreekpunt<span>Beelden sturen, vragen stellen of iets aanpassen: gewoon via WhatsApp.</span></div></li></ul></div>
+  <div class="col no rv"><h3>Zonder Clout Media</h3><ul class="list">
+    <li>Je staat de hele dag in je zaak.</li>
+    <li>Je weet niet wat je moet posten.</li>
+    <li>Twee posts, dan een maand niks.</li>
+    <li>Je ziet er niets van terug.</li></ul></div>
+  <div class="col yes rv d1"><h3>Met Clout Media</h3><ul class="list">
+    <li><div>Posts in jouw stijl<span>Met teksten die mensen laten stoppen met scrollen.</span></div></li>
+    <li><div>Korte video's<span>Van jouw beelden, met tekst en muziek.</span></div></li>
+    <li><div>Elke week iets nieuws<span>Alles ingepland. Jij hoeft niets te onthouden.</span></div></li>
+    <li><div>Eén aanspreekpunt<span>Gewoon via WhatsApp.</span></div></li></ul></div>
 </div>'''
 
 def steps(long=False):
-    S=[('Kennismaking','We bespreken je zaak, je klanten en je stijl. Online of op locatie, wanneer het jou uitkomt.',['Vrijblijvend en zonder kosten','We kijken samen naar je huidige socials','Je hoort meteen wat wij anders zouden doen']),
-       ('Contentplan','Wij maken een plan voor de maand. Jij stuurt foto\'s en video\'s van je werk via WhatsApp.',['Wat we posten en wanneer','Welke beelden we van je nodig hebben','Simpele tips voor goede telefoonfoto\'s']),
-       ('Wij posten','Wij ontwerpen, monteren en plannen alles in. Elke maand kijken we wat werkt en wat beter kan.',['Posts en video\'s in jouw stijl','Alles staat op tijd online','Bij Compleet en Premium: een maandoverzicht'])]
-    return '<div class="steps">'+''.join(f'<div class="step rv{" d"+str(i) if i else ""}"><div class="n">{i+1}</div><h3>{t}</h3><p>{p}</p>{"<ul>"+"".join(f"<li>{x}</li>" for x in xs)+"</ul>" if long else ""}</div>' for i,(t,p,xs) in enumerate(S))+'</div>'
+    S=[('Kennismaken','We bespreken je zaak, je mensen en je stijl. Online of op locatie.',['Vrijblijvend en gratis','We kijken samen naar je socials','Je hoort meteen wat wij anders zouden doen']),
+       ('Contentplan','Wij maken een plan voor de maand. Jij stuurt foto\'s en video\'s via WhatsApp.',['Wat we posten en wanneer','Welke beelden we nodig hebben','Tips voor goede telefoonfoto\'s']),
+       ('Wij posten','Wij ontwerpen, monteren en plannen alles in. Elke maand kijken we wat beter kan.',['Posts en video\'s in jouw stijl','Alles op tijd online','Bij Compleet en Premium: een maandoverzicht'])]
+    return '<div class="steps">'+''.join(f'<div class="step rv{" d"+str(i) if i else ""}"><div class="bn" aria-hidden="true">0{i+1}</div><h3>{t}</h3><p>{p}</p>{"<ul>"+"".join(f"<li>{x}</li>" for x in xs)+"</ul>" if long else ""}</div>' for i,(t,p,xs) in enumerate(S))+'</div>'
 
 def steps_compact():
-    S=[('Kennismaking','We bespreken je zaak, je klanten en je stijl.'),('Contentplan','Wij maken een plan. Jij stuurt beelden via WhatsApp.'),('Wij posten','Wij ontwerpen, monteren en plannen alles in.')]
-    return '<ol class="card csteps rv">'+''.join(f'<li><span class="cn">{i+1}</span><div><h3>{t}</h3><p>{p}</p></div></li>' for i,(t,p) in enumerate(S))+'</ol>'
+    S=['Kennismaken','Jij stuurt beelden','Wij posten']
+    return '<ol class="strip rv">'+''.join(f'<li><span class="bn" aria-hidden="true">0{i+1}</span><b>{t}</b></li>' for i,t in enumerate(S))+'</ol>'
 
 # ---------------- HOME ----------------
 FEED=''.join(f'<img src="img/{w}.webp" alt="" width="540" height="675"{" fetchpriority=\"high\"" if i==0 else ""}>' for i,w in enumerate(['w2','w5','w7','w3','w6','w2','w5','w7','w3','w6']))
+def marquee():
+    one=''.join(f'<figure class="mq-item"><img src="img/{w}.webp" srcset="img/{w}.webp 540w, img/{w}-2x.webp 1080w" sizes="300px" alt="{alt}" width="540" height="675" loading="lazy"><figcaption>{t}</figcaption></figure>' for w,t,_s,alt in SHOTS)
+    two=one.replace('<figure class="mq-item">','<figure class="mq-item" aria-hidden="true">').replace(' alt="Voorbeeld',' alt="" data-x="Voorbeeld')
+    return f'<div class="mq" role="region" aria-label="Voorbeeldposts"><div class="mq-track">{one}{two}</div></div>'
+STATEMENT='Jij runt je zaak. Wij zorgen dat de rest het ziet.'
 home=f'''<section class="hero"><div class="glow" aria-hidden="true"></div>
   <div class="wrap hgrid">
     <div>
       <span class="kicker fade-up">Social media beheer · Heel Nederland</span>
-      <h1 class="reveal"><span class="ln"><span>Elke maand strakke</span></span> <span class="ln"><span>posts en Reels.</span></span> <br class="hbr"><span class="ln"><span class="mint">Zonder dat jij er</span></span> <span class="ln"><span class="mint">tijd in steekt.</span></span></h1>
-      <p class="lead fade-up fu1">Voor lokale ondernemers. Jij stuurt foto's en video's via WhatsApp, wij maken er elke week opvallende content van.</p>
-      <p class="price fade-up fu2"><b>Vanaf €150</b><span>per maand · maandelijks opzegbaar</span></p>
-      <div class="ctas fade-up fu3"><a class="btn btn-main" href="scan/">Gratis social media scan {ARR}</a><a class="tlink" href="pakketten/">Bekijk pakketten</a></div>
-      <p class="note fade-up fu4">Binnen 1-2 werkdagen 3 verbeterpunten voor je socials. Gratis en vrijblijvend.</p>
+      <h1 class="reveal"><span class="ln"><span>Strak <span class="mint">online.</span></span></span> <span class="ln"><span>Elke week.</span></span></h1>
+      <p class="lead fade-up fu1">Jij stuurt foto's via WhatsApp. Wij maken er elke week posts en Reels van.</p>
+      <div class="ctas fade-up fu2"><a class="btn btn-ghost" href="pakketten/">Bekijk de pakketten {ARR}</a></div>
     </div>
     <div class="stage" aria-hidden="true"><div class="glow"></div>
       <div class="tilt"><div class="phone"><div class="screen"><div class="ig"><i></i>jouwzaak</div><div class="feed">{FEED}</div></div></div>
@@ -187,84 +189,62 @@ home=f'''<section class="hero"><div class="glow" aria-hidden="true"></div>
 </section>
 
 <section class="facts" id="main-2" aria-label="Kernpunten"><div class="wrap"><ul class="factrow rv">
-  <li><b>Vaste prijs</b><span>vanaf €150 per maand</span></li>
-  <li><b>Maandelijks opzegbaar</b><span>nooit langer vast dan een maand</span></li>
-  <li><b>Scan binnen 1-2 werkdagen</b><span>gratis en vrijblijvend</span></li></ul></div></section>
+  <li><b>Vanaf €150</b><span>per maand, vaste prijs</span></li>
+  <li><b>Maandelijks opzegbaar</b><span>nooit langer vast</span></li>
+  <li><b>Scan in 1-2 werkdagen</b><span>gratis en vrijblijvend</span></li></ul></div></section>
 
-<section class="alt" style="overflow-x:clip">
-  <div class="wrap feat">
-    <div class="rv">
-      <span class="kicker">Uitgelicht werk</span>
-      <h2>Content die opvalt in de feed</h2>
-      <p class="lead">Van lunchroom tot sportschool: wij maken posts die passen bij jouw zaak.</p>
-      <div class="ctas"><a class="btn btn-ghost" href="werk/">Bekijk al ons werk {ARR}</a></div>
-      <p class="tag" style="margin-top:24px"><b>Voorbeeldwerk</b> AI-beelden</p>
-    </div>
-    <a class="fan" href="werk/" aria-label="Bekijk al ons werk">
-      <img class="fp f1" src="img/w5.webp" srcset="img/w5.webp 540w, img/w5-2x.webp 1080w" sizes="(max-width:700px) 50vw, 300px" alt="Voorbeeld van een reel-cover voor een sportschool" width="540" height="675" loading="lazy">
-      <img class="fp f2" src="img/w3.webp" srcset="img/w3.webp 540w, img/w3-2x.webp 1080w" sizes="(max-width:700px) 50vw, 300px" alt="Voorbeeldpost voor een bloemenwinkel" width="540" height="675" loading="lazy">
-      <img class="fp f3" src="img/w2.webp" srcset="img/w2.webp 540w, img/w2-2x.webp 1080w" sizes="(max-width:700px) 56vw, 330px" alt="Voorbeeldpost voor een lunchroom: nieuw op de kaart" width="540" height="675" loading="lazy">
-    </a>
-  </div>
+<section class="alt mqsec">
+  <div class="wrap"><div class="head rv"><span class="kicker">Voorbeeldwerk</span><h2>Content die blijft hangen</h2></div></div>
+  {marquee()}
+  <div class="wrap railbar mqbar"><p class="tag"><b>Voorbeeldwerk</b> AI-beelden</p><a class="tlink" href="werk/">Bekijk al ons werk {ARR}</a></div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="head rv"><span class="kicker">Waarom Clout Media</span><h2>Je weet dat socials belangrijk zijn. Het komt er alleen niet van.</h2></div>
+    <div class="head rv"><span class="kicker">Waarom Clout Media</span><h2>Socials zijn belangrijk. Tijd is schaars.</h2></div>
     {SPLIT}
   </div>
 </section>
 
 <section class="alt">
   <div class="wrap">
-    <div class="head rv"><span class="kicker">Hoe het werkt</span><h2>In 3 stappen van stil naar strak</h2></div>
+    <div class="head rv"><span class="kicker">Werkwijze</span><h2>Zo simpel werkt het</h2></div>
     {steps_compact()}
-    <div class="more"><a class="tlink" href="over/#werkwijze">Meer over onze werkwijze {ARR}</a></div>
+    <div class="more"><a class="tlink" href="over/#werkwijze">Zo werken we {ARR}</a></div>
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <div class="head rv"><span class="kicker">Kies je route</span><h2>Waar wil je beginnen?</h2></div>
-    <div class="routes">
-      <a class="card route hov rv" href="werk/"><span class="rn">01</span><h3>Zie wat we maken</h3><p>Voorbeeldposts en het verschil tussen een gewone feed en een strakke feed.</p><span class="rarr" aria-hidden="true">→</span></a>
-      <a class="card route hov rv d1" href="pakketten/"><span class="rn">02</span><h3>Bekijk de prijzen <span class="from">vanaf €150</span></h3><p>Drie pakketten, allemaal maandelijks opzegbaar. Met een korte kiezer als je twijfelt.</p><span class="rarr" aria-hidden="true">→</span></a>
-      <a class="card route hov rv d2" href="over/"><span class="rn">03</span><h3>Leer ons kennen</h3><p>Wie er achter Clout Media zit, hoe we werken en wat je van ons kunt verwachten.</p><span class="rarr" aria-hidden="true">→</span></a>
-    </div>
-    <p class="routeq rv"><a class="tlink" href="vragen/">Nog vragen? Bekijk de veelgestelde vragen {ARR}</a></p>
-  </div>
-</section>
+<section class="statement"><div class="wrap"><p class="st">{' '.join(f'<span class="sw">{w}</span>' for w in STATEMENT.split())}</p></div></section>
 
-{cta('Jij runt je zaak. <span class="mint">Wij zorgen dat de rest het ziet.</span>','Begin met een gratis scan. Binnen 1-2 werkdagen weet je wat er beter kan.',alt=True)}'''
-page('index.html','home','Social media beheer Lelystad &amp; Flevoland | Clout Media','Social media beheer voor lokale ondernemers in Lelystad, Flevoland en heel Nederland. Elke maand strakke posts en korte video\'s, vanaf €150 per maand. Vraag een gratis social media scan aan.',home,
+{cta('Benieuwd wat er <span class="mint">beter</span> kan?','Vraag de scan aan en ontdek wat je socials nog missen.',alt=True,extra=f'<p class="routeq"><a class="tlink" href="vragen/">Eerst nog een vraag? Bekijk de vragen {ARR}</a></p>')}'''
+page('index.html','home','Social media beheer Lelystad &amp; Flevoland | Clout Media','Social media beheer voor lokale ondernemers in Lelystad, Flevoland en heel Nederland. Elke week strakke posts en korte video\'s, vanaf €150 per maand.',home,
      extra_head='<script>(function(){var m={"#werk":"werk/","#pakketten":"pakketten/","#over":"over/","#faq":"vragen/","#scan":"scan/","#werkwijze":"over/#werkwijze"};if(m[location.hash])location.replace(m[location.hash])})()</script>\n<link rel="preload" as="image" href="img/w2.webp" fetchpriority="high">\n<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Clout Media","description":"Social media beheer voor lokale ondernemers in Lelystad, Flevoland en heel Nederland","url":"'+SITE+'","email":"cloutmedianl@gmail.com","telephone":"+31636285409","areaServed":["Lelystad","Flevoland","Nederland"],"priceRange":"€150 - €395 per maand","sameAs":["https://www.instagram.com/cloutmedianl/"]}</script>\n')
 
 # ---------------- WERK ----------------
-werk=phero('Voorbeeldwerk',['Elke zaak','een eigen stijl'],'Van lunchroom tot sportschool. Zo kan jouw feed eruitzien. Sleep of swipe door de posts, en klik om ze groot te bekijken.')+f'''
+werk=phero('Voorbeeldwerk',['Elke zaak een eigen <span class="mint">stijl.</span>'],'Sleep door de posts en klik om ze groot te zien.')+f'''
 <section style="padding-top:24px">
   <div class="rail" role="region" aria-label="Voorbeeldposts">{''.join(shot(*x,lazy=(i>1)) for i,x in enumerate(SHOTS))}</div>
-  <div class="wrap railbar"><p class="tag"><b>Voorbeeldwerk</b> AI-beelden. Echte klantcases volgen.</p><div class="arrows"><button type="button" id="prev" aria-label="Vorige posts"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" id="next" aria-label="Volgende posts"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></div>
+  <div class="wrap railbar"><p class="tag"><b>Voorbeeldwerk</b> AI-beelden. Echte cases volgen.</p><div class="arrows"><button type="button" id="prev" aria-label="Vorige posts"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" id="next" aria-label="Volgende posts"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></div>
 </section>
 <section class="alt">
   <div class="wrap">
-    <div class="head rv"><span class="kicker">Het verschil</span><h2>Sleep en zie wat er verandert</h2><p class="lead">Links een gemiddelde feed. Rechts dezelfde zaak met Clout Media.</p></div>
-    {P('ba.part').replace('class="ba rv"','class="ba rv"').replace('src="img/','src="{R}img/')}
-    <div class="under"><p class="tag"><b>Voorbeeld</b> Verzonnen feeds, ter illustratie.</p></div>
+    <div class="head rv"><span class="kicker">Het verschil</span><h2>Sleep en zie het verschil</h2><p class="lead">Links een gemiddelde feed. Rechts dezelfde zaak met Clout Media.</p></div>
+    {P('ba.part').replace('src="img/','src="{R}img/')}
+    <div class="under"><p class="tag"><b>Voorbeeld</b> Ter illustratie.</p></div>
   </div>
 </section>
-{cta('Benieuwd hoe jouw feed eruit kan zien?','Vraag een gratis scan aan. Binnen 1-2 werkdagen heb je 3 concrete verbeterpunten.')}
+{cta('Hoe ziet jouw feed <span class="mint">eruit</span>?','Wij kijken mee en sturen je 3 concrete verbeterpunten.')}
 {LB}'''
-page('werk/index.html','werk','Voorbeeldwerk | Clout Media','Bekijk voorbeeldposts van Clout Media voor lunchrooms, sportscholen, bloemisten, nagelstudio\'s en bakkers. Elke zaak een eigen stijl.',werk)
+page('werk/index.html','werk','Voorbeeldwerk | Clout Media','Voorbeeldposts van Clout Media voor een lunchroom, sportschool, bloemenwinkel, nagelstudio en bakker. Elke zaak een eigen stijl.',werk)
 
 # ---------------- PAKKETTEN ----------------
-PF=[x for x in FAQ if x[2]=='prijs']
-pak=phero('Pakketten',['Duidelijke prijzen.','Geen kleine lettertjes.'],'Drie pakketten, allemaal maandelijks opzegbaar. Alle bedragen zijn per maand.')+f'''
+pak=phero('Pakketten',['Heldere prijzen.','Geen <span class="mint">verrassingen.</span>'],'Alle bedragen per maand. Elk pakket is maandelijks opzegbaar.')+f'''
 <section style="padding-top:24px">
   <div class="wrap">
     <div class="plans3">
-      <article class="card plan hov rv"><div class="phd"><div><h3>Start</h3><p class="for">Voor zaken die er online strak en verzorgd uit willen zien.</p></div></div><div class="amt">€150<small>per maand</small></div>{ul(START)}<a class="btn btn-ghost" href="../scan/">Begin met een gratis scan {ARR}</a></article>
-      <article class="card plan top rv d1"><div class="phd"><div><h3>Compleet <span class="badge">Aanrader</span></h3><p class="for">Voor zaken die ook nieuwe klanten willen bereiken.</p></div></div><div class="amt">€250<small>per maand</small></div>{ul(COMP)}<a class="btn btn-dark" href="../scan/">Begin met een gratis scan {ARR}</a></article>
-      <article class="card plan prem hov rv d2"><div class="phd"><div><h3>Premium <span class="badge line">Met Google &amp; website</span></h3><p class="for">Voor zaken die overal online goed gevonden willen worden.</p></div></div><div class="amt">€395<small>per maand</small></div>{ul(PREM)}<a class="btn btn-ghost" href="../scan/">Begin met een gratis scan {ARR}</a></article>
+      <article class="card plan hov rv"><div class="phd"><div><h3>Start</h3><p class="for">Voor een verzorgde, strakke pagina.</p></div></div><div class="amt">€150<small>per maand</small></div>{ul(START)}<a class="btn btn-ghost" href="../scan/">Kies Start {ARR}</a></article>
+      <article class="card plan top rv d1"><div class="phd"><div><h3>Compleet <span class="badge">Aanrader</span></h3><p class="for">Voor wie ook nieuwe mensen wil bereiken.</p></div></div><div class="amt">€250<small>per maand</small></div>{ul(COMP)}<a class="btn btn-dark" href="../scan/">Kies Compleet {ARR}</a></article>
+      <article class="card plan prem hov rv d2"><div class="phd"><div><h3>Premium <span class="badge line">Met Google &amp; website</span></h3><p class="for">Voor wie overal goed gevonden wil worden.</p></div></div><div class="amt">€395<small>per maand</small></div>{ul(PREM)}<a class="btn btn-ghost" href="../scan/">Kies Premium {ARR}</a></article>
     </div>
     <div class="card picker rv" id="picker" aria-live="polite"></div>
   </div>
@@ -273,15 +253,12 @@ pak=phero('Pakketten',['Duidelijke prijzen.','Geen kleine lettertjes.'],'Drie pa
   <div class="wrap">
     <div class="head rv"><span class="kicker">Vergelijk</span><h2>Alles naast elkaar</h2></div>
     <div class="cmpwrap rv"><div class="tabs" role="tablist" aria-label="Kies een pakket"><button type="button" role="tab" data-col="1" aria-selected="false">Start</button><button type="button" role="tab" data-col="2" aria-selected="true">Compleet</button><button type="button" role="tab" data-col="3" aria-selected="false">Premium</button></div><table class="cmp" data-on="2"><caption class="sr">Vergelijking van de drie pakketten</caption><thead><tr><th scope="col"><span class="sr">Onderdeel</span></th><th scope="col" class="k1">Start</th><th scope="col" class="k2">Compleet</th><th scope="col" class="k3">Premium</th></tr></thead><tbody><tr><th scope="row">Prijs per maand</th><td class="k1">€150</td><td class="k2">€250</td><td class="k3">€395</td></tr><tr><th scope="row">Posts per maand</th><td class="k1">8</td><td class="k2">8</td><td class="k3">8</td></tr><tr><th scope="row">Reels/TikToks per maand</th><td class="k1"><span class="no" aria-label="Nee">—</span></td><td class="k2">4</td><td class="k3">4</td></tr><tr><th scope="row">Platforms</th><td class="k1">Instagram, Facebook</td><td class="k2">Instagram, Facebook, TikTok</td><td class="k3">Instagram, Facebook, TikTok</td></tr><tr><th scope="row">Contentplan en alles ingepland</th><td class="k1"><svg width="20" height="20" viewBox="0 0 20 20" aria-label="Ja" role="img"><circle cx="10" cy="10" r="10" fill="#fff"/><path d="M5.8 10.3l2.8 2.7 5.6-5.9" fill="none" stroke="#0b0b0c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="k2"><svg width="20" height="20" viewBox="0 0 20 20" aria-label="Ja" role="img"><circle cx="10" cy="10" r="10" fill="#fff"/><path d="M5.8 10.3l2.8 2.7 5.6-5.9" fill="none" stroke="#0b0b0c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="k3"><svg width="20" height="20" viewBox="0 0 20 20" aria-label="Ja" role="img"><circle cx="10" cy="10" r="10" fill="#fff"/><path d="M5.8 10.3l2.8 2.7 5.6-5.9" fill="none" stroke="#0b0b0c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr><tr><th scope="row">Maandoverzicht van wat werkte</th><td class="k1"><span class="no" aria-label="Nee">—</span></td><td class="k2"><svg width="20" height="20" viewBox="0 0 20 20" aria-label="Ja" role="img"><circle cx="10" cy="10" r="10" fill="#fff"/><path d="M5.8 10.3l2.8 2.7 5.6-5.9" fill="none" stroke="#0b0b0c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="k3"><svg width="20" height="20" viewBox="0 0 20 20" aria-label="Ja" role="img"><circle cx="10" cy="10" r="10" fill="#fff"/><path d="M5.8 10.3l2.8 2.7 5.6-5.9" fill="none" stroke="#0b0b0c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr><tr><th scope="row">Google Bedrijfsprofiel</th><td class="k1"><span class="no" aria-label="Nee">—</span></td><td class="k2"><span class="no" aria-label="Nee">—</span></td><td class="k3"><svg width="20" height="20" viewBox="0 0 20 20" aria-label="Ja" role="img"><circle cx="10" cy="10" r="10" fill="#fff"/><path d="M5.8 10.3l2.8 2.7 5.6-5.9" fill="none" stroke="#0b0b0c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr><tr><th scope="row">Website-aanpassingen</th><td class="k1"><span class="no" aria-label="Nee">—</span></td><td class="k2"><span class="no" aria-label="Nee">—</span></td><td class="k3">Naar wens</td></tr><tr><th scope="row">Vast aanspreekpunt</th><td class="k1"><svg width="20" height="20" viewBox="0 0 20 20" aria-label="Ja" role="img"><circle cx="10" cy="10" r="10" fill="#fff"/><path d="M5.8 10.3l2.8 2.7 5.6-5.9" fill="none" stroke="#0b0b0c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="k2"><svg width="20" height="20" viewBox="0 0 20 20" aria-label="Ja" role="img"><circle cx="10" cy="10" r="10" fill="#fff"/><path d="M5.8 10.3l2.8 2.7 5.6-5.9" fill="none" stroke="#0b0b0c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="k3"><svg width="20" height="20" viewBox="0 0 20 20" aria-label="Ja" role="img"><circle cx="10" cy="10" r="10" fill="#fff"/><path d="M5.8 10.3l2.8 2.7 5.6-5.9" fill="none" stroke="#0b0b0c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr><tr><th scope="row">Maandelijks opzegbaar</th><td class="k1"><svg width="20" height="20" viewBox="0 0 20 20" aria-label="Ja" role="img"><circle cx="10" cy="10" r="10" fill="#fff"/><path d="M5.8 10.3l2.8 2.7 5.6-5.9" fill="none" stroke="#0b0b0c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="k2"><svg width="20" height="20" viewBox="0 0 20 20" aria-label="Ja" role="img"><circle cx="10" cy="10" r="10" fill="#fff"/><path d="M5.8 10.3l2.8 2.7 5.6-5.9" fill="none" stroke="#0b0b0c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="k3"><svg width="20" height="20" viewBox="0 0 20 20" aria-label="Ja" role="img"><circle cx="10" cy="10" r="10" fill="#fff"/><path d="M5.8 10.3l2.8 2.7 5.6-5.9" fill="none" stroke="#0b0b0c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr></tbody></table></div>
-    <p class="fine rv">Niet inbegrepen bij alle pakketten: advertenties, reageren op berichten en reviews, filmen of fotograferen op locatie en een nieuwe website bouwen. Ter vergelijking: een bureau vraagt voor social media beheer vaak €500 tot €1.500 per maand.</p>
+    <p class="fine rv">Niet inbegrepen: advertenties, reageren op berichten en reviews, filmen of fotograferen op locatie en een nieuwe website. Ter vergelijking: een bureau vraagt vaak €500 tot €1.500 per maand.</p>
+    <p class="routeq rv"><a class="tlink" href="../vragen/#prijs">Nog vragen over prijzen of pakketten? {ARR}</a></p>
   </div>
 </section>
-<section>
-  <div class="wrap"><div class="head rv"><span class="kicker">Goed om te weten</span><h2>Vragen over prijs en pakketten</h2></div>{faq(PF)}
-  <div class="more"><a class="tlink" href="../vragen/">Alle vragen {ARR}</a></div></div>
-</section>
-{cta('Niet zeker welk pakket past?','Begin met een gratis scan. Daarna adviseren we je eerlijk welk pakket bij je zaak past.',alt=True)}'''
-page('pakketten/index.html','pakketten','Pakketten en prijzen | Clout Media','Drie pakketten: Start €150 (8 posts), Compleet €250 (8 posts en 4 Reels/TikToks) en Premium €395 met Google Bedrijfsprofiel en website-aanpassingen. Maandelijks opzegbaar.',pak,extra_head=faq_ld(PF))
+{cta('Twijfel je <span class="mint">nog</span>?','Begin met de scan. Daarna adviseren we eerlijk welk pakket past.')}'''
+page('pakketten/index.html','pakketten','Pakketten en prijzen | Clout Media','Drie pakketten: Start €150 (8 posts), Compleet €250 (8 posts en 4 Reels/TikToks) en Premium €395 met Google Bedrijfsprofiel en website-aanpassingen. Maandelijks opzegbaar.',pak)
 
 # ---------------- OVER ----------------
 # FOTO van Luca: zet hier het pad, bijv. 'img/luca.webp' (staand, ca. 1600x2000), en draai de build.
@@ -289,41 +266,45 @@ page('pakketten/index.html','pakketten','Pakketten en prijzen | Clout Media','Dr
 FOTO=''
 FOTO_HTML=(f'<figure class="portrait rv"><img src="../{FOTO}" alt="Luca, oprichter van Clout Media" width="800" height="1000" loading="lazy"></figure>' if FOTO else '')
 FOTO_COMMENT='<!-- FOTO: plek staat klaar. Zet in tools/build.py FOTO = "img/luca.webp" en draai de build. -->'
-over=phero('Over Clout Media',['Frisse ideeën.','Zakelijke ervaring.'],'Wie er achter Clout Media zit, hoe we werken en wat je van ons kunt verwachten.')+f'''
+over=phero('Over Clout Media',['Fris bureau.','Vaste <span class="mint">basis.</span>'],'Wie er achter Clout Media zit en hoe we werken.')+f'''
 <section style="padding-top:24px">
   <div class="wrap">
     {FOTO_COMMENT}
     <div class="about{' has-foto' if FOTO else ''}">
       <div class="rv"><p class="quote">"Ik ben opgegroeid met social media. Ik weet hoe je <span class="mint">opvalt in een feed</span>, en dat wil ik voor jouw zaak doen."</p>
         <div class="sign"><div><b>Luca</b><small>Oprichter van Clout Media</small></div></div></div>
-      <div class="side2">{FOTO_HTML}<div class="txt rv d1"><p>Ik ben student Handel &amp; Ondernemen. Ik zag hoeveel goede lokale zaken online bijna onzichtbaar zijn, terwijl hun werk prima is. Dat is zonde, want hun klanten zitten de hele dag op hun telefoon.</p>
-        <p>Achter de schermen krijg ik ondersteuning van een ervaren adviseur op het gebied van ondernemen en bedrijfsprocessen. Zo combineer ik frisse ideeën met zakelijke ervaring.</p></div></div>
+      <div class="side2">{FOTO_HTML}<div class="txt rv d1"><p>Ik ben student Handel &amp; Ondernemen. Veel goede lokale zaken zijn online bijna onzichtbaar, terwijl de buurt de hele dag op de telefoon zit.</p>
+        <p>Achter de schermen kijkt een ervaren adviseur in ondernemen en bedrijfsprocessen met me mee.</p></div></div>
     </div>
   </div>
 </section>
 <section class="alt" id="werkwijze">
-  <div class="wrap"><div class="head rv"><span class="kicker">Hoe het werkt</span><h2>In 3 stappen van stil naar strak</h2></div>{steps(True)}</div>
+  <div class="wrap"><div class="head rv"><span class="kicker">Werkwijze</span><h2>Hoe we samenwerken</h2></div>{steps(True)}</div>
 </section>
 <section>
-  <div class="wrap"><div class="head rv" style="margin-bottom:0"><span class="kicker">Onze beloftes</span><h2>Dit kun je van ons verwachten</h2></div>{PROMISES}</div>
+  <div class="wrap"><div class="head rv" style="margin-bottom:0"><span class="kicker">Onze beloftes</span><h2>Dit kun je verwachten</h2></div>{PROMISES}</div>
 </section>
-{cta('Zullen we kennismaken?','Begin met een gratis scan, en plan daarna een kennismaking online of op locatie.',alt=True)}'''
-page('over/index.html','over','Over ons | Clout Media','Clout Media is opgericht door Luca, student Handel &amp; Ondernemen uit Flevoland, met ondersteuning van een ervaren adviseur. Lees hoe we werken.',over)
+{cta('Zullen we <span class="mint">kennismaken</span>?','Online of op locatie, wanneer het jou uitkomt.',alt=True)}'''
+page('over/index.html','over','Over ons | Clout Media','Clout Media is opgericht door Luca, student Handel &amp; Ondernemen uit Flevoland, met een ervaren adviseur achter de schermen. Lees hoe we werken.',over)
 
 # ---------------- VRAGEN ----------------
-vr=phero('Veelgestelde vragen',['Goed om te weten'],'Alles over prijzen, wat je zelf moet doen en wat je kunt verwachten. Staat je vraag er niet tussen? Stuur ons gerust een berichtje.')+f'''
-<section style="padding-top:24px"><div class="wrap">{faq(FAQ)}</div></section>
-{cta('Nog een vraag?','Stuur ons een WhatsApp, of begin direct met een gratis scan.',alt=True)}'''
-page('vragen/index.html','vragen','Veelgestelde vragen | Clout Media','Antwoorden op de meest gestelde vragen over social media beheer bij Clout Media: prijzen, contract, wat je zelf doet en resultaat.',vr,extra_head=faq_ld(FAQ))
+FQ1=[x for x in FAQ if x[2]=='prijs'];FQ2=[x for x in FAQ if x[2]!='prijs']
+vr=phero('Veelgestelde vragen',['Goed om te <span class="mint">weten.</span>'],'Staat je vraag er niet tussen? Stuur ons een bericht.')+f'''
+<section style="padding-top:24px"><div class="wrap">
+  <h2 class="fqh rv" id="prijs">Prijzen en pakketten</h2>{faq(FQ1)}
+  <h2 class="fqh rv">Samenwerken</h2>{faq(FQ2)}
+</div></section>
+{cta('Nog een <span class="mint">vraag</span>?','Stuur ons een WhatsApp, of begin met de scan.',alt=True)}'''
+page('vragen/index.html','vragen','Veelgestelde vragen | Clout Media','Antwoorden over social media beheer bij Clout Media: prijzen, pakketten, wat je zelf doet en wat je kunt verwachten.',vr,extra_head=faq_ld(FAQ))
 
 # ---------------- SCAN ----------------
 scan=f'''<section class="phero" style="text-align:left;padding-bottom:clamp(80px,10vw,136px)"><div class="glow" aria-hidden="true" style="left:0;margin-left:-300px"></div>
   <div class="wrap sgrid" style="position:relative">
     <div class="copy">
       <span class="kicker fade-up">Gratis social media scan</span>
-      <h1 class="reveal" style="margin:0;max-width:16ch"><span class="ln"><span>Ontdek wat er beter</span></span> <span class="ln"><span class="mint">kan aan je socials.</span></span></h1>
-      <p class="lead fade-up fu1">We bekijken je pagina en sturen je binnen 1-2 werkdagen 3 concrete verbeterpunten. Gratis en vrijblijvend.</p>
-      <ul class="points fade-up fu2"><li>Hoe je feed overkomt op een nieuwe klant</li><li>3 verbeterpunten die je meteen kunt toepassen</li><li>Daarna een kennismaking, als jij dat wilt</li></ul>
+      <h1 class="reveal mega" style="margin:0;max-width:14ch"><span class="ln"><span>Ontdek wat er beter kan aan je <span class="mint">socials.</span></span></span></h1>
+      <p class="lead fade-up fu1">We bekijken je pagina en sturen je binnen 1-2 werkdagen 3 concrete verbeterpunten.</p>
+      <ul class="points fade-up fu2"><li>Hoe je feed overkomt op iemand die je voor het eerst ziet</li><li>Punten die je meteen kunt toepassen</li><li>Daarna een kennismaking, als jij dat wilt</li></ul>
       <div class="contact fade-up fu3">
         <a class="card hov" href="{WA}" target="_blank" rel="noopener">{I_WA}<span><small>WhatsApp of bellen</small><strong>06 36 28 54 09</strong></span></a>
         <a class="card hov" href="mailto:cloutmedianl@gmail.com">{I_MAIL}<span><small>Liever mailen?</small><strong>cloutmedianl@gmail.com</strong></span></a>
