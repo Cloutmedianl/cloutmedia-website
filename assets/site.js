@@ -80,7 +80,7 @@
   const pk=$('#picker');
   if(pk){
     const Q=[['Op welke socials wil je actief zijn?',['Instagram/Facebook','Ook TikTok','Weet ik nog niet']],
-             ['Wat wil je vooral bereiken?',['Er verzorgd uitzien','Nieuwe klanten bereiken','Overal goed gevonden worden, ook op Google']],
+             ['Wat wil je vooral bereiken?',['Er verzorgd uitzien','Nieuwe mensen bereiken','Overal goed gevonden worden, ook op Google']],
              ['Wat is je budget per maand?',['Tot €150','Tot €250','Tot €400']]];
     const P={start:['Start','€150','Een strakke, verzorgde pagina voor een vaste, lage prijs.'],compleet:['Compleet','€250','Met korte video\'s en TikTok bereik je ook mensen die je nog niet kennen.'],premium:['Premium','€395','Je socials, je Google Bedrijfsprofiel en je website in één hand.']};
     const advise=a=>{const [s,g,b]=a;const bud=[150,250,400][b];
@@ -135,6 +135,15 @@
     let q=0;const upd=()=>{q=0;if(getComputedStyle(wa).display==='none')return;const past=hero?hero.getBoundingClientRect().bottom<0:scrollY>400;wa.classList.toggle('show',past&&free())};
     const sch=()=>{if(!q)q=requestAnimationFrame(upd)};
     addEventListener('scroll',sch,{passive:true});addEventListener('resize',sch);setTimeout(upd,300);
+  }
+
+  // statement: woorden lichten één voor één op tijdens het scrollen
+  const sws=$$('.st .sw');
+  if(sws.length){
+    if(reduce){sws.forEach(w=>w.classList.add('on'))}
+    else{const st=$('.st');let q=0;
+      const upd=()=>{q=0;const r=st.getBoundingClientRect(),vh=innerHeight;const p=Math.min(1,Math.max(0,(vh*.85-r.top)/(r.height+vh*.35)));const n=Math.round(p*sws.length);sws.forEach((w,i)=>w.classList.toggle('on',i<n))};
+      addEventListener('scroll',()=>{if(!q)q=requestAnimationFrame(upd)},{passive:true});upd();}
   }
 
   // zwevende balk op mobiel: pas na de hero, niet op de scanpagina
